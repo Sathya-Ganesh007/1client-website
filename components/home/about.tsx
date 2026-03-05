@@ -209,7 +209,7 @@ export default function About() {
             >
               <div className="flex flex-col gap-0 leading-tight mb-4 items-center lg:items-start">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground/60">
-                  Hey, I'm
+                  Hey, I&apos;m
                 </h2>
                 <div className="h-16 md:h-20 lg:h-24 flex items-center">
                   <p className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#ffcc01] tracking-tight">
@@ -292,7 +292,7 @@ export default function About() {
               <div className="w-8 h-8 relative rounded-full overflow-hidden border border-black/10">
                 <Image src="/portfolio_thumbnail_4.png" alt="Profile" fill className="object-cover" />
               </div>
-              <span className="text-sm">Let's Chat!</span>
+              <span className="text-sm">Let&apos;s Chat!</span>
             </button>
           </div>
         </div>
@@ -323,7 +323,7 @@ export default function About() {
                   <p className="text-sm text-muted">{exp.location}</p>
                 </div>
                 
-                <div className="md:w-2/3 space-y-4 border-l border-black/5 pl-0 md:pl-12">
+                <div className="md:w-2/3 space-y-4 border-l border-border/30 pl-0 md:pl-12">
                    <p className="text-sm font-bold uppercase tracking-widest text-muted/50 mb-4">Focus: {exp.focus}</p>
                    <ul className="space-y-3">
                     {exp.bullets.map((bullet, bIdx) => (
@@ -348,7 +348,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
-                  className="p-8 border border-black/5 rounded-3xl bg-white hover:border-[#ffcc01]/30 transition-all group"
+                  className="p-8 border border-border/50 rounded-3xl bg-card hover:border-[#ffcc01]/30 transition-all group"
                 >
                   <span className="text-xs font-bold text-[#ffcc01] uppercase mb-2 block">{role.period}</span>
                   <h4 className="font-bold text-xl mb-1 group-hover:text-[#ffcc01] transition-colors">{role.role}</h4>
@@ -390,7 +390,7 @@ export default function About() {
                 <div className="space-y-3 px-2">
                   <div className="flex gap-2">
                     {project.tags.map(tag => (
-                      <span key={tag} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-black/5 rounded-full">{tag}</span>
+                      <span key={tag} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-foreground/5 rounded-full">{tag}</span>
                     ))}
                   </div>
                   <h3 className="text-3xl font-bold tracking-tight group-hover:text-[#ffcc01] transition-colors">{project.title}</h3>
@@ -427,7 +427,7 @@ export default function About() {
                   <h3 className="text-3xl font-bold tracking-tight">{item.category}</h3>
                   <div className="flex flex-wrap gap-2">
                     {item.skills.map(skill => (
-                      <span key={skill} className="px-4 py-1.5 bg-black/5 text-[11px] font-bold uppercase tracking-widest rounded-full">{skill}</span>
+                      <span key={skill} className="px-4 py-1.5 bg-foreground/5 text-[11px] font-bold uppercase tracking-widest rounded-full">{skill}</span>
                     ))}
                   </div>
                 </div>
@@ -438,7 +438,7 @@ export default function About() {
       </section>
 
       {/* ————— SECTION 4: STUDIO / EXPERIMENTAL ————— */}
-      <section id="studio" className="py-48 px-6 md:px-12 lg:px-24 bg-black text-white overflow-hidden relative">
+      <section id="studio" className="py-48 px-6 md:px-12 lg:px-24 bg-foreground text-background overflow-hidden relative">
         <div className="max-w-[1400px] mx-auto w-full text-center space-y-16 relative z-10">
           <motion.div {...fadeIn}>
             <span className="text-[12px] font-bold uppercase tracking-[0.5em] text-[#ffcc01] mb-8 sm:mb-12 block">The 7th Studio</span>
@@ -459,8 +459,8 @@ export default function About() {
         </div>
         
         {/* Background decorative element */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/5 rounded-full pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-white/5 rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-background/5 rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-background/5 rounded-full pointer-events-none" />
       </section>
 
       {/* ————— SECTION 5: EDUCATION ————— */}
@@ -506,7 +506,7 @@ export default function About() {
                   <div className="w-16 h-16 rounded-full bg-[#ffcc01] flex items-center justify-center text-black shadow-md">
                     <Mic2 className="w-8 h-8" />
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Recognition & Speaking</h2>
+                  <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Recognition &amp; Speaking</h2>
                 </div>
                 <div className="p-10 bg-card border border-border/50 rounded-[40px] space-y-8 hover:border-[#ffcc01]/50 transition-all shadow-sm hover:shadow-xl">
                   <div className="space-y-4">
@@ -532,7 +532,7 @@ export default function About() {
             {/* Right Column: Keynote Image */}
             <motion.div 
               {...fadeIn} 
-              className="relative aspect-[3/4] max-w-md mx-auto w-full bg-white rounded-[48px] overflow-hidden border border-black/5 group shadow-2xl"
+              className="relative aspect-[3/4] max-w-md mx-auto w-full bg-card rounded-[48px] overflow-hidden border border-border/50 group shadow-2xl"
             >
               <Image 
                 src="/keynote (1).png" 
@@ -541,7 +541,7 @@ export default function About() {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-12">
-                 <p className="text-[#ffcc01] text-xs font-bold uppercase tracking-widest">Speaking at IIT Bhilai</p>
+                 <p className="text-white text-xs font-bold uppercase tracking-widest">Speaking at IIT Bhilai</p>
               </div>
             </motion.div>
           </div>
@@ -563,20 +563,20 @@ export default function About() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-widest text-muted">Full Name</label>
-                    <input type="text"  className="w-full bg-white border border-black/5 rounded-2xl px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm shadow-sm" />
+                    <input type="text"  className="w-full bg-background border border-border/50 rounded-2xl px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-widest text-muted">Email Address</label>
-                    <input type="email"  className="w-full bg-white border border-black/5 rounded-2xl px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm shadow-sm" />
+                    <input type="email"  className="w-full bg-background border border-border/50 rounded-2xl px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm" />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-widest text-muted">Subject</label>
-                  <input type="text"  className="w-full bg-white border border-black/5 rounded-2xl px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm shadow-sm" />
+                  <input type="text"  className="w-full bg-background border border-border/50 rounded-2xl px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-widest text-muted">Message</label>
-                  <textarea rows={5}  className="w-full bg-white border border-black/5 rounded-2xl px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm resize-none shadow-sm"></textarea>
+                  <textarea rows={5}  className="w-full bg-background border border-border/50 rounded-2xl px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm resize-none"></textarea>
                 </div>
                 <button type="submit" className="w-full bg-foreground text-background font-bold uppercase tracking-[0.3em] py-6 rounded-2xl hover:bg-[#ffcc01] hover:text-black transition-all shadow-xl">
                   Send Message
@@ -585,7 +585,7 @@ export default function About() {
             </motion.div>
 
             {/* Contact Cards */}
-            <motion.div {...fadeIn} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6 pt-10 lg:pt-0">
+            <motion.div {...fadeIn} className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-10 lg:pt-0">
               {[
                 { label: "Email", value: "tushar.kasarlewar@gmail.com", icon: <Mail className="w-5 h-5" />, href: "mailto:tushar.kasarlewar@gmail.com" },
                 { label: "LinkedIn", value: "linkedin.com/in/tushar-kasarlewar-43b476a8/", icon: <Linkedin className="w-5 h-5" />, href: "https://www.linkedin.com/in/tushar-kasarlewar-43b476a8/" },
@@ -630,7 +630,7 @@ export default function About() {
             <a href="#" className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">Twitter (X)</a>
             <a href="#" className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">Work</a>
           </div>
-          <p className="text-[10px] font-bold text-muted uppercase tracking-[0.6em]">Tushar Kasarlewar &copy; 2026 / UI/UX Designer & Strategist</p>
+          <p className="text-[10px] font-bold text-muted uppercase tracking-[0.6em]">Tushar Kasarlewar &copy; 2026 / UI/UX Designer &amp; Strategist</p>
         </div>
       </footer>
     </div>
