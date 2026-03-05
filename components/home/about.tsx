@@ -275,8 +275,8 @@ export default function About() {
       <section id="projects" className="py-32 px-6 md:px-12 lg:px-24">
         <div className="max-w-[1400px] mx-auto w-full">
           <motion.div {...fadeIn} className="mb-12 md:mb-20">
-            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-4 block text-center sm:text-left">Case Studies</span>
-            <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold tracking-tighter text-center sm:text-left">Selected Projects.</h2>
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-4 block text-center sm:text-left">Live.</span>
+            <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold tracking-tighter text-center sm:text-left">Selected Projects</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
