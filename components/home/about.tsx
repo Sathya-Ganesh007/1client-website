@@ -100,9 +100,30 @@ const experience = [
 ];
 
 const earlierRoles = [
-  { role: "UI/UX & Visual Designer", company: "Ethereal Corporate", period: "Jan 2019 - Dec 2019", focus: "User Experience & Interface Design" },
-  { role: "Graphic Design Lead", company: "Medioden Solutions", period: "May 2018 - Nov 2018", focus: "Product Interface & Visual Systems" },
-  { role: "Graphic Designer", company: "WinWin Innfra", period: "Oct 2017 - March 2018", focus: "Brand & Marketing Design" }
+  { 
+    role: "UI/UX & Visual Designer", 
+    company: "Ethereal Corporate", 
+    period: "Jan 2019 - Dec 2019", 
+    location: "Bhilai", 
+    link: "https://www.etherealcorporate.com/", 
+    focus: "User Experience & Interface Design" 
+  },
+  { 
+    role: "Graphic Design Lead", 
+    company: "Medioden Solutions", 
+    period: "May 2018 - Nov 2018", 
+    location: "Bhilai", 
+    link: "https://www.facebook.com/MedioDen/services/", 
+    focus: "Product Interface & Visual Systems" 
+  },
+  { 
+    role: "Graphic Designer", 
+    company: "WinWin Innfra", 
+    period: "Oct 2017 - March 2018", 
+    location: "Pune", 
+    link: "http://www.winwininnfra.com/", 
+    focus: "Brand & Marketing Design" 
+  }
 ];
 
 const education = [
@@ -160,17 +181,20 @@ export default function About() {
             </div>
           </div>
 
-          <h1 className="text-[48px] md:text-[84px] lg:text-[104px] leading-[1.05] font-bold tracking-tighter mb-12 max-w-6xl">
-            I build brands from <br />
-            <span className="text-muted/30 italic">First Principles.</span>
+          <h1 className="text-[40px] sm:text-[64px] md:text-[84px] lg:text-[104px] leading-[1.05] font-bold tracking-tighter mb-12 max-w-6xl">
+            I help organizations <br />
+            <span className="text-muted/30 italic">turn ambiguity into structure.</span>
           </h1>
           
-          <div className="space-y-8 text-[18px] md:text-[22px] lg:text-[24px] text-muted tracking-tight max-w-4xl font-light leading-relaxed">
-            <p className="border-l-2 border-foreground/10 pl-8 transition-colors hover:border-primary">
-              My work sits at the intersection of positioning, communication, and structured brand growth.
+          <div className="space-y-6 sm:space-y-8 text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] text-muted tracking-tight max-w-4xl font-light leading-relaxed">
+            <p className="border-l-2 border-foreground/10 pl-6 sm:border-l-2 sm:pl-8 transition-colors hover:border-primary">
+              I help organizations turn ambiguity into structure.
             </p>
-            <p className="border-l-2 border-foreground/10 pl-8 transition-colors hover:border-primary opacity-60">
-              Mechanical Engineer turned Brand Strategist. Operating at the intersection of business intent, design systems, and behavioral psychology.
+             <p className="border-l-2 border-foreground/10 pl-6 sm:pl-8 transition-colors hover:border-primary opacity-60">
+            My work sits at the intersection of positioning, communication, and structured brand growth.
+            </p>
+            <p className="border-l-2 border-foreground/10 pl-6 sm:pl-8 transition-colors hover:border-primary opacity-60">
+             By combining brand strategy, product thinking, and behavioral design, I build systems that clarify decisions, strengthen experiences, and move businesses forward.
             </p>
           </div>
 
@@ -180,9 +204,9 @@ export default function About() {
       {/* ————— SECTION 2: EXPERIENCE ————— */}
       <section id="experience" className="py-32 px-6 md:px-12 lg:px-24 bg-surface/30">
         <div className="max-w-[1400px] mx-auto w-full">
-          <motion.div {...fadeIn} className="mb-20">
-            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-4 block">Professional Timeline</span>
-            <h2 className="text-[48px] md:text-[64px] font-bold tracking-tighter">Experience.</h2>
+          <motion.div {...fadeIn} className="mb-12 md:mb-20">
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-4 block text-center sm:text-left">Professional Timeline</span>
+            <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold tracking-tighter text-center sm:text-left">Experience.</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 gap-12">
@@ -223,16 +247,24 @@ export default function About() {
             <h3 className="text-2xl font-bold mb-10 opacity-40 uppercase tracking-widest text-center italic">Earlier Design Roles</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {earlierRoles.map((role, idx) => (
-                <div key={idx} className="p-8 border border-border/50 rounded-3xl bg-background/50 flex flex-col gap-4">
+                <motion.a 
+                  key={idx} 
+                  href={role.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -5 }}
+                  className="p-8 border border-border/50 rounded-3xl bg-background/50 flex flex-col gap-4 hover:border-primary/30 hover:bg-surface/50 transition-all group"
+                >
                   <div className="flex justify-between items-start">
-                    <span className="text-[10px] font-bold text-primary italic">{role.period}</span>
+                    <span className="text-[10px] font-bold text-primary italic uppercase tracking-widest">{role.period}</span>
+                    <span className="text-[10px] font-bold text-muted uppercase tracking-widest">{role.location}</span>
                   </div>
                   <div>
-                    <h4 className="font-bold text-xl leading-tight">{role.role}</h4>
+                    <h4 className="font-bold text-xl leading-tight group-hover:text-primary transition-colors">{role.role}</h4>
                     <p className="text-sm text-muted mb-4">{role.company}</p>
-                    <p className="text-xs uppercase tracking-wider font-bold text-muted/50">{role.focus}</p>
+                    <p className="text-[10px] uppercase tracking-wider font-extrabold text-muted/30 group-hover:text-muted/60 transition-colors">{role.focus}</p>
                   </div>
-                </div>
+                </motion.a>
               ))}
             </div>
           </motion.div>
@@ -242,9 +274,9 @@ export default function About() {
       {/* ————— SECTION: PROJECTS ————— */}
       <section id="projects" className="py-32 px-6 md:px-12 lg:px-24">
         <div className="max-w-[1400px] mx-auto w-full">
-          <motion.div {...fadeIn} className="mb-20">
-            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-4 block">Case Studies</span>
-            <h2 className="text-[48px] md:text-[64px] font-bold tracking-tighter">Selected Projects.</h2>
+          <motion.div {...fadeIn} className="mb-12 md:mb-20">
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-4 block text-center sm:text-left">Case Studies</span>
+            <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold tracking-tighter text-center sm:text-left">Selected Projects.</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
@@ -284,12 +316,12 @@ export default function About() {
       {/* ————— SECTION 3: CORE EXPERTISE ————— */}
       <section id="strategy" className="py-32 px-6 md:px-12 lg:px-24">
         <div className="max-w-[1400px] mx-auto w-full">
-          <motion.div {...fadeIn} className="mb-20 text-center">
+          <motion.div {...fadeIn} className="mb-12 md:mb-20 text-center">
             <span className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-4 block">Methodology</span>
-            <h2 className="text-[48px] md:text-[64px] font-bold tracking-tighter uppercase italic text-center">Core Expertise.</h2>
+            <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold tracking-tighter uppercase italic text-center">Core Expertise.</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {expertise.map((item, idx) => (
               <motion.div 
                 key={idx}
@@ -297,7 +329,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="p-12 border border-border rounded-[48px] hover:bg-surface transition-all flex flex-col gap-10 group"
+                className="p-8 sm:p-12 border border-border rounded-[32px] sm:rounded-[48px] hover:bg-surface transition-all flex flex-col gap-6 sm:gap-10 group"
               >
                 <div className="w-16 h-16 rounded-3xl bg-primary/5 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                   {idx === 0 ? <Layers strokeWidth={1.5} size={32} /> : idx === 1 ? <TrendingUp strokeWidth={1.5} size={32} /> : <LifeBuoy strokeWidth={1.5} size={32} />}
@@ -320,11 +352,11 @@ export default function About() {
       <section id="studio" className="py-48 px-6 md:px-12 lg:px-24 bg-foreground text-background overflow-hidden relative">
         <div className="max-w-[1400px] mx-auto w-full text-center space-y-16 relative z-10">
           <motion.div {...fadeIn}>
-            <span className="text-[10px] font-black uppercase tracking-[0.5em] opacity-40 mb-12 block">The 7th Studio</span>
-            <h2 className="text-[64px] md:text-[96px] lg:text-[120px] font-bold tracking-tighter leading-none italic">
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] opacity-40 mb-8 sm:mb-12 block">The 7th Studio</span>
+            <h2 className="text-[40px] sm:text-[64px] md:text-[96px] lg:text-[120px] font-bold tracking-tighter leading-none italic">
               Imagination <br /> Running Ahead.
             </h2>
-            <p className="text-[20px] md:text-[24px] opacity-60 font-light max-w-2xl mx-auto mt-12 italic">
+            <p className="text-[18px] sm:text-[20px] md:text-[24px] opacity-60 font-light max-w-2xl mx-auto mt-8 sm:mt-12 italic">
               Where utility meets experimental art. A space for analogies, mental models, and the track I&apos;m on.
             </p>
           </motion.div>
@@ -341,56 +373,85 @@ export default function About() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-background/5 rounded-full pointer-events-none" />
       </section>
 
-      {/* ————— SECTION 5: EDUCATION & SPEAKING ————— */}
-      <section id="about" className="py-32 px-6 md:px-12 lg:px-24">
+      {/* ————— SECTION 5: EDUCATION ————— */}
+      <section id="education" className="py-32 px-6 md:px-12 lg:px-24">
         <div className="max-w-[1400px] mx-auto w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
-            <motion.div {...fadeIn} className="space-y-16">
-              <div>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 rounded-2xl bg-background/10 flex items-center justify-center">
+          <motion.div {...fadeIn} className="mb-20">
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-4 block">Academic Foundation</span>
+            <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold tracking-tighter">Education.</h2>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {education.map((edu, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="p-10 border border-border/50 rounded-[40px] bg-surface/20 hover:bg-surface/40 hover:border-primary/30 transition-all group"
+              >
+                <div className="flex justify-between items-start mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                     <GraduationCap className="w-6 h-6" />
                   </div>
-                  <h2 className="text-4xl font-bold tracking-tight">Education.</h2>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-primary/60">{edu.period}</span>
                 </div>
-                <div className="space-y-8">
-                  {education.map((edu, idx) => (
-                    <div key={idx} className="relative pl-8 border-l border-background/20 group hover:border-background transition-colors">
-                      <div className="absolute left-[-5px] top-0 w-[10px] h-[10px] rounded-full bg-background/20 group-hover:bg-primary transition-colors" />
-                      <p className="text-xs font-bold uppercase tracking-widest opacity-40 mb-1">{edu.period}</p>
-                      <h4 className="text-xl font-bold">{edu.degree}</h4>
-                      {edu.school && <p className="text-md opacity-60 font-light italic">{edu.school}</p>}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+                <h3 className="text-2xl font-bold leading-tight mb-2">{edu.degree}</h3>
+                {edu.school && <p className="text-lg text-muted font-light italic">{edu.school}</p>}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <motion.div {...fadeIn} className="space-y-16">
+      {/* ————— SECTION 6: SPEAKING & ABOUT ————— */}
+      <section id="about" className="py-32 px-6 md:px-12 lg:px-24 bg-surface/30">
+        <div className="max-w-[1400px] mx-auto w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-24 items-center">
+            {/* Left Column: Speaking */}
+            <motion.div {...fadeIn} className="space-y-12">
               <div>
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 rounded-2xl bg-background/10 flex items-center justify-center">
-                    <Mic2 className="w-6 h-6" />
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                    <Mic2 className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <h2 className="text-4xl font-bold tracking-tight">Speaking.</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Recognition & Speaking Engagements</h2>
                 </div>
-                <div className="p-10 border border-background/20 rounded-[40px] space-y-8 hover:bg-background/5 transition-colors group">
+                <div className="p-8 md:p-10 border border-border/50 rounded-[32px] md:rounded-[40px] space-y-6 md:space-y-8 bg-background hover:bg-surface transition-all group shadow-sm hover:shadow-xl">
                   <div className="space-y-4">
-                    <span className="px-4 py-1.5 bg-background/10 rounded-full text-[10px] font-black uppercase tracking-widest">Keynote Speaker</span>
-                    <h3 className="text-2xl font-bold leading-tight">Friends of Figma, IIT Bhilai</h3>
-                    <p className="text-lg opacity-60 font-light italic">Session on UX, brand behavior, and human psychology.</p>
+                    <span className="px-4 py-1.5 bg-primary/10 text-primary rounded-full text-[10px] font-black uppercase tracking-widest">Keynote Speaker</span>
+                    <h3 className="text-xl md:text-2xl font-bold leading-tight">Friends of Figma, IIT Bhilai</h3>
+                    <p className="text-md md:text-lg text-muted font-light italic">Session on UX, brand behavior, and human psychology.</p>
                   </div>
-                  <p className="text-sm opacity-50 leading-relaxed font-light">
+                  <p className="text-sm text-muted leading-relaxed font-light">
                     Explored how cognitive patterns and user perception influence brand experience, trust, and digital decision-making.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-8 w-full">
-                <button className="w-full flex justify-between items-center px-10 py-8 bg-background text-foreground rounded-3xl group hover:scale-[1.02] transition-all">
-                  <span className="text-sm font-black uppercase tracking-[0.4em]">Download Detailed Resume</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              {/* Resume Button */}
+              <div className="pt-4">
+                <button className="w-full flex justify-between items-center px-8 md:px-10 py-6 md:py-8 bg-foreground text-background rounded-2xl md:rounded-3xl group hover:scale-[1.02] transition-all">
+                  <span className="text-xs md:text-sm font-black uppercase tracking-[0.4em]">Download Detailed Resume</span>
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform" />
                 </button>
+              </div>
+            </motion.div>
+
+            {/* Right Column: Keynote Image */}
+            <motion.div 
+              {...fadeIn} 
+              className="relative aspect-[3/4] max-w-md mx-auto w-full bg-background rounded-[32px] md:rounded-[48px] overflow-hidden border border-border/50 group shadow-2xl"
+            >
+              <Image 
+                src="/keynote (1).png" 
+                alt="Keynote at Friends of Figma, IIT Bhilai" 
+                fill 
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8 md:p-12">
+                 <p className="text-white text-[10px] md:text-xs font-bold uppercase tracking-widest">Speaking at IIT Bhilai</p>
               </div>
             </motion.div>
           </div>
@@ -400,9 +461,9 @@ export default function About() {
       {/* ————— SECTION 6: CONTACT ————— */}
       <section id="contact" className="py-32 px-6 md:px-12 lg:px-24 bg-surface/30">
         <div className="max-w-[1400px] mx-auto w-full">
-          <motion.div {...fadeIn} className="mb-20 text-center">
+          <motion.div {...fadeIn} className="mb-12 md:mb-20 text-center">
             <span className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-4 block">Get in Touch</span>
-            <h2 className="text-[48px] md:text-[64px] font-bold tracking-tighter">Let&apos;s Build Something.</h2>
+            <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold tracking-tighter">Let&apos;s Build Something.</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
@@ -465,9 +526,9 @@ export default function About() {
         <motion.div
            initial={{ opacity: 0, scale: 0.9 }}
            whileInView={{ opacity: 0.03, scale: 1 }}
-           className="absolute pointer-events-none"
+           className="absolute pointer-events-none w-full"
         >
-          <h4 className="text-[200px] md:text-[400px] font-black tracking-tighter select-none leading-none -mb-32">
+          <h4 className="text-[80px] sm:text-[160px] md:text-[280px] lg:text-[400px] font-black tracking-tighter select-none leading-none -mb-16 md:-mb-32">
             TUSHAR
           </h4>
         </motion.div>
