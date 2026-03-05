@@ -10,3 +10,4 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     </ReactLenis>
   );
 }
+//https://github.com/Sathya-Ganesh007/1client-website.git
