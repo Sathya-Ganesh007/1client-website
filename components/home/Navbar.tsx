@@ -31,9 +31,9 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-between items-center py-6 md:py-8 px-6 md:px-12 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="text-2xl font-bold tracking-tighter text-foreground transition-opacity hover:opacity-70 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-        Tushar<span className="text-[#ffcc01]">.</span>
+    <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-between items-center py-4 md:py-6 px-6 md:px-12 bg-background/80 backdrop-blur-md border-b border-border/50">
+      <div className="text-[17px] font-bold tracking-tighter uppercase transition-opacity hover:opacity-70 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        TUSHAR
       </div>
 
       {/* Desktop Menu */}
@@ -44,13 +44,13 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={(e) => handleClick(e, link.href)}
-              className="text-sm font-bold uppercase tracking-widest text-muted hover:text-[#ffcc01] transition-all duration-200"
+              className="text-[14px] font-medium text-muted hover:text-foreground transition-all duration-200"
             >
               {link.name}
             </Link>
           ))}
         </div>
-        <div className="h-4 w-[1px] bg-border/50" />
+        <div className="h-4 w-[1px] bg-border" />
         <ThemeSwitcher />
       </div>
 
@@ -86,7 +86,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={(e) => handleClick(e, link.href)}
-                    className="text-[40px] font-bold tracking-tighter text-muted hover:text-[#ffcc01] transition-all active:scale-95 block"
+                    className="text-[40px] font-bold tracking-tighter text-muted hover:text-primary transition-all active:scale-95 block"
                   >
                     {link.name}
                   </Link>
