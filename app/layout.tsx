@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Brand Strategist | Designer & Systems Thinker",
+  title: "Tushar Kasarlewar | Brand Strategist & Systems Thinker",
   description: "I design systems, stories, and strategies across brands, products, and people.",
 };
 

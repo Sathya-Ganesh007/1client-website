@@ -6,8 +6,9 @@ import { ThemeSwitcher } from "@/components/theme-switcher";
 export default function Navbar() {
   const links = [
     { name: "Home", href: "#home" },
-    { name: "Work", href: "#work" },
-    { name: "Strategy", href: "#strategy" },
+    { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
+    { name: "Expertise", href: "#strategy" },
     { name: "Studio", href: "#studio" },
     { name: "About", href: "#about" },
   ];
