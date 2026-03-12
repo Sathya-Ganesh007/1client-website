@@ -227,8 +227,21 @@ export default function GreenBharatPage() {
           ))}
         </div>
         
+        {/* Brand Architecture SVG Image */}
+        <div className="pt-12 pb-16">
+          <div className="relative rounded-[40px] overflow-hidden shadow-2xl border border-border/50 bg-[#000000] p-4 flex justify-center">
+            <Image 
+              src="/GreenBharat - Brand Identity Concept.svg" 
+              alt="Green Bharat Brand Architecture Roadmap" 
+              width={1200} 
+              height={800} 
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
+
         {/* Footer CTA */}
-        <div className="pt-32 pb-16 border-t border-border/30 text-center space-y-10 flex flex-col items-center">
+        <div className="pt-16 pb-16 border-t border-border/30 text-center space-y-10 flex flex-col items-center">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight">Ready to build your ecosystem?</h2>
             <Link href="/#contact" className="inline-flex items-center gap-4 text-sm font-black uppercase tracking-[0.2em] text-black bg-[#ffcc01] hover:bg-[#e6b800] px-12 py-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-xl w-fit group">
               Start a Conversation <ArrowLeft size={18} className="rotate-135 group-hover:rotate-180 transition-transform" />

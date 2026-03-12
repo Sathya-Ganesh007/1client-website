@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
+
 
 export default function The7thStudioWebsite() {
   return (
@@ -375,6 +377,36 @@ export default function The7thStudioWebsite() {
               </div>
 
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Brand Identity Concept Roadmap - PNG */}
+      <section className="py-24 px-6 bg-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative rounded-[40px] overflow-hidden shadow-2xl border border-white/10 p-4 flex justify-center bg-black">
+            <Image 
+              src="/GreenBharat.png" 
+              alt="Green Bharat Brand Identity Concept Roadmap" 
+              width={1600} 
+              height={900} 
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Brand Identity Concept Roadmap - SVG */}
+      <section className="py-24 px-6 bg-black border-t border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative rounded-[40px] overflow-hidden shadow-2xl border border-white/10 p-4 flex justify-center bg-black">
+            <Image 
+              src="/GreenBharat - Brand Identity Concept.svg" 
+              alt="Green Bharat Brand Identity Concept Roadmap SVG" 
+              width={1600} 
+              height={900} 
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </section>
