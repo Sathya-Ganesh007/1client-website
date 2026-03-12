@@ -142,7 +142,8 @@ const projects = [
     desc: "Scaling a 100+ acre legacy through structural logic. Aligned founder vision with operational reality.",
     image: "/portfolio_thumbnail_3.png",
     link: "https://greenbharatagro.com/",
-    tags: ["Positioning", "Architecture"]
+    tags: ["Positioning", "Architecture"],
+    internalLink: "/work/green-bharat"
   },
   {
     title: "Eblity",
@@ -403,33 +404,48 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {projects.map((project, idx) => (
-              <motion.a 
+              <motion.div 
                 key={idx} 
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
                 {...fadeIn}
                 whileHover={{ y: -10 }}
-                className="group cursor-pointer space-y-6"
+                className="group flex flex-col space-y-6"
               >
-                <div className="aspect-[4/3] relative overflow-hidden bg-card border border-border/50 rounded-[40px] shadow-sm group-hover:shadow-2xl transition-all duration-500">
+                <a 
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="aspect-[4/3] relative overflow-hidden bg-card border border-border/50 rounded-[40px] shadow-sm group-hover:shadow-2xl transition-all duration-500 block"
+                >
                    <Image 
                      src={project.image} 
                      alt={project.title} 
                      fill 
                      className="object-cover group-hover:scale-110 transition-transform duration-700" 
                    />
-                </div>
-                <div className="space-y-3 px-2">
+                </a>
+                <div className="space-y-3 px-2 flex flex-col flex-1">
                   <div className="flex gap-2">
                     {project.tags.map(tag => (
                       <span key={tag} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-foreground/5 rounded-full">{tag}</span>
                     ))}
                   </div>
-                  <h3 className="text-3xl font-bold tracking-tight group-hover:text-[#ffcc01] transition-colors">{project.title}</h3>
-                  <p className="text-lg text-muted font-light leading-relaxed">{project.desc}</p>
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="block w-fit">
+                    <h3 className="text-3xl font-bold tracking-tight group-hover:text-[#ffcc01] transition-colors">{project.title}</h3>
+                  </a>
+                  <p className="text-lg text-muted font-light leading-relaxed flex-1">{project.desc}</p>
+
+                  {(project as any).internalLink && (
+                    <div className="pt-4 mt-auto opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
+                      <a 
+                        href={(project as any).internalLink} 
+                        className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-black bg-[#ffcc01] hover:bg-[#e6b800] px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg group-hover:shadow-xl w-fit"
+                      >
+                        Explore My Work
+                      </a>
+                    </div>
+                  )}
                 </div>
-              </motion.a>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -585,7 +601,12 @@ export default function About() {
                   </div>
                   <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Recognition &amp; Speaking</h2>
                 </div>
-                <div className="p-10 bg-card border border-border/50 rounded-[40px] space-y-8 hover:border-[#ffcc01]/50 transition-all shadow-sm hover:shadow-xl">
+                <a 
+                  href="https://heyzine.com/flip-book/86449a360c.html" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="block p-10 bg-card border border-border/50 rounded-[40px] space-y-8 hover:border-[#ffcc01]/50 transition-all shadow-sm hover:shadow-xl cursor-pointer"
+                >
                   <div className="flex flex-col items-start gap-5">
                     <span className="inline-block px-4 py-1.5 bg-[#ffcc01] text-black rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">Keynote Speaker</span>
                     <div className="space-y-3">
@@ -596,7 +617,7 @@ export default function About() {
                   <p className="text-lg text-muted leading-relaxed font-light">
                     Explored how cognitive patterns and user perception influence brand experience, trust, and digital decision-making.
                   </p>
-                </div>
+                </a>
               </div>
 
               {/* Resume Button */}
@@ -609,9 +630,12 @@ export default function About() {
             </motion.div>
 
             {/* Right Column: Keynote Image */}
-            <motion.div 
+            <motion.a 
+              href="https://heyzine.com/flip-book/86449a360c.html"
+              target="_blank"
+              rel="noopener noreferrer"
               {...fadeIn} 
-              className="relative aspect-[3/4] max-w-md mx-auto w-full bg-card rounded-[48px] overflow-hidden border border-border/50 group shadow-2xl"
+              className="block relative aspect-[3/4] max-w-md mx-auto w-full bg-card rounded-[48px] overflow-hidden border border-border/50 group shadow-2xl cursor-pointer"
             >
               <Image 
                 src="/keynote (1).png" 
@@ -622,7 +646,7 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-12">
                  <p className="text-white text-xs font-bold uppercase tracking-widest">Speaking at IIT Bhilai</p>
               </div>
-            </motion.div>
+            </motion.a>
           </div>
         </div>
       </section>
