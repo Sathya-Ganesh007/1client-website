@@ -128,10 +128,10 @@ const earlierRoles = [
 ];
 
 const education = [
-  { degree: "PG in Brand Communication & Management", school: "MICA", period: "2022-2023" },
-  { degree: "Design Specialization", period: "2016-2017" },
-  { degree: "Diploma in Design Engineering", period: "2015-2016" },
-  { degree: "B.tech in Mechanical Engineering", period: "2009-2013" }
+  { degree: "PG in Brand Communication & Management", school: "MICA", period: "2022-2023", logo: "/mica logo.png" },
+  { degree: "Design Specialization", school: "Gurumantra", period: "2016-2017", logo: "/gurumantra logo .png" },
+  { degree: "Diploma in Design Engineering", school: "CADCAMGURU", period: "2015-2016", logo: "/cadcamguru logo.png" },
+  { degree: "B.tech in Mechanical Engineering", school: "SSTC", period: "2009-2013", logo: "/SSTC LOGO.png" }
 ];
 
 const projects = [
@@ -154,7 +154,7 @@ const projects = [
   {
     title: "Moggly India",
     category: "Brand Design → Experience",
-    desc: "Building a playful yet structured brand identity for a modern pet care ecosystem.",
+    desc: "Crafting intuitive UI/UX systems that align product functionality with user behavior and business growth.",
     image: "/portfolio_thumbnail_1.png",
     link: "https://www.moggly.in/",
     tags: ["Identity", "Experience"]
@@ -167,7 +167,7 @@ export default function About() {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const phrases = ["a UI designer,", "a UX designer,", "a Brand consultant"];
+  const phrases = ["a Brand consultant", "a Brand Strategist", "an UX Researcher"];
 
   useEffect(() => {
     const handleTyping = () => {
@@ -193,6 +193,20 @@ export default function About() {
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
   }, [text, isDeleting, loopNum, typingSpeed, phrases]);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80; // Offset for header if needed
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
 
   return (
     <div className="flex flex-col gap-0 bg-background text-foreground transition-colors duration-300">
@@ -233,13 +247,21 @@ export default function About() {
               </div>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 pt-6">
-                <button className="px-6 md:px-10 py-3 md:py-4 rounded-full bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap">
+                <button 
+                  onClick={() => scrollToSection("projects")}
+                  className="px-6 md:px-10 py-3 md:py-4 rounded-full bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap"
+                >
                   View My Works
                 </button>
-                <button className="px-6 md:px-10 py-3 md:py-4 rounded-full bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap">
+                <button 
+                  onClick={() => scrollToSection("community")}
+                  className="px-6 md:px-10 py-3 md:py-4 rounded-full bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap"
+                >
                   Join Community
                 </button>
-                <button className="px-6 md:px-10 py-3 md:py-4 rounded-full bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap">
+                <button 
+                  className="px-6 md:px-10 py-3 md:py-4 rounded-full bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap"
+                >
                   Listen Podcast
                 </button>
               </div>
@@ -272,23 +294,33 @@ export default function About() {
             className="flex flex-wrap justify-center md:justify-start gap-8 md:gap-12 mt-20"
           >
             {[
-              { icon: <Mic2 className="w-8 h-8" />, label: "Speaker" },
-              { icon: <GraduationCap className="w-8 h-8" />, label: "Educator" },
-              { icon: <TrendingUp className="w-8 h-8" />, label: "Strategist" },
-              { icon: <Layers className="w-8 h-8" />, label: "Designer" },
-              { icon: <LifeBuoy className="w-8 h-8" />, label: "Consultant" }
+              { icon: <Mic2 className="w-8 h-8" />, label: "Speaker", sectionId: "about" },
+              { icon: <GraduationCap className="w-8 h-8" />, label: "Educator", sectionId: "education" },
+              { icon: <Layers className="w-8 h-8" />, label: "Strategist", sectionId: "strategy" },
+              { icon: <TrendingUp className="w-8 h-8" />, label: "Designer", sectionId: "projects" },
+              { icon: <LifeBuoy className="w-8 h-8" />, label: "Consultant", sectionId: "experience" }
             ].map((sticker, idx) => (
-              <div key={idx} className="flex flex-col items-center gap-2 group cursor-pointer">
+              <div 
+                key={idx} 
+                onClick={() => scrollToSection(sticker.sectionId)}
+                className="flex flex-col items-center gap-3 group cursor-pointer"
+              >
                 <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#ffcc01] flex items-center justify-center text-black shadow-sm group-hover:shadow-lg group-hover:scale-110 transition-transform">
                   {sticker.icon}
                 </div>
+                <span className="text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity text-foreground/60">
+                  {sticker.label}
+                </span>
               </div>
             ))}
           </motion.div>
 
           {/* Floating Let's Chat Button */}
           <div className="fixed bottom-8 right-8 z-50">
-            <button className="bg-[#ffcc01] hover:bg-[#e6b800] text-black px-6 py-3 rounded-full flex items-center gap-3 shadow-xl font-bold transition-all hover:scale-105 active:scale-95 group border border-black/5">
+            <button 
+              onClick={() => scrollToSection("contact")}
+              className="bg-[#ffcc01] hover:bg-[#e6b800] text-black px-6 py-3 rounded-full flex items-center gap-3 shadow-xl font-bold transition-all hover:scale-105 active:scale-95 group border border-black/5"
+            >
               <div className="w-8 h-8 relative rounded-full overflow-hidden border border-black/10">
                 <Image src="/portfolio_thumbnail_4.png" alt="Profile" fill className="object-cover" />
               </div>
@@ -364,7 +396,7 @@ export default function About() {
       <section id="projects" className="py-32 px-6 md:px-12 lg:px-24 bg-background">
         <div className="max-w-[1400px] mx-auto w-full">
           <motion.div {...fadeIn} className="mb-12 md:mb-20">
-            <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Case Studies</span>
+            <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Live.</span>
             <h2 className="text-5xl md:text-7xl font-medium tracking-tight">Selected Works</h2>
           </motion.div>
 
@@ -463,6 +495,39 @@ export default function About() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-background/5 rounded-full pointer-events-none" />
       </section>
 
+      {/* ————— SECTION 6: COMMUNITY ————— */}
+      <section id="community" className="py-32 px-6 md:px-12 lg:px-24 bg-card relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto w-full">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+             <motion.div {...fadeIn} className="space-y-8">
+                <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Ecosystem</span>
+                <h2 className="text-5xl md:text-7xl font-medium tracking-tight">Join the Community</h2>
+                <p className="text-lg md:text-xl text-muted font-light leading-relaxed max-w-xl">
+                   Be part of a human-driven ecosystem focused on innovation, design, and sustainable change. Join our network of designers and strategists making a real-world impact.
+                </p>
+                <button 
+                  onClick={() => window.open("https://www.figma.com/proto/feQrdfkOiIXbNXeUdgtYqz/HDI---Designs?page-id=4%3A4&node-id=783-40&viewport=57%2C187%2C0.48&t=CH5mNzlz6FHG05pX-1&scaling=scale-down-width&content-scaling=fixed&hide-ui=1", "_blank")}
+                  className="px-12 py-5 bg-[#ffcc01] text-black font-black uppercase tracking-[0.2em] text-xs hover:scale-105 transition-all rounded-full shadow-xl flex items-center gap-4 w-fit"
+                >
+                  Join Bhilai Chapter <ExternalLink size={18} />
+                </button>
+             </motion.div>
+             
+             <motion.div 
+               {...fadeIn}
+               className="relative aspect-video lg:aspect-square bg-background rounded-[48px] overflow-hidden border border-border/50 shadow-2xl group"
+             >
+                <Image 
+                  src="/hdi qr.png" 
+                  alt="HDI Bhilai Chapter QR Code" 
+                  fill 
+                  className="object-contain p-8 group-hover:scale-105 transition-transform duration-700" 
+                />
+             </motion.div>
+           </div>
+        </div>
+      </section>
+
       {/* ————— SECTION 5: EDUCATION ————— */}
       <section id="education" className="py-32 px-6 md:px-12 lg:px-24 bg-background">
         <div className="max-w-[1400px] mx-auto w-full">
@@ -482,8 +547,19 @@ export default function About() {
                 className="p-12 bg-card border border-border/50 rounded-[40px] hover:border-[#ffcc01] transition-all group shadow-sm hover:shadow-xl"
               >
                 <div className="flex justify-between items-start mb-8">
-                  <div className="w-16 h-16 rounded-full bg-[#ffcc01] flex items-center justify-center text-black group-hover:rotate-12 transition-transform shadow-md">
-                    <GraduationCap className="w-8 h-8" />
+                  <div className="w-20 h-20 rounded-2xl bg-white p-2 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform overflow-hidden">
+                    {edu.logo ? (
+                      <div className="relative w-full h-full">
+                        <Image 
+                          src={edu.logo} 
+                          alt={edu.school || "Institution Logo"} 
+                          fill 
+                          className="object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <GraduationCap className="w-10 h-10 text-black" />
+                    )}
                   </div>
                   <span className="text-sm font-bold text-muted">{edu.period}</span>
                 </div>
@@ -628,7 +704,16 @@ export default function About() {
             <a href="mailto:tushar.kasarlewar@gmail.com" className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">Email</a>
             <a href="https://www.linkedin.com/in/tushar-kasarlewar-43b476a8/" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">LinkedIn</a>
             <a href="#" className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">Twitter (X)</a>
-            <a href="#" className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">Work</a>
+            <a 
+              href="#projects" 
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("projects");
+              }}
+              className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1"
+            >
+              Work
+            </a>
           </div>
           <p className="text-[10px] font-bold text-muted uppercase tracking-[0.6em]">Tushar Kasarlewar &copy; 2026 / UI/UX Designer &amp; Strategist</p>
         </div>
