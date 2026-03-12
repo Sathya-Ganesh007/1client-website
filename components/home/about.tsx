@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2 } from "lucide-react";
 import Image from "next/image";
+import DownloadResumeButton from "@/components/DownloadResumeButton";
 
 const fadeIn = {
   initial: { opacity: 0, y: 30 },
@@ -249,18 +250,18 @@ export default function About() {
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 pt-6">
                 <button 
                   onClick={() => scrollToSection("projects")}
-                  className="px-6 md:px-10 py-3 md:py-4 rounded-full bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap"
+                  className="px-6 md:px-10 py-3 md:py-4  bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap"
                 >
                   View My Works
                 </button>
                 <button 
                   onClick={() => scrollToSection("community")}
-                  className="px-6 md:px-10 py-3 md:py-4 rounded-full bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap"
+                  className="px-6 md:px-10 py-3 md:py-4  bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap"
                 >
                   Join Community
                 </button>
                 <button 
-                  className="px-6 md:px-10 py-3 md:py-4 rounded-full bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap"
+                  className="px-6 md:px-10 py-3 md:py-4  bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap"
                 >
                   Listen Podcast
                 </button>
@@ -295,7 +296,7 @@ export default function About() {
           >
             {[
               { icon: <Mic2 className="w-8 h-8" />, label: "Speaker", sectionId: "about" },
-              { icon: <GraduationCap className="w-8 h-8" />, label: "Educator", sectionId: "education" },
+              { icon: <GraduationCap className="w-8 h-8" />, label: "Education", sectionId: "education" },
               { icon: <Layers className="w-8 h-8" />, label: "Strategist", sectionId: "strategy" },
               { icon: <TrendingUp className="w-8 h-8" />, label: "Designer", sectionId: "projects" },
               { icon: <LifeBuoy className="w-8 h-8" />, label: "Consultant", sectionId: "experience" }
@@ -484,7 +485,7 @@ export default function About() {
           </motion.div>
           
           <motion.div {...fadeIn} className="pt-20">
-            <button className="px-16 py-8 bg-[#ffcc01] text-black font-black uppercase tracking-[0.3em] text-xs hover:scale-105 transition-all rounded-full shadow-xl">
+            <button className="px-16 py-8 bg-[#ffcc01] text-black font-black uppercase tracking-[0.3em] text-xs hover:scale-105 transition-all shadow-xl">
               Enter Laboratory
             </button>
           </motion.div>
@@ -507,7 +508,7 @@ export default function About() {
                 </p>
                 <button 
                   onClick={() => window.open("https://www.figma.com/proto/feQrdfkOiIXbNXeUdgtYqz/HDI---Designs?page-id=4%3A4&node-id=783-40&viewport=57%2C187%2C0.48&t=CH5mNzlz6FHG05pX-1&scaling=scale-down-width&content-scaling=fixed&hide-ui=1", "_blank")}
-                  className="px-12 py-5 bg-[#ffcc01] text-black font-black uppercase tracking-[0.2em] text-xs hover:scale-105 transition-all rounded-full shadow-xl flex items-center gap-4 w-fit"
+                  className="px-12 py-5 bg-[#ffcc01] text-black font-black uppercase tracking-[0.2em] text-xs hover:scale-105 transition-all  shadow-xl flex items-center gap-4 w-fit"
                 >
                   Join Bhilai Chapter <ExternalLink size={18} />
                 </button>
@@ -585,10 +586,12 @@ export default function About() {
                   <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Recognition &amp; Speaking</h2>
                 </div>
                 <div className="p-10 bg-card border border-border/50 rounded-[40px] space-y-8 hover:border-[#ffcc01]/50 transition-all shadow-sm hover:shadow-xl">
-                  <div className="space-y-4">
-                    <span className="px-4 py-1.5 bg-[#ffcc01] text-black rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">Keynote Speaker</span>
-                    <h3 className="text-2xl md:text-3xl font-bold leading-tight">Friends of Figma, IIT Bhilai</h3>
-                    <p className="text-lg md:text-xl text-muted font-light italic">Session on UX, brand behavior, and human psychology.</p>
+                  <div className="flex flex-col items-start gap-5">
+                    <span className="inline-block px-4 py-1.5 bg-[#ffcc01] text-black rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm">Keynote Speaker</span>
+                    <div className="space-y-3">
+                      <h3 className="text-2xl md:text-3xl font-bold leading-tight">Friends of Figma, IIT Bhilai</h3>
+                      <p className="text-lg md:text-xl text-muted font-light italic">Session on UX, brand behavior, and human psychology.</p>
+                    </div>
                   </div>
                   <p className="text-lg text-muted leading-relaxed font-light">
                     Explored how cognitive patterns and user perception influence brand experience, trust, and digital decision-making.
@@ -598,10 +601,10 @@ export default function About() {
 
               {/* Resume Button */}
               <div className="pt-4">
-                <button className="w-full flex justify-between items-center px-10 py-8 bg-foreground text-background rounded-[32px] group hover:scale-[1.02] transition-all shadow-xl">
-                   <span className="text-sm font-bold uppercase tracking-[0.2em]">Download Detailed Resume</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform text-[#ffcc01]" />
-                </button>
+                <DownloadResumeButton
+                  pdfPath="/Resume Creative (1).pdf"
+                  fileName="Tushar_Kasarlewar_Resume.pdf"
+                />
               </div>
             </motion.div>
 
