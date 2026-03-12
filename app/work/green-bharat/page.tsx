@@ -207,7 +207,6 @@ export default function GreenBharatPage() {
                   {phase.stages.map((stage, sIdx) => (
                     <div key={sIdx} className="p-8 md:p-12 bg-card border border-border/50 rounded-[40px] hover:border-[#ffcc01]/50 transition-all shadow-sm hover:shadow-xl space-y-6 group">
                       <div className="flex gap-4 items-start">
-                        <span className="text-3xl mt-0.5">{stage.num}</span>
                         <h3 className="text-2xl font-bold leading-tight group-hover:text-[#ffcc01] transition-colors">{stage.title}</h3>
                       </div>
                       <ul className="space-y-5 pl-0 md:pl-[52px]">
