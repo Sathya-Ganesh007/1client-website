@@ -169,7 +169,7 @@ export default function About() {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const phrases = ["a Brand consultant", "a Brand Strategist", "an UX Researcher"];
+  const phrases = ["a Product Designer", "an UX Designer", "an Experience Strategist"];
 
   useEffect(() => {
     const handleTyping = () => {
