@@ -75,14 +75,30 @@ import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 export default function DesignTools() {
   return (
-    <div className="relative w-full py-10 px-4 md:px-0">
+    <div className="relative w-full py-0">
       {/* Visual background element */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-transparent via-foreground/[0.01] to-transparent pointer-events-none" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-0">
         {tools.map((tool, idx) => (
           <ToolCard key={idx} tool={tool} idx={idx} />
         ))}
+        {/* And Many More Card */}
+        <CardContainer className="inter-var w-full h-full">
+          <CardBody className="group/card relative p-12 w-full h-full bg-card/60 backdrop-blur-sm border border-dashed border-border/50 rounded-[48px] hover:border-[#ffcc01]/40 hover:bg-card/80 transition-all duration-500 hover:shadow-2xl shadow-sm flex flex-col justify-center items-center text-center space-y-6 min-h-[320px]">
+            <CardItem translateZ={100} className="w-20 h-20 rounded-full bg-[#ffcc01]/10 flex items-center justify-center text-[#ffcc01]">
+              <Share2 size={32} />
+            </CardItem>
+            <div className="space-y-3">
+              <CardItem translateZ={80} as="h3" className="text-2xl font-bold tracking-tight">
+                And Many More
+              </CardItem>
+              <CardItem translateZ={60} as="p" className="text-sm text-muted font-light px-4 leading-relaxed opacity-70">
+                Photoshop, After Effects, Spline, Slack, Webflow, and various strategy & research frameworks.
+              </CardItem>
+            </div>
+          </CardBody>
+        </CardContainer>
       </div>
     </div>
   );
@@ -91,7 +107,7 @@ export default function DesignTools() {
 function ToolCard({ tool, idx }: { tool: any, idx: number }) {
   return (
     <CardContainer className="inter-var w-full h-full">
-      <CardBody className="group/card relative lg:p-10 p-8 w-full h-auto bg-card/60 backdrop-blur-sm border border-border/50 rounded-[48px] hover:border-[#ffcc01]/40 hover:bg-card/80 transition-all duration-500 hover:shadow-2xl shadow-sm">
+      <CardBody className="group/card relative p-12 w-full h-auto bg-card/60 backdrop-blur-sm border border-border/50 rounded-[48px] hover:border-[#ffcc01]/40 hover:bg-card/80 transition-all duration-500 hover:shadow-2xl shadow-sm">
         <div className="relative z-20 flex flex-col justify-between h-full space-y-12">
           {/* Tool Icon & Badge */}
           <div className="flex justify-between items-start">

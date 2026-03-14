@@ -412,14 +412,14 @@ export default function About() {
       </section>
 
       {/* ————— SECTION: DESIGN TOOLS ————— */}
-      <section id="design-tools" className="bg-background relative overflow-hidden py-32 border-t border-border/10">
-        <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24">
-          <div className="pt-0 pb-12 flex flex-col md:flex-row justify-between items-start md:items-end border-b border-border/10 mb-12 gap-6">
+      <section id="design-tools" className="bg-background relative overflow-hidden py-32 px-6 md:px-12 lg:px-24 border-t border-border/10">
+        <div className="max-w-[1400px] mx-auto w-full">
+          <div className="pb-12 flex flex-col md:flex-row justify-between items-start md:items-end border-b border-border/10 mb-12 gap-6">
             <div className="space-y-4">
-              <span className="text-[12px] font-black uppercase tracking-[0.6em] text-muted/60">Professional Toolkit</span>
-              <h2 className="text-3xl md:text-7xl font-bold tracking-tighter">My Workspace Essentials</h2>
+              <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Professional Toolkit</span>
+              <h2 className="text-3xl md:text-7xl font-medium tracking-tight">My Workspace Essentials</h2>
             </div>
-            <p className="text-muted text-sm max-w-sm mb-2">
+            <p className="text-muted text-sm max-w-sm mb-2 font-light">
               The professional tools I use to craft digital experiences, from initial brainstorm to production-ready design.
             </p>
           </div>
@@ -686,7 +686,7 @@ export default function About() {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-12">
-                 <p className="text-white text-xs font-bold uppercase tracking-widest">Speaking at IIT Bhilai</p>
+                 <p className="text-white text-xs font-bold uppercase tracking-widest">keynote speaker at IIT bhilai</p>
               </div>
             </motion.a>
           </div>
