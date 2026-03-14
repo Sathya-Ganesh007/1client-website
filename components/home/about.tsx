@@ -253,15 +253,18 @@ export default function About() {
                 </button>
                 <button 
                   onClick={() => scrollToSection("community")}
-                  className="px-6 md:px-10 py-3 md:py-4  bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap"
+                  className="px-6 md:px-10 py-3 md:py-4  bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc01] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc01] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap inline-block text-center"
                 >
                   Join Community
                 </button>
-                <button 
-                  className="px-6 md:px-10 py-3 md:py-4  bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc00] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc00] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap"
+                <a 
+                  href="https://spotify.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 md:px-10 py-3 md:py-4  bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc01] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc01] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap inline-block text-center"
                 >
                   Listen Podcast
-                </button>
+                </a>
               </div>
             </motion.div>
 
@@ -439,7 +442,11 @@ export default function About() {
                 <CardBody className="group/card relative flex flex-col space-y-6 w-full h-auto rounded-[40px]">
                   <CardItem
                     translateZ="100"
-                    className="w-full aspect-[4/3] relative overflow-hidden bg-card border border-border/50 rounded-[40px] shadow-sm group-hover/card:shadow-2xl transition-all duration-500"
+                    as="a"
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full aspect-[4/3] relative overflow-hidden bg-card border border-border/50 rounded-[40px] shadow-sm group-hover/card:shadow-2xl transition-all duration-500 cursor-pointer block"
                   >
                      <Image 
                        src={project.image} 
@@ -454,23 +461,30 @@ export default function About() {
                         <span key={tag} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-foreground/5 rounded-full">{tag}</span>
                       ))}
                     </CardItem>
-                    <CardItem translateZ="60" as="a" href={project.link} target="_blank" rel="noopener noreferrer" className="block w-fit">
-                      <h3 className="text-3xl font-bold tracking-tight group-hover/card:text-[#ffcc01] transition-colors">{project.title}</h3>
-                    </CardItem>
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="block relative z-30 w-fit"
+                    >
+                      <CardItem translateZ="60">
+                        <h3 className="text-3xl font-bold tracking-tight group-hover/card:text-[#ffcc01] transition-colors">{project.title}</h3>
+                      </CardItem>
+                    </a>
                     <CardItem translateZ="40" as="p" className="text-lg text-muted font-light leading-relaxed flex-1 italic opacity-70">
                       {project.desc}
                     </CardItem>
 
-                    {(project as any).internalLink && (
-                      <CardItem translateZ="30" className="pt-4 mt-auto opacity-0 group-hover/card:opacity-100 translate-y-4 group-hover/card:translate-y-0 transition-all duration-300">
-                        <a 
-                          href={(project as any).internalLink} 
-                          className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-black bg-[#ffcc01] hover:bg-[#e6b800] px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg group-hover/card:shadow-xl w-fit"
-                        >
-                          Explore My Work
-                        </a>
-                      </CardItem>
-                    )}
+                    <CardItem translateZ="30" className="pt-4 mt-auto opacity-0 group-hover/card:opacity-100 translate-y-4 group-hover/card:translate-y-0 transition-all duration-300">
+                      <a 
+                        href={project.link} 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative z-40 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-black bg-[#ffcc01] hover:bg-[#e6b800] px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg group-hover/card:shadow-xl w-fit"
+                      >
+                        Explore My Work
+                      </a>
+                    </CardItem>
                   </div>
                 </CardBody>
               </CardContainer>
@@ -550,12 +564,14 @@ export default function About() {
                 <p className="text-lg md:text-xl text-muted font-light leading-relaxed max-w-xl">
                    Be part of a human-driven ecosystem focused on innovation, design, and sustainable change. Join our network of designers and strategists making a real-world impact.
                 </p>
-                <button 
-                  onClick={() => window.open("https://www.figma.com/proto/feQrdfkOiIXbNXeUdgtYqz/HDI---Designs?page-id=4%3A4&node-id=783-40&viewport=57%2C187%2C0.48&t=CH5mNzlz6FHG05pX-1&scaling=scale-down-width&content-scaling=fixed&hide-ui=1", "_blank")}
+                <a 
+                  href="https://www.figma.com/proto/feQrdfkOiIXbNXeUdgtYqz/HDI---Designs?page-id=4%3A4&node-id=783-40&viewport=57%2C187%2C0.48&t=CH5mNzlz6FHG05pX-1&scaling=scale-down-width&content-scaling=fixed&hide-ui=1" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-12 py-5 bg-[#ffcc01] text-black font-black uppercase tracking-[0.2em] text-xs hover:scale-105 transition-all  shadow-xl flex items-center gap-4 w-fit"
                 >
                   Join Bhilai Chapter <ExternalLink size={18} />
-                </button>
+                </a>
              </motion.div>
              
              <motion.div 
