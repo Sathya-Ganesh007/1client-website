@@ -40,7 +40,7 @@ const tools = [
     name: "Miro", 
     category: "Collaboration",
     description: "Visual workspace for innovative teams to facilitate workshops and strategic planning sessions.", 
-    iconPath: "/design tool/Miro Icon.png",
+    iconPath: "/myself/miro.png",
     proficiency: 90,
     type: "discovery"
   },
@@ -48,7 +48,7 @@ const tools = [
     name: "Notion", 
     category: "Documentation",
     description: "Unified workspace for connected notes, wikis, and project management for design systems and research.", 
-    iconPath: "/design tool/Notion Icon.png",
+    iconPath: "/myself/notion.png",
     proficiency: 96,
     type: "discovery"
   },
@@ -56,7 +56,7 @@ const tools = [
     name: "Framer", 
     category: "Web Building",
     description: "Next-generation design tool for building high-fidelity interactive sites with production-ready code.", 
-    iconPath: "/design tool/Framer Icon.png",
+    iconPath: "/myself/framer.png",
     proficiency: 82,
     type: "design"
   }
