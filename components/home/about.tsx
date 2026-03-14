@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2 } from "lucide-react";
 import Image from "next/image";
 import DownloadResumeButton from "@/components/DownloadResumeButton";
+import DesignTools from "./DesignTools";
+
 
 const fadeIn = {
   initial: { opacity: 0, y: 30 },
@@ -169,7 +171,8 @@ export default function About() {
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
-  const phrases = ["a Product Designer", "an UX Designer", "an Experience Strategist"];
+
+  const phrases = ["a Product Designer", "a UX Designer", "an Experience Strategist"];
 
   useEffect(() => {
     const handleTyping = () => {
@@ -195,6 +198,7 @@ export default function About() {
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
   }, [text, isDeleting, loopNum, typingSpeed, phrases]);
+
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -393,6 +397,24 @@ export default function About() {
           </motion.div>
         </div>
       </section>
+
+      {/* ————— SECTION: DESIGN TOOLS ————— */}
+      <section id="design-tools" className="bg-background relative overflow-hidden py-32 border-t border-border/10">
+        <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24">
+          <div className="pt-0 pb-12 flex flex-col md:flex-row justify-between items-start md:items-end border-b border-border/10 mb-12 gap-6">
+            <div className="space-y-4">
+              <span className="text-[12px] font-black uppercase tracking-[0.6em] text-[#ffcc01]">Discovery</span>
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tight">Design Tools</h2>
+            </div>
+            <p className="text-muted text-sm max-w-sm mb-2">
+              The professional toolkit I use to craft digital experiences, from initial brainstorm to production-ready design.
+            </p>
+          </div>
+
+          <DesignTools />
+        </div>
+      </section>
+
 
       {/* ————— SECTION: PROJECTS ————— */}
       <section id="projects" className="py-32 px-6 md:px-12 lg:px-24 bg-background">
