@@ -65,7 +65,7 @@ const tools = [
     name: "Webflow", 
     category: "Web Building",
     description: "Professional website builder that allows for designing, building, and launching responsive websites visually.", 
-    iconPath: "/design tool/webflow (1).png",
+    iconPath: "/design tool/webflow logo blue .png",
     proficiency: 85,
     type: "design"
   }
