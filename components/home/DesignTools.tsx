@@ -16,23 +16,16 @@ const tools = [
     name: "Figma", 
     category: "Interface Design",
     description: "Cloud-based design tool for vector graphics and interface prototyping with real-time collaboration.", 
-    iconPath: "/design tool/Figma Icon.png",
+    iconPath: "/myself/pngwing.com.png",
     proficiency: 98,
     type: "design"
   },
-  { 
-    name: "Adobe XD", 
-    category: "Prototyping",
-    description: "Powerful vector-based experience design tool for web and mobile app wireframing and interactions.", 
-    iconPath: "/design tool/Adobe Icon.png",
-    proficiency: 88,
-    type: "design"
-  },
+
   { 
     name: "Illustrator", 
     category: "Vector Graphics",
     description: "The industry-standard vector graphics software for everything from logos to sophisticated illustrations.", 
-    iconPath: "/design tool/Illustrator icon.png",
+    iconPath: "/design tool/pngwing.com (4).png",
     proficiency: 92,
     type: "design"
   },
@@ -40,7 +33,7 @@ const tools = [
     name: "Miro", 
     category: "Collaboration",
     description: "Visual workspace for innovative teams to facilitate workshops and strategic planning sessions.", 
-    iconPath: "/myself/miro.png",
+    iconPath: "/design tool/pngwing.com (3).png",
     proficiency: 90,
     type: "discovery"
   },
@@ -59,6 +52,14 @@ const tools = [
     iconPath: "/myself/framer.png",
     proficiency: 82,
     type: "design"
+  },
+  { 
+    name: "Google Suite", 
+    category: "Collaboration",
+    description: "A suite of productivity and collaboration tools including Docs, Sheets, and Slides for streamlined workflows.", 
+    iconPath: "/design tool/pngwing.com (7).png",
+    proficiency: 95,
+    type: "discovery"
   }
 ];
 
