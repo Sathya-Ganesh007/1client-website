@@ -224,7 +224,7 @@ export default function About() {
                   Hey, I&apos;m
                 </h2>
                 <div className="h-16 md:h-20 lg:h-24 flex items-center">
-                  <p className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#ffcc01] tracking-tight">
+                  <p className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#ffcc01] tracking-tight whitespace-nowrap">
                     {text}
                     <motion.span
                       animate={{ opacity: [1, 0] }}
@@ -270,27 +270,13 @@ export default function About() {
               <CardContainer className="inter-var w-full h-full">
                 <CardBody className="relative w-full h-full flex items-center justify-center">
                   
-                  {/* Secondary Image - Floating Separately */}
-                  <CardItem
-                    translateZ={60}
-                    className="absolute lg:-left-12 lg:top-10 top-0 right-0 w-[160px] h-[200px] md:w-[220px] md:h-[280px] lg:w-[250px] lg:h-[320px] rounded-[30px] lg:rounded-[40px] overflow-hidden border border-border/20 shadow-2xl z-0"
-                  >
-                    <Image 
-                      src="/myself/9975DEC0-2756-47DC-97FF-5264B588C8FA.png" 
-                      alt="Tushar Secondary" 
-                      fill 
-                      className="object-cover"
-                      quality={100}
-                    />
-                  </CardItem>
-
                   {/* Main Portrait - Centered & Premium */}
                   <CardItem
                     translateZ={120}
                     className="relative w-[280px] h-[350px] md:w-[380px] md:h-[480px] lg:w-[450px] lg:h-[580px] rounded-[40px] lg:rounded-[60px] overflow-hidden border-2 border-[#ffcc01]/20 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] bg-card/40 backdrop-blur-md z-10"
                   >
                     <Image 
-                      src="/myself/IMG_8936.png" 
+                      src="/myself/IMG_2996.PNG" 
                       alt="Tushar main portrait" 
                       fill 
                       className="object-cover"
@@ -302,13 +288,7 @@ export default function About() {
                     <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
                   </CardItem>
 
-                  {/* Detached Floating Badge */}
-                  <CardItem
-                    translateZ={180}
-                    className="absolute lg:left-0 lg:bottom-10 bottom-4 left-4 bg-[#ffcc01] text-black px-5 py-3 lg:px-6 lg:py-4 rounded-xl lg:rounded-2xl shadow-2xl font-black uppercase text-[9px] lg:text-[10px] tracking-widest z-20"
-                  >
-                    Experience Strategist
-                  </CardItem>
+
 
                   {/* Decorative Glow */}
                   <CardItem
@@ -371,7 +351,7 @@ export default function About() {
         <div className="max-w-[1400px] mx-auto w-full">
           <motion.div {...fadeIn} className="mb-12 md:mb-20">
             <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Professional Journey</span>
-            <h2 className="text-5xl md:text-7xl font-medium tracking-tight">Experience</h2>
+            <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Experience</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 gap-8">
@@ -434,7 +414,7 @@ export default function About() {
           <div className="pt-0 pb-12 flex flex-col md:flex-row justify-between items-start md:items-end border-b border-border/10 mb-12 gap-6">
             <div className="space-y-4">
               <span className="text-[12px] font-black uppercase tracking-[0.6em] text-muted/60">Professional Toolkit</span>
-              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">My Workspace Essentials</h2>
+              <h2 className="text-3xl md:text-7xl font-bold tracking-tighter">My Workspace Essentials</h2>
             </div>
             <p className="text-muted text-sm max-w-sm mb-2">
               The professional tools I use to craft digital experiences, from initial brainstorm to production-ready design.
@@ -450,7 +430,7 @@ export default function About() {
         <div className="max-w-[1400px] mx-auto w-full">
           <motion.div {...fadeIn} className="mb-12 md:mb-20">
             <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Live.</span>
-            <h2 className="text-5xl md:text-7xl font-medium tracking-tight">Selected Works</h2>
+            <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Selected Works</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-0">
@@ -504,7 +484,7 @@ export default function About() {
         <div className="max-w-[1400px] mx-auto w-full">
           <motion.div {...fadeIn} className="mb-12 md:mb-20">
              <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Skills</span>
-            <h2 className="text-5xl md:text-7xl font-medium tracking-tight">Core Expertise</h2>
+            <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Core Expertise</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -566,7 +546,7 @@ export default function About() {
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
              <motion.div {...fadeIn} className="space-y-8">
                 <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Ecosystem</span>
-                <h2 className="text-5xl md:text-7xl font-medium tracking-tight">Join the Community</h2>
+                <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Join the Community</h2>
                 <p className="text-lg md:text-xl text-muted font-light leading-relaxed max-w-xl">
                    Be part of a human-driven ecosystem focused on innovation, design, and sustainable change. Join our network of designers and strategists making a real-world impact.
                 </p>
@@ -598,7 +578,7 @@ export default function About() {
         <div className="max-w-[1400px] mx-auto w-full">
           <motion.div {...fadeIn} className="mb-20">
             <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Academic</span>
-            <h2 className="text-5xl md:text-7xl font-medium tracking-tight">Education</h2>
+            <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Education</h2>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-0">
@@ -645,7 +625,7 @@ export default function About() {
                   <div className="w-16 h-16 rounded-full bg-[#ffcc01] flex items-center justify-center text-black shadow-md">
                     <Mic2 className="w-8 h-8" />
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Recognition &amp; Speaking</h2>
+                  <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Recognition &amp; Speaking</h2>
                 </div>
                 <a 
                   href="https://heyzine.com/flip-book/86449a360c.html" 
@@ -702,7 +682,7 @@ export default function About() {
         <div className="max-w-[1400px] mx-auto w-full">
           <motion.div {...fadeIn} className="mb-12 md:mb-20">
             <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Get in Touch</span>
-            <h2 className="text-5xl md:text-7xl font-medium tracking-tight">Let&apos;s Build Something.</h2>
+            <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Let&apos;s Build Something.</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
