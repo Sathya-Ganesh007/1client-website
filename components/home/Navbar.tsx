@@ -6,6 +6,8 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,9 +34,13 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-between items-center py-4 md:py-6 px-6 md:px-12 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="text-[17px] font-bold tracking-tighter uppercase transition-opacity hover:opacity-70 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-        TUSHAR
-      </div>
+      <CardContainer containerClassName="py-0" className="py-0">
+        <CardItem translateZ="50">
+          <div className="text-[17px] font-bold tracking-tighter uppercase transition-opacity hover:opacity-70 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            TUSHAR
+          </div>
+        </CardItem>
+      </CardContainer>
 
       {/* Desktop Menu */}
       <div className="hidden md:flex items-center gap-10">

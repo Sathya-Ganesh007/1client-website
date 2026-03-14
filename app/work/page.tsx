@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "@/components/home/Navbar";
 
 export default function WorkPage() {
@@ -6,14 +7,16 @@ export default function WorkPage() {
       title: "Green Bharat",
       category: "Brand Strategy",
       description: "Scaling a legacy brand through structural logic and founder alignment.",
+      href: "/work/green-bharat"
     },
     {
       title: "Eblity",
       category: "UX Strategy",
       description: "Simplifying complex learning systems into cognitive-driven flows.",
+      href: "/work/eblity"
     },
     {
-      title: "Wadhwa Bakers",
+      title: "Moggly India",
       category: "Brand Management",
       description: "Managing a retail brand's evolution and perception in a shifting market.",
     },
@@ -37,7 +40,11 @@ export default function WorkPage() {
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-32">
           {projects.map((project, idx) => (
-            <div key={idx} className="group cursor-pointer">
+            <Link 
+              key={idx} 
+              href={project.href || "#"} 
+              className={`group cursor-pointer ${!project.href && 'pointer-events-none'}`}
+            >
               <div className="aspect-[16/10] bg-[#f5f5f5] mb-8 overflow-hidden">
                 <div className="w-full h-full group-hover:scale-105 transition-transform duration-700 bg-zinc-100 flex items-center justify-center text-zinc-300 font-bold tracking-tighter text-4xl select-none">
                   {project.title.charAt(0)}
@@ -54,7 +61,7 @@ export default function WorkPage() {
                   {project.description}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </section>
       </main>

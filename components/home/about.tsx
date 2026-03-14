@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2 } from "lucide-react";
+import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import DownloadResumeButton from "@/components/DownloadResumeButton";
 import DesignTools from "./DesignTools";
+import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 
 const fadeIn = {
@@ -13,16 +14,6 @@ const fadeIn = {
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.8 }
-};
-
-const staggerContainer = {
-  initial: {},
-  whileInView: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  },
-  viewport: { once: true }
 };
 
 const expertise = [
@@ -153,7 +144,8 @@ const projects = [
     desc: "Simplifying complex learning systems into cognitive-driven flows. UI thinking beyond visual candy.",
     image: "/portfolio_thumbnail_2.png",
     link: "https://www.eblity.com/",
-    tags: ["Systems", "Simplification"]
+    tags: ["Systems", "Simplification"],
+    internalLink: "/work/eblity"
   },
   {
     title: "Moggly India",
@@ -203,7 +195,7 @@ export default function About() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // Offset for header if needed
+      const offset = 80; 
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -273,23 +265,62 @@ export default function About() {
               </div>
             </motion.div>
 
-            {/* Right Profile Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative w-full max-w-lg aspect-auto flex items-center justify-center lg:-mr-24"
-            >
-              <div className="relative w-full h-[350px] md:h-[500px] lg:h-[600px]">
-                <Image 
-                  src="/ChatGPT Image Mar 5, 2026, 07_32_02 PM.png" 
-                  alt="Tushar Kasarlewar" 
-                  fill 
-                  className="object-contain"
-                  priority
-                />
-              </div>
-            </motion.div>
+            {/* Right Profile Image Composition - Responsive & Separated */}
+            <div className="flex-1 relative w-full lg:h-[700px] flex items-center justify-center lg:justify-end mt-12 lg:mt-0">
+              <CardContainer className="inter-var w-full h-full">
+                <CardBody className="relative w-full h-full flex items-center justify-center">
+                  
+                  {/* Secondary Image - Floating Separately */}
+                  <CardItem
+                    translateZ={60}
+                    className="absolute lg:-left-12 lg:top-10 top-0 right-0 w-[160px] h-[200px] md:w-[220px] md:h-[280px] lg:w-[250px] lg:h-[320px] rounded-[30px] lg:rounded-[40px] overflow-hidden border border-border/20 shadow-2xl z-0"
+                  >
+                    <Image 
+                      src="/myself/9975DEC0-2756-47DC-97FF-5264B588C8FA.png" 
+                      alt="Tushar Secondary" 
+                      fill 
+                      className="object-cover"
+                      quality={100}
+                    />
+                  </CardItem>
+
+                  {/* Main Portrait - Centered & Premium */}
+                  <CardItem
+                    translateZ={120}
+                    className="relative w-[280px] h-[350px] md:w-[380px] md:h-[480px] lg:w-[450px] lg:h-[580px] rounded-[40px] lg:rounded-[60px] overflow-hidden border-2 border-[#ffcc01]/20 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] bg-card/40 backdrop-blur-md z-10"
+                  >
+                    <Image 
+                      src="/myself/IMG_8936.png" 
+                      alt="Tushar main portrait" 
+                      fill 
+                      className="object-cover"
+                      priority
+                      quality={100}
+                    />
+                    
+                    {/* Selective Shadow Overlay */}
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+                  </CardItem>
+
+                  {/* Detached Floating Badge */}
+                  <CardItem
+                    translateZ={180}
+                    className="absolute lg:left-0 lg:bottom-10 bottom-4 left-4 bg-[#ffcc01] text-black px-5 py-3 lg:px-6 lg:py-4 rounded-xl lg:rounded-2xl shadow-2xl font-black uppercase text-[9px] lg:text-[10px] tracking-widest z-20"
+                  >
+                    Experience Strategist
+                  </CardItem>
+
+                  {/* Decorative Glow */}
+                  <CardItem
+                    translateZ={-20}
+                    className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none"
+                  >
+                    <div className="w-[120%] h-[120%] bg-gradient-to-tr from-[#ffcc01] to-transparent blur-3xl rounded-full" />
+                  </CardItem>
+
+                </CardBody>
+              </CardContainer>
+            </div>
           </div>
 
           {/* Sticker Row */}
@@ -303,8 +334,7 @@ export default function About() {
               { icon: <Mic2 className="w-8 h-8" />, label: "Speaker", sectionId: "about" },
               { icon: <GraduationCap className="w-8 h-8" />, label: "Education", sectionId: "education" },
               { icon: <Layers className="w-8 h-8" />, label: "Strategist", sectionId: "strategy" },
-              { icon: <TrendingUp className="w-8 h-8" />, label: "Designer", sectionId: "projects" },
-              { icon: <LifeBuoy className="w-8 h-8" />, label: "Consultant", sectionId: "experience" }
+              { icon: <TrendingUp className="w-8 h-8" />, label: "Designer", sectionId: "projects" }
             ].map((sticker, idx) => (
               <div 
                 key={idx} 
@@ -403,14 +433,13 @@ export default function About() {
         <div className="max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-24">
           <div className="pt-0 pb-12 flex flex-col md:flex-row justify-between items-start md:items-end border-b border-border/10 mb-12 gap-6">
             <div className="space-y-4">
-              <span className="text-[12px] font-black uppercase tracking-[0.6em] text-[#ffcc01]">Discovery</span>
-              <h2 className="text-5xl md:text-7xl font-bold tracking-tight">Design Tools</h2>
+              <span className="text-[12px] font-black uppercase tracking-[0.6em] text-muted/60">Professional Toolkit</span>
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">My Workspace Essentials</h2>
             </div>
             <p className="text-muted text-sm max-w-sm mb-2">
-              The professional toolkit I use to craft digital experiences, from initial brainstorm to production-ready design.
+              The professional tools I use to craft digital experiences, from initial brainstorm to production-ready design.
             </p>
           </div>
-
           <DesignTools />
         </div>
       </section>
@@ -424,50 +453,47 @@ export default function About() {
             <h2 className="text-5xl md:text-7xl font-medium tracking-tight">Selected Works</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-0">
             {projects.map((project, idx) => (
-              <motion.div 
-                key={idx} 
-                {...fadeIn}
-                whileHover={{ y: -10 }}
-                className="group flex flex-col space-y-6"
-              >
-                <a 
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="aspect-[4/3] relative overflow-hidden bg-card border border-border/50 rounded-[40px] shadow-sm group-hover:shadow-2xl transition-all duration-500 block"
-                >
-                   <Image 
-                     src={project.image} 
-                     alt={project.title} 
-                     fill 
-                     className="object-cover group-hover:scale-110 transition-transform duration-700" 
-                   />
-                </a>
-                <div className="space-y-3 px-2 flex flex-col flex-1">
-                  <div className="flex gap-2">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-foreground/5 rounded-full">{tag}</span>
-                    ))}
-                  </div>
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="block w-fit">
-                    <h3 className="text-3xl font-bold tracking-tight group-hover:text-[#ffcc01] transition-colors">{project.title}</h3>
-                  </a>
-                  <p className="text-lg text-muted font-light leading-relaxed flex-1">{project.desc}</p>
+              <CardContainer key={idx} className="inter-var w-full">
+                <CardBody className="group/card relative flex flex-col space-y-6 w-full h-auto rounded-[40px]">
+                  <CardItem
+                    translateZ="100"
+                    className="w-full aspect-[4/3] relative overflow-hidden bg-card border border-border/50 rounded-[40px] shadow-sm group-hover/card:shadow-2xl transition-all duration-500"
+                  >
+                     <Image 
+                       src={project.image} 
+                       alt={project.title} 
+                       fill 
+                       className="object-cover group-hover/card:scale-110 transition-transform duration-700" 
+                     />
+                  </CardItem>
+                  <div className="space-y-3 px-2 flex flex-col flex-1">
+                    <CardItem translateZ="20" className="flex gap-2">
+                      {project.tags.map(tag => (
+                        <span key={tag} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-foreground/5 rounded-full">{tag}</span>
+                      ))}
+                    </CardItem>
+                    <CardItem translateZ="60" as="a" href={project.link} target="_blank" rel="noopener noreferrer" className="block w-fit">
+                      <h3 className="text-3xl font-bold tracking-tight group-hover/card:text-[#ffcc01] transition-colors">{project.title}</h3>
+                    </CardItem>
+                    <CardItem translateZ="40" as="p" className="text-lg text-muted font-light leading-relaxed flex-1 italic opacity-70">
+                      {project.desc}
+                    </CardItem>
 
-                  {(project as any).internalLink && (
-                    <div className="pt-4 mt-auto opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
-                      <a 
-                        href={(project as any).internalLink} 
-                        className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-black bg-[#ffcc01] hover:bg-[#e6b800] px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg group-hover:shadow-xl w-fit"
-                      >
-                        Explore My Work
-                      </a>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
+                    {(project as any).internalLink && (
+                      <CardItem translateZ="30" className="pt-4 mt-auto opacity-0 group-hover/card:opacity-100 translate-y-4 group-hover/card:translate-y-0 transition-all duration-300">
+                        <a 
+                          href={(project as any).internalLink} 
+                          className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-black bg-[#ffcc01] hover:bg-[#e6b800] px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg group-hover/card:shadow-xl w-fit"
+                        >
+                          Explore My Work
+                        </a>
+                      </CardItem>
+                    )}
+                  </div>
+                </CardBody>
+              </CardContainer>
             ))}
           </div>
         </div>
@@ -575,36 +601,34 @@ export default function About() {
             <h2 className="text-5xl md:text-7xl font-medium tracking-tight">Education</h2>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-0">
             {education.map((edu, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="p-12 bg-card border border-border/50 rounded-[40px] hover:border-[#ffcc01] transition-all group shadow-sm hover:shadow-xl"
-              >
-                <div className="flex justify-between items-start mb-8">
-                  <div className="w-20 h-20 rounded-2xl bg-white p-2 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform overflow-hidden">
-                    {edu.logo ? (
-                      <div className="relative w-full h-full">
-                        <Image 
-                          src={edu.logo} 
-                          alt={edu.school || "Institution Logo"} 
-                          fill 
-                          className="object-contain"
-                        />
-                      </div>
-                    ) : (
-                      <GraduationCap className="w-10 h-10 text-black" />
-                    )}
+              <CardContainer key={idx} className="inter-var w-full">
+                <CardBody className="group/edu relative p-12 bg-card border border-border/50 rounded-[40px] hover:border-[#ffcc01] transition-all shadow-sm hover:shadow-xl w-full h-auto">
+                  <div className="flex justify-between items-start mb-8">
+                    <CardItem
+                      translateZ="100"
+                      className="w-20 h-20 rounded-2xl bg-white p-2 flex items-center justify-center shadow-md group-hover/edu:scale-105 transition-transform overflow-hidden relative"
+                    >
+                      {edu.logo ? (
+                        <div className="relative w-full h-full">
+                          <Image 
+                            src={edu.logo} 
+                            alt={edu.school || "Institution Logo"} 
+                            fill 
+                            className="object-contain"
+                          />
+                        </div>
+                      ) : (
+                        <GraduationCap className="w-10 h-10 text-black" />
+                      )}
+                    </CardItem>
+                    <CardItem translateZ="20" className="text-sm font-bold text-muted">{edu.period}</CardItem>
                   </div>
-                  <span className="text-sm font-bold text-muted">{edu.period}</span>
-                </div>
-                <h3 className="text-2xl font-bold mb-2">{edu.degree}</h3>
-                {edu.school && <p className="text-lg text-muted font-light italic">{edu.school}</p>}
-              </motion.div>
+                  <CardItem translateZ="60" as="h3" className="text-2xl font-bold mb-2">{edu.degree}</CardItem>
+                  {edu.school && <CardItem translateZ="40" as="p" className="text-lg text-muted font-light italic">{edu.school}</CardItem>}
+                </CardBody>
+              </CardContainer>
             ))}
           </div>
         </div>
