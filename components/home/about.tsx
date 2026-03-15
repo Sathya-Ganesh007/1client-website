@@ -283,7 +283,7 @@ export default function About() {
                     className="relative w-[280px] h-[350px] md:w-[380px] md:h-[480px] lg:w-[450px] lg:h-[580px] rounded-[40px] lg:rounded-[60px] overflow-hidden border-2 border-[#ffcc01]/20 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] bg-card/40 backdrop-blur-md z-10"
                   >
                     <Image 
-                      src="/myself/IMG_2996.PNG" 
+                      src="/Gemini_Generated_Image_pc6m5dpc6m5dpc6m (1).png" 
                       alt="Tushar main portrait" 
                       fill 
                       className="object-cover"
