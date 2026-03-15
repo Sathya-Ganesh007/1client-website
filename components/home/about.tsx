@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
-import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2, ChevronRight } from "lucide-react";
+import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2, ChevronRight, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import DownloadResumeButton from "@/components/DownloadResumeButton";
 import DesignTools from "./DesignTools";
@@ -133,7 +134,7 @@ const projects = [
     title: "Green Bharat",
     category: "Brand Strategy → Stewardship",
     desc: "Scaling a 100+ acre legacy through structural logic. Aligned founder vision with operational reality.",
-    image: "/portfolio_thumbnail_3.png",
+    image: "/selected works/Group 334.png",
     link: "https://greenbharatagro.com/",
     tags: ["Positioning", "Architecture"],
     internalLink: "/work/green-bharat"
@@ -142,7 +143,7 @@ const projects = [
     title: "Eblity",
     category: "UX Strategy → Systems",
     desc: "Simplifying complex learning systems into cognitive-driven flows. UI thinking beyond visual candy.",
-    image: "/portfolio_thumbnail_2.png",
+    image: "/selected works/Group 332.png",
     link: "https://www.eblity.com/",
     tags: ["Systems", "Simplification"],
     internalLink: "/work/eblity"
@@ -151,13 +152,14 @@ const projects = [
     title: "Moggly India",
     category: "Brand Design → Experience",
     desc: "Crafting intuitive UI/UX systems that align product functionality with user behavior and business growth.",
-    image: "/portfolio_thumbnail_1.png",
+    image: "/selected works/moggly's landing preview.png",
     link: "https://www.moggly.in/",
     tags: ["Identity", "Experience"]
   }
 ];
 
 export default function About() {
+  const [openExp, setOpenExp] = useState<number | null>(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
@@ -357,36 +359,88 @@ export default function About() {
             <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Experience</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-8">
-            {experience.map((exp, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="group relative flex flex-col md:flex-row gap-8 p-10 bg-card border border-border/50 rounded-[40px] hover:border-[#ffcc01]/50 transition-all shadow-sm hover:shadow-xl"
-              >
-                <div className="md:w-1/3 space-y-4">
-                  <span className="text-sm font-medium text-muted">{exp.period}</span>
-                  <h3 className="text-3xl font-bold tracking-tight">{exp.role}</h3>
-                  <p className="text-xl text-[#ffcc01] font-medium">{exp.company}</p>
-                  <p className="text-sm text-muted">{exp.location}</p>
-                </div>
-                
-                <div className="md:w-2/3 space-y-4 border-l border-border/30 pl-0 md:pl-12">
-                   <p className="text-sm font-bold uppercase tracking-widest text-muted/50 mb-4">Focus: {exp.focus}</p>
-                   <ul className="space-y-3">
-                    {exp.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex gap-4 text-muted items-start">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#ffcc01] mt-2 shrink-0" />
-                        <p className="text-lg font-light leading-relaxed">{bullet}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
+          <div className="flex flex-col divide-y divide-border/30">
+            {experience.map((exp, idx) => {
+              const isOpen = openExp === idx;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.08 }}
+                  className=""
+                >
+                  {/* ---- Clickable Header Row ---- */}
+                  <button
+                    onClick={() => setOpenExp(isOpen ? null : idx)}
+                    className="w-full text-left py-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-0 group cursor-pointer focus:outline-none"
+                  >
+                    {/* Period pill */}
+                    <span className="md:w-[200px] text-xs font-bold uppercase tracking-[0.2em] text-muted shrink-0">
+                      {exp.period}
+                    </span>
+
+                    {/* Role + Company */}
+                    <div className="flex-1 space-y-1">
+                      <h3 className={`text-2xl md:text-3xl font-bold tracking-tight transition-colors duration-200 ${
+                        isOpen ? "text-[#ffcc01]" : "group-hover:text-[#ffcc01]"
+                      }`}>
+                        {exp.role}
+                      </h3>
+                      <p className="text-base text-muted font-medium">
+                        {exp.company}
+                        <span className="mx-2 opacity-30">·</span>
+                        <span className="text-sm opacity-60">{exp.location}</span>
+                      </p>
+                    </div>
+
+                    {/* Chevron */}
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center border border-border/50 text-muted group-hover:border-[#ffcc01] group-hover:text-[#ffcc01] transition-colors duration-200"
+                    >
+                      <ChevronDown size={18} />
+                    </motion.div>
+                  </button>
+
+                  {/* ---- Expandable Detail Panel ---- */}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="content"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-10 pl-0 md:pl-[200px] space-y-6">
+                          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#ffcc01]/70">
+                            Focus: {exp.focus}
+                          </p>
+                          <ul className="space-y-3">
+                            {exp.bullets.map((bullet, bIdx) => (
+                              <motion.li
+                                key={bIdx}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: bIdx * 0.05 }}
+                                className="flex gap-4 text-muted items-start"
+                              >
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#ffcc01] mt-[10px] shrink-0" />
+                                <p className="text-base md:text-lg font-light leading-relaxed">{bullet}</p>
+                              </motion.li>
+                            ))}
+                          </ul>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </div>
 
           <motion.div {...fadeIn} className="mt-20">
@@ -462,9 +516,9 @@ export default function About() {
                       ))}
                     </CardItem>
                     <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                      href={project.internalLink || project.link} 
+                      target={project.internalLink ? "_self" : "_blank"} 
+                      rel={project.internalLink ? undefined : "noopener noreferrer"} 
                       className="block relative z-30 w-fit"
                     >
                       <CardItem translateZ="60">
@@ -477,12 +531,12 @@ export default function About() {
 
                     <CardItem translateZ="30" className="pt-4 mt-auto opacity-0 group-hover/card:opacity-100 translate-y-4 group-hover/card:translate-y-0 transition-all duration-300">
                       <a 
-                        href={project.link} 
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href={project.internalLink || project.link} 
+                        target={project.internalLink ? "_self" : "_blank"}
+                        rel={project.internalLink ? undefined : "noopener noreferrer"}
                         className="relative z-40 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-black bg-[#ffcc01] hover:bg-[#e6b800] px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg group-hover/card:shadow-xl w-fit"
                       >
-                        Explore My Work
+                        Explore My Work <ArrowRight size={14} />
                       </a>
                     </CardItem>
                   </div>

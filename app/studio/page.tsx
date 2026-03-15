@@ -1,27 +1,11 @@
-import React from 'react';
-import Image from 'next/image';
-
+import Navbar from "@/components/home/Navbar";
+import Image from "next/image";
+import React from "react";
 
 export default function The7thStudioWebsite() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold">
-            THE <span className="text-orange-500">7</span><sup className="text-sm">th</sup> STUDIO
-          </div>
-          <ul className="flex gap-8 text-sm font-medium">
-            <li><a href="#home" className="hover:text-orange-500 transition">Home</a></li>
-            <li><a href="#about" className="hover:text-orange-500 transition">About</a></li>
-            <li><a href="#services" className="hover:text-orange-500 transition">Services</a></li>
-            <li><a href="#work" className="hover:text-orange-500 transition">Work</a></li>
-            <li><a href="#roadmap" className="hover:text-orange-500 transition">Roadmap</a></li>
-            <li><a href="#contact" className="hover:text-orange-500 transition">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-
+      <Navbar />
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-white pt-20">
         <div className="max-w-5xl mx-auto px-6 text-center">
@@ -143,19 +127,58 @@ export default function The7thStudioWebsite() {
           <h2 className="text-5xl font-extrabold text-center mb-16">Selected Work</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { gradient: 'from-purple-500 to-purple-700', title: 'Project Alpha', subtitle: 'Brand Identity & Strategy' },
-              { gradient: 'from-pink-400 to-rose-600', title: 'Project Beta', subtitle: 'Visual Identity System' },
-              { gradient: 'from-blue-400 to-cyan-400', title: 'Project Gamma', subtitle: 'Logo Design & Branding' }
+              { 
+                image: '/selected works/Group 334.png', 
+                title: 'Green Bharat', 
+                subtitle: 'Brand Identity & Strategy', 
+                link: 'https://greenbharatagro.com/',
+                internalLink: '/work/green-bharat' 
+              },
+              { 
+                image: '/selected works/Group 332.png', 
+                title: 'Eblity', 
+                subtitle: 'Visual Identity System', 
+                link: 'https://www.eblity.com/',
+                internalLink: '/work/eblity' 
+              },
+              { 
+                image: "/selected works/moggly's landing preview.png", 
+                title: 'Moggly India', 
+                subtitle: 'Logo Design & Branding',
+                link: 'https://www.moggly.in/'
+              }
             ].map((project, index) => (
-              <div key={index} className="group relative h-96 rounded-2xl overflow-hidden cursor-pointer border border-gray-100 shadow-sm">
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} flex items-center justify-center transition-transform group-hover:scale-105`}>
-                  <div className="w-32 h-32 bg-white/90 rounded-full flex items-center justify-center text-5xl font-bold text-gray-900 shadow-xl">
-                    {project.title[8]}
+              <div key={index} className="group relative h-[500px] rounded-[32px] overflow-hidden border border-gray-100 shadow-sm bg-white">
+                {/* External Link on Image */}
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-10"
+                >
+                  <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+                    <Image 
+                      src={project.image} 
+                      alt={project.title} 
+                      fill 
+                      className="object-cover"
+                    />
                   </div>
-                </div>
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-6 text-white translate-y-full group-hover:translate-y-0 transition-transform">
-                  <h3 className="text-2xl font-bold mb-1">{project.title}</h3>
-                  <p className="text-white/80">{project.subtitle}</p>
+                </a>
+
+                {/* Internal Link Overlay */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent p-8 text-white z-20 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="text-2xl font-bold mb-1 tracking-tight">{project.title}</h3>
+                  <p className="text-white/70 mb-6 text-sm italic">{project.subtitle}</p>
+                  
+                  {project.internalLink && (
+                    <a 
+                      href={project.internalLink}
+                      className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all hover:scale-105 active:scale-95"
+                    >
+                      Explore My Work
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
