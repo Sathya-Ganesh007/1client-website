@@ -134,7 +134,10 @@ export default function Navbar() {
             onClick={handleLogoClick}
           >
             {isStudioPage && <ChevronLeft size={16} className="text-orange-500" />}
-            <span>TUSHAR</span>
+            <span className="flex items-center gap-2">
+              <span className="w-8 h-8 rounded-full bg-[#ffcc01] flex items-center justify-center text-black font-black text-[10px]">TK</span>
+              <span>TUSHAR</span>
+            </span>
             {isStudioPage && <span className="text-orange-500"> / STUDIO</span>}
           </div>
         </CardItem>

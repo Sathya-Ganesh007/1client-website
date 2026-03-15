@@ -145,7 +145,8 @@ export default function The7thStudioWebsite() {
                 image: "/selected works/moggly's landing preview.png", 
                 title: 'Moggly India', 
                 subtitle: 'Logo Design & Branding',
-                link: 'https://www.moggly.in/'
+                link: 'https://www.moggly.in/',
+                internalLink: '/work/moggly'
               }
             ].map((project, index) => (
               <div key={index} className="group relative h-[500px] rounded-[32px] overflow-hidden border border-gray-100 shadow-sm bg-white">

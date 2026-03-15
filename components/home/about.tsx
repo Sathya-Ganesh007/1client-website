@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
-import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2, ChevronRight, ChevronDown } from "lucide-react";
+import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2, ChevronRight, ChevronDown, Cpu, Globe, Cloud, ShoppingBag, Briefcase, UserCheck, Truck, Coffee, Sprout, Database, Home } from "lucide-react";
 import Image from "next/image";
 import DownloadResumeButton from "@/components/DownloadResumeButton";
 import DesignTools from "./DesignTools";
@@ -154,12 +154,13 @@ const projects = [
     desc: "Crafting intuitive UI/UX systems that align product functionality with user behavior and business growth.",
     image: "/selected works/moggly's landing preview.png",
     link: "https://www.moggly.in/",
-    tags: ["Identity", "Experience"]
+    tags: ["Identity", "Experience"],
+    internalLink: "/work/moggly"
   }
 ];
 
 export default function About() {
-  const [openExp, setOpenExp] = useState<number | null>(0);
+  const [openExp, setOpenExp] = useState<number | null>(null);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
@@ -542,6 +543,200 @@ export default function About() {
                   </div>
                 </CardBody>
               </CardContainer>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* ————— SECTION: PROJECT CATEGORIES ————— */}
+      <section id="categories" className="py-32 px-6 md:px-12 lg:px-24 bg-card/30">
+        <div className="max-w-[1400px] mx-auto w-full">
+          <motion.div {...fadeIn} className="mb-12 md:mb-20">
+            <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Specialization</span>
+            <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Project Categories</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "AI Applications",
+                desc: "Intelligent interfaces and neural-driven experiences that bridge human intuition with machine capability.",
+                icon: <Cpu className="w-8 h-8" />,
+                tag: "Next-Gen Tech",
+                link: "https://calibr.ai/",
+                linkLabel: "Live Application"
+              },
+              {
+                title: "Web Applications",
+                desc: "High-performance, scalable digital platforms designed for seamless user interaction and business efficiency.",
+                icon: <Globe className="w-8 h-8" />,
+                tag: "Scalable Systems",
+                link: "/tech/Phone OPD App Presentation.pdf",
+                linkLabel: "View Presentation"
+              },
+              {
+                title: "SaaS Products",
+                desc: "Subscription-based software ecosystems focuses on complex workflows and user retention strategy.",
+                icon: <Cloud className="w-8 h-8" />,
+                tag: "Product Ecosystems"
+              }
+            ].map((cat, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="group p-10 bg-background border border-border/50 rounded-[40px] hover:border-[#ffcc01] transition-all hover:shadow-2xl shadow-sm relative overflow-hidden"
+              >
+                <div className="relative z-10 space-y-6">
+                  <div className="w-16 h-16 rounded-2xl bg-[#ffcc01]/10 flex items-center justify-center text-[#ffcc01] group-hover:bg-[#ffcc01] group-hover:text-black transition-all duration-500">
+                    {cat.icon}
+                  </div>
+                  <div className="space-y-3">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#ffcc01] opacity-70">{cat.tag}</span>
+                    <h3 className="text-3xl font-bold tracking-tight">{cat.title}</h3>
+                    <p className="text-muted font-light leading-relaxed">{cat.desc}</p>
+                  </div>
+                </div>
+
+                {cat.link && (
+                  <div className="mt-8 pt-6 border-t border-border/20 relative z-20">
+                    <a 
+                      href={cat.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#ffcc01] hover:text-[#e6b800] transition-colors group/link"
+                    >
+                      {cat.linkLabel || "View Presentation"} <ExternalLink size={12} className="group-hover/link:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
+                )}
+                
+                {/* Decorative background element */}
+                <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-[#ffcc01]/5 rounded-full blur-3xl group-hover:bg-[#ffcc01]/20 transition-all duration-700" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ————— SECTION: INDUSTRIES & SECTORS ————— */}
+      <section id="sectors" className="py-32 px-6 md:px-12 lg:px-24 bg-background">
+        <div className="max-w-[1400px] mx-auto w-full">
+          <motion.div {...fadeIn} className="mb-12 md:mb-16">
+            <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Market Reach</span>
+            <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Industries & Sectors</h2>
+            <p className="text-xl text-muted font-light mt-8 max-w-3xl leading-relaxed italic">
+              Across my consulting work, I have worked with organizations operating in multiple industries, helping them define brand positioning, market narratives, and digital experiences.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { 
+                title: "FMCG", 
+                icon: <ShoppingBag className="w-6 h-6" />,
+                desc: "Consumer-focused brands requiring strong product positioning and packaging narratives.",
+                focus: ["Product storytelling", "Market differentiation", "Retail communication"],
+                links: [
+                  { label: "MDD USP Presentation", url: "/tech/MDD USP Presentation.pdf" },
+                  { label: "IDK Brand Presentation", url: "/tech/IDK-Brand Presentation 3.pdf" }
+                ]
+              },
+              { 
+                title: "B2B", 
+                icon: <Briefcase className="w-6 h-6" />,
+                desc: "Enterprise markets where clarity, credibility, and structured messaging are essential.",
+                focus: ["Strategic positioning", "Communication frameworks", "Market differentiation"]
+              },
+              { 
+                title: "Real Estate", 
+                icon: <Home className="w-6 h-6" />,
+                desc: "Strategic brand systems for luxury developments and commercial real estate projects.",
+                focus: ["Project positioning", "Investor narratives", "Market credibility"],
+                links: [
+                  { label: "Ishanya Project", url: "/tech/Ishanya Project.pdf" }
+                ]
+              },
+              { 
+                title: "B2C", 
+                icon: <UserCheck className="w-6 h-6" />,
+                desc: "Consumer-facing brands focused on experience, engagement, and emotional connection.",
+                focus: ["Customer journey mapping", "Brand communication", "Digital strategy"]
+              },
+              { 
+                title: "D2C", 
+                icon: <Truck className="w-6 h-6" />,
+                desc: "Digital-first brands that require strong identity systems and performance-driven communication.",
+                focus: ["Digital brand architecture", "Conversion-focused messaging", "Experience storytelling"],
+                links: [
+                  { label: "Frido Brand Kit", url: "/tech/Brand Kit - frido.pdf" }
+                ]
+              },
+              { 
+                title: "Hospitality", 
+                icon: <Coffee className="w-6 h-6" />,
+                desc: "Businesses focused on experience, service perception, and guest engagement.",
+                focus: ["Experience design", "Brand storytelling", "Service systems"]
+              },
+              { 
+                title: "Agriculture", 
+                icon: <Sprout className="w-6 h-6" />,
+                desc: "Agro-businesses requiring clarity in communicating scale, sustainability, and credibility.",
+                focus: ["Brand credibility", "Stakeholder communication", "Market positioning"]
+              },
+              { 
+                title: "Technology", 
+                icon: <Database className="w-6 h-6" />,
+                desc: "Tech-driven businesses requiring clear explanation of complex solutions.",
+                focus: ["Product communication", "Platform positioning", "UX-led architecture"],
+                links: [
+                  { label: "AIPAN Branding", url: "/tech/AIPAN Branding  (1).pdf" }
+                ]
+              }
+            ].map((sector, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+                className="p-8 bg-card border border-border/40 rounded-[32px] hover:border-[#ffcc01]/50 transition-all group flex flex-col h-full"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-muted group-hover:bg-[#ffcc01] group-hover:text-black transition-all mb-6">
+                  {sector.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3 tracking-tight">{sector.title}</h3>
+                <p className="text-sm text-muted mb-6 font-light leading-relaxed flex-grow">{sector.desc}</p>
+                <div className="pt-6 border-t border-border/20 space-y-2">
+                  <span className="text-[9px] font-black uppercase tracking-widest text-[#ffcc01]">Core Focus</span>
+                  <div className="flex flex-col gap-1.5">
+                    {sector.focus.map((f, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <div className="w-1 h-1 rounded-full bg-[#ffcc01]" />
+                        <span className="text-[11px] text-muted whitespace-nowrap">{f}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {sector.links && sector.links.length > 0 && (
+                  <div className="mt-auto pt-6 border-t border-border/20 space-y-3">
+                    {sector.links.map((link, lIdx) => (
+                      <a 
+                        key={lIdx}
+                        href={link.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#ffcc01] hover:text-[#e6b800] transition-colors group/link"
+                      >
+                        {link.label} <ExternalLink size={12} className="group-hover/link:translate-x-1 transition-transform" />
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </motion.div>
             ))}
           </div>
         </div>
