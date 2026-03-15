@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
-import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2, ChevronRight, ChevronDown, Cpu, Globe, Cloud, ShoppingBag, Briefcase, UserCheck, Truck, Coffee, Sprout, Database, Home } from "lucide-react";
+import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2, ChevronRight, ChevronDown, Cpu, Globe, Cloud, ShoppingBag, Briefcase, UserCheck, Truck, Coffee, Sprout, Database, Home, Newspaper } from "lucide-react";
 import Image from "next/image";
 import DownloadResumeButton from "@/components/DownloadResumeButton";
 import DesignTools from "./DesignTools";
@@ -563,22 +563,28 @@ export default function About() {
                 desc: "Intelligent interfaces and neural-driven experiences that bridge human intuition with machine capability.",
                 icon: <Cpu className="w-8 h-8" />,
                 tag: "Next-Gen Tech",
-                link: "https://calibr.ai/",
-                linkLabel: "Live Application"
+                links: [
+                  { label: "calibr.ai", url: "https://calibr.ai/", type: "Live Application" }
+                ]
               },
               {
                 title: "Web Applications",
                 desc: "High-performance, scalable digital platforms designed for seamless user interaction and business efficiency.",
                 icon: <Globe className="w-8 h-8" />,
                 tag: "Scalable Systems",
-                link: "/tech/Phone OPD App Presentation.pdf",
-                linkLabel: "View Presentation"
+                links: [
+                  { label: "Phone OPD App", url: "/tech/Phone OPD App Presentation.pdf", type: "View Presentation" }
+                ]
               },
               {
                 title: "SaaS Products",
                 desc: "Subscription-based software ecosystems focuses on complex workflows and user retention strategy.",
                 icon: <Cloud className="w-8 h-8" />,
-                tag: "Product Ecosystems"
+                tag: "Product Ecosystems",
+                links: [
+                  { label: "Ebility Flourish", url: "https://www.eblity.com/flourish", type: "Live Application" },
+                  { label: "Moto Platform", url: "https://www.motoplatform.in/", type: "Live Application" }
+                ]
               }
             ].map((cat, idx) => (
               <motion.div
@@ -600,16 +606,19 @@ export default function About() {
                   </div>
                 </div>
 
-                {cat.link && (
-                  <div className="mt-8 pt-6 border-t border-border/20 relative z-20">
-                    <a 
-                      href={cat.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#ffcc01] hover:text-[#e6b800] transition-colors group/link"
-                    >
-                      {cat.linkLabel || "View Presentation"} <ExternalLink size={12} className="group-hover/link:translate-x-1 transition-transform" />
-                    </a>
+                {cat.links && cat.links.length > 0 && (
+                  <div className="mt-8 pt-6 border-t border-border/20 relative z-20 space-y-3">
+                    {cat.links.map((link, lIdx) => (
+                      <a 
+                        key={lIdx}
+                        href={link.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#ffcc01] hover:text-[#e6b800] transition-colors group/link"
+                      >
+                        {link.type || "View Presentation"}: {link.label} <ExternalLink size={12} className="group-hover/link:translate-x-1 transition-transform" />
+                      </a>
+                    ))}
                   </div>
                 )}
                 
@@ -628,7 +637,7 @@ export default function About() {
             <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Market Reach</span>
             <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Industries & Sectors</h2>
             <p className="text-xl text-muted font-light mt-8 max-w-3xl leading-relaxed italic">
-              Across my consulting work, I have worked with organizations operating in multiple industries, helping them define brand positioning, market narratives, and digital experiences.
+              Across my consulting and strategic work, I have worked with organizations operating in multiple industries, helping them define brand positioning, market narratives, and digital experiences.
             </p>
           </motion.div>
 
@@ -641,14 +650,9 @@ export default function About() {
                 focus: ["Product storytelling", "Market differentiation", "Retail communication"],
                 links: [
                   { label: "MDD USP Presentation", url: "/tech/MDD USP Presentation.pdf" },
-                  { label: "IDK Brand Presentation", url: "/tech/IDK-Brand Presentation 3.pdf" }
+                  { label: "IDK Brand Presentation", url: "/tech/IDK-Brand Presentation 3.pdf" },
+                  { label: "Taste Dubs", url: "/pdf/taste dubs.pdf" }
                 ]
-              },
-              { 
-                title: "B2B", 
-                icon: <Briefcase className="w-6 h-6" />,
-                desc: "Enterprise markets where clarity, credibility, and structured messaging are essential.",
-                focus: ["Strategic positioning", "Communication frameworks", "Market differentiation"]
               },
               { 
                 title: "Real Estate", 
@@ -656,14 +660,19 @@ export default function About() {
                 desc: "Strategic brand systems for luxury developments and commercial real estate projects.",
                 focus: ["Project positioning", "Investor narratives", "Market credibility"],
                 links: [
-                  { label: "Ishanya Project", url: "/tech/Ishanya Project.pdf" }
+                  { label: "Ishanya Project", url: "/tech/Ishanya Project.pdf" },
+                  { label: "Ishanya Brand Presentation", url: "/tech/Ishanya - Brand Presentation 2.pdf" }
                 ]
               },
               { 
                 title: "B2C", 
                 icon: <UserCheck className="w-6 h-6" />,
                 desc: "Consumer-facing brands focused on experience, engagement, and emotional connection.",
-                focus: ["Customer journey mapping", "Brand communication", "Digital strategy"]
+                focus: ["Customer journey mapping", "Brand communication", "Digital strategy"],
+                links: [
+                  { label: "Bari Brand Strategy", url: "/pdf/Bari Final.pdf" },
+                  { label: "Bari 2.0", url: "/pdf/Bari 2.pdf" }
+                ]
               },
               { 
                 title: "D2C", 
@@ -678,13 +687,19 @@ export default function About() {
                 title: "Hospitality", 
                 icon: <Coffee className="w-6 h-6" />,
                 desc: "Businesses focused on experience, service perception, and guest engagement.",
-                focus: ["Experience design", "Brand storytelling", "Service systems"]
+                focus: ["Experience design", "Brand storytelling", "Service systems"],
+                links: [
+                  { label: "Skin Ethos", url: "/tech/convert-jpg-to-pdfnet_2021-09-09_09-38-36.pdf" }
+                ]
               },
               { 
                 title: "Agriculture", 
                 icon: <Sprout className="w-6 h-6" />,
                 desc: "Agro-businesses requiring clarity in communicating scale, sustainability, and credibility.",
-                focus: ["Brand credibility", "Stakeholder communication", "Market positioning"]
+                focus: ["Brand credibility", "Stakeholder communication", "Market positioning"],
+                links: [
+                  { label: "Green Bharat Agro", url: "https://greenbharatagro.com/" }
+                ]
               },
               { 
                 title: "Technology", 
@@ -693,6 +708,15 @@ export default function About() {
                 focus: ["Product communication", "Platform positioning", "UX-led architecture"],
                 links: [
                   { label: "AIPAN Branding", url: "/tech/AIPAN Branding  (1).pdf" }
+                ]
+              },
+              { 
+                title: "Media & Publishing", 
+                icon: <Newspaper className="w-6 h-6" />,
+                desc: "Organizations focused on content delivery, narrative systems, and editorial credibility.",
+                focus: ["Narrative strategy", "Editorial systems", "Digital publishing"],
+                links: [
+                  { label: "Chhattistv V2", url: "/tech/Chhattistv-V2.pdf" }
                 ]
               }
             ].map((sector, idx) => (

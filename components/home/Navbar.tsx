@@ -6,6 +6,7 @@ import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Menu, X, ChevronLeft } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 interface NavLink {
@@ -130,15 +131,20 @@ export default function Navbar() {
       <CardContainer containerClassName="py-0" className="py-0">
         <CardItem translateZ="50">
           <div
-            className="text-[17px] font-bold tracking-tighter uppercase transition-opacity hover:opacity-70 cursor-pointer flex items-center gap-2"
+            className="flex items-center gap-2 cursor-pointer transition-opacity hover:opacity-70"
             onClick={handleLogoClick}
           >
             {isStudioPage && <ChevronLeft size={16} className="text-orange-500" />}
-            <span className="flex items-center gap-2">
-              <span className="w-8 h-8 rounded-full bg-[#ffcc01] flex items-center justify-center text-black font-black text-[10px]">TK</span>
-              <span>TUSHAR</span>
-            </span>
-            {isStudioPage && <span className="text-orange-500"> / STUDIO</span>}
+            <div className="relative w-40 h-10">
+              <Image 
+                src="/signature.png" 
+                alt="Tushar Kasarlewar Signature" 
+                fill 
+                className="object-contain" 
+                priority
+              />
+            </div>
+            {isStudioPage && <span className="text-orange-500 font-bold tracking-tighter uppercase text-[17px]"> / STUDIO</span>}
           </div>
         </CardItem>
       </CardContainer>
