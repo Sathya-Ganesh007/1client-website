@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
@@ -816,9 +817,11 @@ export default function About() {
           </motion.div>
           
           <motion.div {...fadeIn} className="pt-20">
-            <button className="px-16 py-8 bg-[#ffcc01] text-black font-black uppercase tracking-[0.3em] text-xs hover:scale-105 transition-all shadow-xl">
-              Enter Laboratory
-            </button>
+            <Link href="/laboratory">
+              <button className="px-16 py-8 bg-[#ffcc01] text-black font-black uppercase tracking-[0.3em] text-xs hover:scale-105 transition-all shadow-xl">
+                Enter Laboratory
+              </button>
+            </Link>
           </motion.div>
         </div>
         
@@ -938,8 +941,8 @@ export default function About() {
               {/* Resume Button */}
               <div className="pt-4">
                 <DownloadResumeButton
-                  pdfPath="/Resume Creative (1).pdf"
-                  fileName="Tushar_Kasarlewar_Resume.pdf"
+                  pdfPath="/pdf/RESUME -2026.pdf"
+                  fileName="Tushar_Kasarlewar_Resume_2026.pdf"
                 />
               </div>
             </motion.div>

@@ -128,7 +128,7 @@ export default function EblityCaseStudy() {
               </div>
               <div className="space-y-6 text-lg text-muted font-light leading-relaxed">
                 <p>
-                  Two digital platforms—<span className="text-foreground font-medium">Eblity</span> and the <span className="text-foreground font-medium">Flourish Opportunity Portal</span>—serve users navigating complex journeys.
+                  Two digital platforms—<span className="text-foreground font-medium">Eblity</span> and the <a href="https://www.eblity.com/flourish" target="_blank" rel="noopener noreferrer" className="text-[#ffcc01] hover:underline font-medium">Flourish Opportunity Portal</a>—serve users navigating complex journeys.
                 </p>
                 <p>
                   Eblity connects educators, parents, and specialists to support children with learning and behavioural challenges through training programs, resources, and expert guidance.
