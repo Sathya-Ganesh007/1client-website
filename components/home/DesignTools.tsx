@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { 
   Zap, 
   Share2, 
@@ -215,7 +216,13 @@ export default function DesignTools() {
 
 function ToolCard({ tool, idx }: { tool: any, idx: number }) {
   const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === "dark";
   
   return (
     <CardContainer className="inter-var w-full h-full">
