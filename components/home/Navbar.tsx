@@ -26,7 +26,7 @@ export default function Navbar() {
 
   // Dynamic links based on context
   const mainLinks: NavLink[] = [
-    { name: "Home",       href: "#home"       },
+    { name: "About",      href: "#home"       },
     { name: "Experience", href: "#experience" },
     { name: "Projects",   href: "#projects"   },
     { name: "Expertise",  href: "#strategy"   },
@@ -35,19 +35,18 @@ export default function Navbar() {
   const studioLinks: NavLink[] = [
     { name: "About",      href: "#about"      },
     { name: "Services",   href: "#services"   },
-    { name: "Work",       href: "#work"       },
     { name: "Roadmap",    href: "#roadmap"    },
   ];
 
   const commonLinks: NavLink[] = [
     { name: "Education",  href: "#education"  },
-    { name: "About",      href: "#about"      },
+    { name: "Speaking",   href: "#about"      },
   ];
 
   // Decide which links to show
   const currentLinks: NavLink[] = isStudioPage 
     ? [{ name: "Main Home", href: "/", isExternal: true }, ...studioLinks, { name: "Contact", href: "#contact" }]
-    : [...mainLinks, { name: "Studio", href: "/studio", isExternal: true }, ...commonLinks];
+    : [...mainLinks, ...commonLinks];
 
   // Track active section on current page
   useEffect(() => {
@@ -127,8 +126,9 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-between items-center py-4 md:py-6 px-6 md:px-12 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <CardContainer containerClassName="py-0" className="py-0">
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-between items-center py-4 md:py-6 px-6 md:px-12 bg-background/80 backdrop-blur-md border-b border-border/50">
+        <CardContainer containerClassName="py-0" className="py-0">
         <CardItem translateZ="50">
           <div
             className="flex items-center gap-2 cursor-pointer transition-opacity hover:opacity-70"
@@ -175,41 +175,52 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Toggle */}
-      <div className="flex md:hidden items-center gap-4">
+      <div className="flex md:hidden items-center gap-4 relative z-[101]">
         <ThemeSwitcher />
-        <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-muted hover:text-foreground transition-all z-[101]">
-          {isOpen ? <X size={26} strokeWidth={1.5} /> : <Menu size={26} strokeWidth={1.5} />}
+        <button onClick={() => setIsOpen(true)} className="p-2 text-muted hover:text-foreground transition-all">
+          <Menu size={26} strokeWidth={1.5} />
         </button>
       </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-background z-[99] md:hidden p-8 pt-32"
-          >
-            <div className="flex flex-col gap-8">
-              {currentLinks.map((link, i) => (
-                <motion.div key={link.name} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 * i }}>
-                  <Link
-                    href={link.isExternal ? link.href : `${pathname}${link.href}`}
-                    onClick={(e) => handleLinkClick(e, link.href, link.isExternal)}
-                    className={`text-[40px] font-bold tracking-tighter transition-all active:scale-95 block ${
-                      isActive(link.href) ? (isStudioPage ? "text-orange-500" : "text-[#ffcc01]") : "text-muted"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </nav>
+
+    {/* Mobile Menu Overlay */}
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, x: "100%" }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: "100%" }}
+          transition={{ type: "spring", damping: 25, stiffness: 200 }}
+          className="fixed inset-0 bg-background/98 backdrop-blur-3xl z-[9999] md:hidden overflow-y-auto overscroll-contain flex flex-col"
+        >
+          {/* Top Bar inside Menu */}
+          <div className="flex justify-end items-center py-4 px-6 mb-8 border-b border-border/10">
+            <div className="flex items-center gap-4">
+              <ThemeSwitcher />
+              <button onClick={() => setIsOpen(false)} className="p-2 text-foreground transition-all hover:rotate-90">
+                <X size={26} strokeWidth={1.5} />
+              </button>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-8 px-8 pb-20 pt-4 flex-grow">
+            {currentLinks.map((link, i) => (
+              <motion.div key={link.name} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 * i }}>
+                <Link
+                  href={link.isExternal ? link.href : `${pathname}${link.href}`}
+                  onClick={(e) => handleLinkClick(e, link.href, link.isExternal)}
+                  className={`text-[40px] font-bold tracking-tighter transition-all active:scale-95 block ${
+                    isActive(link.href) ? (isStudioPage ? "text-orange-500" : "text-[#ffcc01]") : "text-muted hover:text-foreground"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 }

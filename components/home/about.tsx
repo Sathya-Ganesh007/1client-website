@@ -511,7 +511,7 @@ export default function About() {
                        className="object-cover group-hover/card:scale-110 transition-transform duration-700" 
                      />
                   </CardItem>
-                  <div className="space-y-3 px-2 flex flex-col flex-1">
+                  <div className="space-y-4 px-2 flex flex-col flex-1">
                     <CardItem translateZ="20" className="flex gap-2">
                       {project.tags.map(tag => (
                         <span key={tag} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-foreground/5 rounded-full">{tag}</span>
@@ -527,18 +527,18 @@ export default function About() {
                         <h3 className="text-3xl font-bold tracking-tight group-hover/card:text-[#ffcc01] transition-colors">{project.title}</h3>
                       </CardItem>
                     </a>
-                    <CardItem translateZ="40" as="p" className="text-lg text-muted font-light leading-relaxed flex-1 italic opacity-70">
+                    <CardItem translateZ="40" as="p" className="text-lg text-muted font-light leading-relaxed flex-1 italic opacity-80">
                       {project.desc}
                     </CardItem>
 
-                    <CardItem translateZ="30" className="pt-4 mt-auto opacity-0 group-hover/card:opacity-100 translate-y-4 group-hover/card:translate-y-0 transition-all duration-300">
+                    <CardItem translateZ="30" className="pt-6 mt-auto">
                       <a 
                         href={project.internalLink || project.link} 
                         target={project.internalLink ? "_self" : "_blank"}
                         rel={project.internalLink ? undefined : "noopener noreferrer"}
-                        className="relative z-40 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-black bg-[#ffcc01] hover:bg-[#e6b800] px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg group-hover/card:shadow-xl w-fit"
+                        className="relative z-40 inline-flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-black bg-[#ffcc01] hover:bg-white px-10 py-5 rounded-full transition-all hover:scale-105 active:scale-95 shadow-xl w-fit"
                       >
-                        Explore My Work <ArrowRight size={14} />
+                        EXPLORE MY WORK <ArrowRight size={14} />
                       </a>
                     </CardItem>
                   </div>
@@ -696,7 +696,7 @@ export default function About() {
               { 
                 title: "Agriculture", 
                 icon: <Sprout className="w-6 h-6" />,
-                desc: "Agro-businesses requiring clarity in communicating scale, sustainability, and credibility.",
+                desc: "Agro-businesses requiring clarity in communicating scale, sustainability, and credibility. I helped Green Bharat Agro define their market positioning and digital presence.",
                 focus: ["Brand credibility", "Stakeholder communication", "Market positioning"],
                 links: [
                   { label: "Green Bharat Agro", url: "https://greenbharatagro.com/" }
@@ -818,7 +818,7 @@ export default function About() {
           
           <motion.div {...fadeIn} className="pt-20">
             <Link href="/laboratory">
-              <button className="px-16 py-8 bg-[#ffcc01] text-black font-black uppercase tracking-[0.3em] text-xs hover:scale-105 transition-all shadow-xl">
+              <button className="px-16 py-8 bg-[#ffcc01] text-black font-black rounded-full uppercase tracking-[0.3em] text-xs hover:scale-105 transition-all shadow-xl">
                 Enter Laboratory
               </button>
             </Link>
@@ -941,7 +941,7 @@ export default function About() {
               {/* Resume Button */}
               <div className="pt-4">
                 <DownloadResumeButton
-                  pdfPath="/pdf/RESUME -2026.pdf"
+                  pdfPath="/pdf/RESUME -2026 (1).pdf"
                   fileName="Tushar_Kasarlewar_Resume_2026.pdf"
                 />
               </div>
