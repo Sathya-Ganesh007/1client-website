@@ -328,7 +328,7 @@ export default function About() {
                 onClick={() => scrollToSection(sticker.sectionId)}
                 className="flex flex-col items-center gap-3 group cursor-pointer"
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#ffcc01] flex items-center justify-center text-black shadow-sm group-hover:shadow-lg group-hover:scale-110 transition-transform">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-none bg-[#ffcc01] flex items-center justify-center text-black shadow-sm group-hover:shadow-lg group-hover:scale-110 transition-transform">
                   {sticker.icon}
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity text-foreground/60">
@@ -345,7 +345,7 @@ export default function About() {
               className="bg-[#ffcc01] hover:bg-[#e6b800] text-black px-6 py-3 rounded-full flex items-center gap-3 shadow-xl font-bold transition-all hover:scale-105 active:scale-95 group border border-black/5"
             >
               <div className="w-8 h-8 relative rounded-full overflow-hidden border border-black/10">
-                <Image src="/portfolio_thumbnail_4.png" alt="Profile" fill className="object-cover" />
+                <Image src="/myself/IMG_2996.PNG" alt="Profile" fill className="object-cover" />
               </div>
               <span className="text-sm">Let&apos;s Chat!</span>
             </button>
@@ -502,7 +502,7 @@ export default function About() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full aspect-[4/3] relative overflow-hidden bg-card border border-border/50 rounded-[40px] shadow-sm group-hover/card:shadow-2xl transition-all duration-500 cursor-pointer block"
+                    className="w-full aspect-[4/3] relative overflow-hidden bg-card border border-border/50 rounded-none shadow-sm group-hover/card:shadow-2xl transition-all duration-500 cursor-pointer block"
                   >
                      <Image 
                        src={project.image} 
@@ -514,7 +514,7 @@ export default function About() {
                   <div className="space-y-4 px-2 flex flex-col flex-1">
                     <CardItem translateZ="20" className="flex gap-2">
                       {project.tags.map(tag => (
-                        <span key={tag} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-foreground/5 rounded-full">{tag}</span>
+                        <span key={tag} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 bg-foreground/5 rounded-none">{tag}</span>
                       ))}
                     </CardItem>
                     <a 
@@ -536,7 +536,7 @@ export default function About() {
                         href={project.internalLink || project.link} 
                         target={project.internalLink ? "_self" : "_blank"}
                         rel={project.internalLink ? undefined : "noopener noreferrer"}
-                        className="relative z-40 inline-flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-black bg-[#ffcc01] hover:bg-white px-10 py-5 rounded-full transition-all hover:scale-105 active:scale-95 shadow-xl w-fit"
+                        className="relative z-40 inline-flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-black bg-[#ffcc01] hover:bg-[#e6b800] px-8 py-4 rounded-none transition-all hover:scale-105 active:scale-95 shadow-lg group-hover/card:shadow-xl w-fit"
                       >
                         EXPLORE MY WORK <ArrowRight size={14} />
                       </a>
@@ -594,10 +594,10 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group p-10 bg-background border border-border/50 rounded-[40px] hover:border-[#ffcc01] transition-all hover:shadow-2xl shadow-sm relative overflow-hidden"
+                className="group p-10 bg-background border border-border/50 rounded-none hover:border-[#ffcc01] transition-all hover:shadow-2xl shadow-sm relative overflow-hidden"
               >
                 <div className="relative z-10 space-y-6">
-                  <div className="w-16 h-16 rounded-2xl bg-[#ffcc01]/10 flex items-center justify-center text-[#ffcc01] group-hover:bg-[#ffcc01] group-hover:text-black transition-all duration-500">
+                  <div className="w-16 h-16 rounded-none bg-[#ffcc01]/10 flex items-center justify-center text-[#ffcc01] group-hover:bg-[#ffcc01] group-hover:text-black transition-all duration-500">
                     {cat.icon}
                   </div>
                   <div className="space-y-3">
@@ -727,9 +727,9 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="p-8 bg-card border border-border/40 rounded-[32px] hover:border-[#ffcc01]/50 transition-all group flex flex-col h-full"
+                className="p-8 bg-card border border-border/40 rounded-none hover:border-[#ffcc01]/50 transition-all group flex flex-col h-full"
               >
-                <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-muted group-hover:bg-[#ffcc01] group-hover:text-black transition-all mb-6">
+                <div className="w-12 h-12 rounded-none bg-foreground/5 flex items-center justify-center text-muted group-hover:bg-[#ffcc01] group-hover:text-black transition-all mb-6">
                   {sector.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-3 tracking-tight">{sector.title}</h3>
@@ -783,16 +783,16 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="p-12 bg-card border border-border/50 rounded-[48px] hover:border-[#ffcc01] transition-all flex flex-col gap-10 group shadow-sm hover:shadow-xl"
+                className="p-12 bg-card border border-border/50 rounded-none hover:border-[#ffcc01] transition-all flex flex-col gap-10 group shadow-sm hover:shadow-xl"
               >
-                <div className="w-20 h-20 rounded-full bg-[#ffcc01] flex items-center justify-center text-black group-hover:scale-110 transition-transform shadow-lg">
+                <div className="w-20 h-20 rounded-none bg-[#ffcc01] flex items-center justify-center text-black group-hover:scale-110 transition-transform shadow-lg">
                   {idx === 0 ? <Layers strokeWidth={1.5} size={32} /> : idx === 1 ? <TrendingUp strokeWidth={1.5} size={32} /> : <LifeBuoy strokeWidth={1.5} size={32} />}
                 </div>
                 <div className="space-y-6">
                   <h3 className="text-3xl font-bold tracking-tight">{item.category}</h3>
                   <div className="flex flex-wrap gap-2">
                     {item.skills.map(skill => (
-                      <span key={skill} className="px-4 py-1.5 bg-foreground/5 text-[11px] font-bold uppercase tracking-widest rounded-full">{skill}</span>
+                      <span key={skill} className="px-4 py-1.5 bg-foreground/5 text-[11px] font-bold uppercase tracking-widest rounded-none">{skill}</span>
                     ))}
                   </div>
                 </div>
@@ -803,22 +803,22 @@ export default function About() {
       </section>
 
       {/* ————— SECTION 4: STUDIO / EXPERIMENTAL ————— */}
-      <section id="studio" className="py-48 px-6 md:px-12 lg:px-24 bg-foreground text-background overflow-hidden relative">
-        <div className="max-w-[1400px] mx-auto w-full text-center space-y-16 relative z-10">
+      <section id="studio" className="py-24 md:py-48 px-6 md:px-12 lg:px-24 bg-foreground text-background overflow-hidden relative">
+        <div className="max-w-[1400px] mx-auto w-full text-center space-y-12 md:space-y-16 relative z-10">
           <motion.div {...fadeIn}>
             <span className="text-[12px] font-bold uppercase tracking-[0.5em] text-[#ffcc01] mb-8 sm:mb-12 block">The 7th Studio</span>
-            <h2 className="text-[40px] sm:text-[64px] md:text-[96px] lg:text-[120px] font-bold tracking-tighter leading-none italic">
+            <h2 className="text-[32px] sm:text-[48px] md:text-[72px] lg:text-[96px] font-bold tracking-tighter leading-[1.05] italic break-words">
               Imagination <br /> 
               <span className="text-[#ffcc01]">Running Ahead.</span>
             </h2>
-            <p className="text-[18px] sm:text-[20px] md:text-[24px] opacity-60 font-light max-w-2xl mx-auto mt-8 sm:mt-12 italic">
+            <p className="text-[16px] sm:text-[18px] md:text-[22px] opacity-60 font-light max-w-xl mx-auto mt-8 sm:mt-12 italic px-4">
               Where utility meets experimental art. A space for analogies, mental models, and the track I&apos;m on.
             </p>
           </motion.div>
           
-          <motion.div {...fadeIn} className="pt-20">
+          <motion.div {...fadeIn} className="pt-12 flex justify-center">
             <Link href="/laboratory">
-              <button className="px-16 py-8 bg-[#ffcc01] text-black font-black rounded-full uppercase tracking-[0.3em] text-xs hover:scale-105 transition-all shadow-xl">
+              <button className="px-8 py-4 bg-[#ffcc01] text-black font-black rounded-none uppercase tracking-[0.2em] text-[10px] hover:scale-105 transition-all shadow-xl w-fit">
                 Enter Laboratory
               </button>
             </Link>
@@ -852,13 +852,13 @@ export default function About() {
              
              <motion.div 
                {...fadeIn}
-               className="relative aspect-video lg:aspect-square bg-background rounded-[48px] overflow-hidden border border-border/50 shadow-2xl group"
+               className="relative w-full max-w-[420px] mx-auto aspect-square bg-white rounded-none overflow-hidden border border-border/50 shadow-2xl"
              >
                 <Image 
                   src="/hdi qr.png" 
                   alt="HDI Bhilai Chapter QR Code" 
                   fill 
-                  className="object-contain p-8 group-hover:scale-105 transition-transform duration-700" 
+                  className="object-contain p-4" 
                 />
              </motion.div>
            </div>
@@ -876,7 +876,7 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-0">
             {education.map((edu, idx) => (
               <CardContainer key={idx} className="inter-var w-full">
-                <CardBody className="group/edu relative p-12 bg-card border border-border/50 rounded-[40px] hover:border-[#ffcc01] transition-all shadow-sm hover:shadow-xl w-full h-auto">
+                <CardBody className="group/edu relative p-12 bg-card border border-border/50 rounded-none hover:border-[#ffcc01] transition-all shadow-sm hover:shadow-xl w-full h-auto">
                   <div className="flex justify-between items-start mb-8">
                     <CardItem
                       translateZ="100"
@@ -953,7 +953,7 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
               {...fadeIn} 
-              className="block relative aspect-[3/4] max-w-md mx-auto w-full bg-card rounded-[48px] overflow-hidden border border-border/50 group shadow-2xl cursor-pointer"
+              className="block relative aspect-[3/4] max-w-md mx-auto w-full bg-card rounded-none overflow-hidden border border-border/50 group shadow-2xl cursor-pointer"
             >
               <Image 
                 src="/keynote (1).png" 
@@ -984,22 +984,22 @@ export default function About() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-widest text-muted">Full Name</label>
-                    <input type="text"  className="w-full bg-background border border-border/50 rounded-2xl px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm" />
+                    <input type="text"  className="w-full bg-background border border-border/50 rounded-none px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-widest text-muted">Email Address</label>
-                    <input type="email"  className="w-full bg-background border border-border/50 rounded-2xl px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm" />
+                    <input type="email"  className="w-full bg-background border border-border/50 rounded-none px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm" />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-widest text-muted">Subject</label>
-                  <input type="text"  className="w-full bg-background border border-border/50 rounded-2xl px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm" />
+                  <input type="text"  className="w-full bg-background border border-border/50 rounded-none px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-widest text-muted">Message</label>
-                  <textarea rows={5}  className="w-full bg-background border border-border/50 rounded-2xl px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm resize-none"></textarea>
+                  <textarea rows={5}  className="w-full bg-background border border-border/50 rounded-none px-6 py-4 outline-none focus:border-[#ffcc01] transition-colors text-sm resize-none"></textarea>
                 </div>
-                <button type="submit" className="w-full bg-foreground text-background font-bold uppercase tracking-[0.3em] py-6 rounded-2xl hover:bg-[#ffcc01] hover:text-black transition-all shadow-xl">
+                <button type="submit" className="w-full bg-foreground text-background font-bold uppercase tracking-[0.3em] py-6 rounded-none hover:bg-[#ffcc01] hover:text-black transition-all shadow-xl">
                   Send Message
                 </button>
               </form>
@@ -1016,7 +1016,7 @@ export default function About() {
                 <a 
                   key={idx} 
                   href={contact.href}
-                  className="p-8 bg-card border border-border/50 rounded-[40px] flex flex-col items-start gap-4 hover:border-[#ffcc01] hover:shadow-xl transition-all group shadow-sm"
+                  className="p-8 bg-card border border-border/50 rounded-none flex flex-col items-start gap-4 hover:border-[#ffcc01] hover:shadow-xl transition-all group shadow-sm"
                 >
                   <div className="w-12 h-12 rounded-full bg-[#ffcc01]/10 flex items-center justify-center text-muted group-hover:bg-[#ffcc01] group-hover:text-black transition-all">
                     {contact.icon}

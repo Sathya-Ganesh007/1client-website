@@ -136,7 +136,7 @@ export default function Navbar() {
           >
             {isStudioPage && <ChevronLeft size={16} className="text-orange-500" />}
             <div className="flex items-center gap-3">
-              <div className="relative w-40 h-10">
+              <div className="relative w-40 h-10 rounded-none overflow-hidden">
                 <Image 
                   src="/signature.png" 
                   alt="Tushar Kasarlewar Signature" 
@@ -177,7 +177,7 @@ export default function Navbar() {
       {/* Mobile Toggle */}
       <div className="flex md:hidden items-center gap-4 relative z-[101]">
         <ThemeSwitcher />
-        <button onClick={() => setIsOpen(true)} className="p-2 text-muted hover:text-foreground transition-all">
+        <button onClick={() => setIsOpen(true)} className="p-2 rounded-none text-muted hover:text-foreground transition-all">
           <Menu size={26} strokeWidth={1.5} />
         </button>
       </div>

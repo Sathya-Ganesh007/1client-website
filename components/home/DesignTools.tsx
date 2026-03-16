@@ -158,8 +158,8 @@ export default function DesignTools() {
         ))}
         {/* And Many More Card */}
         <CardContainer className="inter-var w-full h-full">
-          <CardBody className="group/card relative p-12 w-full h-full bg-card/60 backdrop-blur-sm border border-dashed border-border/50 rounded-[48px] hover:border-[#ffcc01]/40 hover:bg-card/80 transition-all duration-500 hover:shadow-2xl shadow-sm flex flex-col justify-center items-center text-center space-y-6 min-h-[320px]">
-            <CardItem translateZ={100} className="w-20 h-20 rounded-full bg-[#ffcc01]/10 flex items-center justify-center text-[#ffcc01]">
+          <CardBody className="group/card relative p-12 w-full h-full bg-card/60 backdrop-blur-sm border border-dashed border-border/50 rounded-none hover:border-[#ffcc01]/40 hover:bg-card/80 transition-all duration-500 hover:shadow-2xl shadow-sm flex flex-col justify-center items-center text-center space-y-6 min-h-[320px]">
+            <CardItem translateZ={100} className="w-20 h-20 rounded-none bg-[#ffcc01]/10 flex items-center justify-center text-[#ffcc01]">
               <Share2 size={32} />
             </CardItem>
             <div className="space-y-3">
@@ -186,13 +186,13 @@ export default function DesignTools() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-8 gap-y-0">
           {aiTools.map((tool, idx) => (
             <CardContainer key={idx} className="inter-var w-full h-full">
-              <CardBody className="group/card relative p-8 w-full h-auto bg-card/40 backdrop-blur-sm border border-border/40 rounded-[40px] hover:border-[#ffcc01]/40 hover:bg-card/80 transition-all duration-500 hover:shadow-2xl shadow-sm">
+              <CardBody className="group/card relative p-8 w-full h-auto bg-card/40 backdrop-blur-sm border border-border/40 rounded-none hover:border-[#ffcc01]/40 hover:bg-card/80 transition-all duration-500 hover:shadow-2xl shadow-sm">
                 <div className="flex flex-col gap-6 h-full">
                   <div className="flex justify-between items-start">
-                    <CardItem translateZ={120} className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ color: tool.color, background: `${tool.color}18` }}>
+                    <CardItem translateZ={120} className="w-16 h-16 rounded-none flex items-center justify-center" style={{ color: tool.color, background: `${tool.color}18` }}>
                       {tool.icon}
                     </CardItem>
-                    <CardItem translateZ={50} className="px-3 py-1 bg-foreground/5 rounded-full border border-border/20">
+                    <CardItem translateZ={50} className="px-3 py-1 bg-foreground/5 rounded-none border border-border/20">
                       <span className="text-[10px] font-black uppercase tracking-widest text-[#ffcc01]">{tool.proficiency}%</span>
                     </CardItem>
                   </div>
@@ -219,7 +219,7 @@ function ToolCard({ tool, idx }: { tool: any, idx: number }) {
   
   return (
     <CardContainer className="inter-var w-full h-full">
-      <CardBody className="group/card relative p-12 w-full h-auto bg-card/60 backdrop-blur-sm border border-border/50 rounded-[48px] hover:border-[#ffcc01]/40 hover:bg-card/80 transition-all duration-500 hover:shadow-2xl shadow-sm">
+      <CardBody className="group/card relative p-12 w-full h-auto bg-card/60 backdrop-blur-sm border border-border/50 rounded-none hover:border-[#ffcc01]/40 hover:bg-card/80 transition-all duration-500 hover:shadow-2xl shadow-sm">
         <div className="relative z-20 flex flex-col justify-between h-full space-y-12">
           {/* Tool Icon & Badge */}
           <div className="flex justify-between items-start">
@@ -240,7 +240,7 @@ function ToolCard({ tool, idx }: { tool: any, idx: number }) {
             </CardItem>
             <CardItem
               translateZ={50}
-              className="px-4 py-1.5 bg-foreground/5 rounded-full border border-border/20 backdrop-blur-md"
+              className="px-4 py-1.5 bg-foreground/5 rounded-none border border-border/20 backdrop-blur-md"
             >
                <span className="text-[10px] font-black uppercase tracking-widest text-[#ffcc01]">{tool.proficiency}%</span>
             </CardItem>
