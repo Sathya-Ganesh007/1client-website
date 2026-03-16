@@ -16,7 +16,7 @@ const tools = [
     name: "Figma", 
     category: "Interface Design",
     description: "Cloud-based design tool for vector graphics and interface prototyping with real-time collaboration.", 
-    iconPath: "/myself/pngwing.com.png",
+    iconPath: "/design tool/pngwing.com.png",
     proficiency: 98,
     type: "design"
   },
@@ -41,7 +41,7 @@ const tools = [
     name: "Notion", 
     category: "Documentation",
     description: "Unified workspace for connected notes, wikis, and project management for design systems and research.", 
-    iconPath: "/myself/notion.png",
+    iconPath: "/design tool/notion.png",
     proficiency: 96,
     type: "discovery"
   },
@@ -49,7 +49,7 @@ const tools = [
     name: "Framer", 
     category: "Web Building",
     description: "Next-generation design tool for building high-fidelity interactive sites with production-ready code.", 
-    iconPath: "/myself/framer.png",
+    iconPath: "/design tool/framer.png",
     proficiency: 82,
     type: "design"
   },
@@ -67,6 +67,14 @@ const tools = [
     description: "Professional website builder that allows for designing, building, and launching responsive websites visually.", 
     iconPath: "/design tool/webflow logo blue .png",
     proficiency: 85,
+    type: "design"
+  },
+  { 
+    name: "Photoshop", 
+    category: "Pixel Perfection",
+    description: "The world's most advanced image editing and manipulation software for designers and photographers.", 
+    iconPath: "/design tool/pngwing.com (1).png",
+    proficiency: 95,
     type: "design"
   }
 ];
@@ -105,9 +113,9 @@ const aiTools = [
     proficiency: 88,
     color: "#000000",
     icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12">
-        <path d="M3.5 3C3.5 3 2 4.5 2 8c0 2.5 1 4.5 2.5 6L12 21l7.5-7c1.5-1.5 2.5-3.5 2.5-6 0-3.5-1.5-5-1.5-5H3.5zm8.5 2l6 .5S19 6.5 19 8c0 2-.8 3.5-2 4.8L12 17.5 7 12.8C5.8 11.5 5 10 5 8c0-1.5.5-2.5.5-2.5L9.5 5l2.5 1.5L14.5 5"/>
-      </svg>
+      <div className="relative w-10 h-10">
+        <Image src="/mid jounry.png" alt="Midjourney" fill className="object-contain brightness-0 dark:brightness-100" />
+      </div>
     )
   },
   {

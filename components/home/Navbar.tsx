@@ -136,20 +136,12 @@ export default function Navbar() {
           >
             {isStudioPage && <ChevronLeft size={16} className="text-orange-500" />}
             <div className="flex items-center gap-3">
-              <div className="relative w-8 h-8 opacity-90">
-                <Image 
-                  src="/mid jounry.png" 
-                  alt="Midjourney Logo" 
-                  fill 
-                  className="object-contain invert dark:invert-0" 
-                />
-              </div>
               <div className="relative w-40 h-10">
                 <Image 
                   src="/signature.png" 
                   alt="Tushar Kasarlewar Signature" 
                   fill 
-                  className="object-contain" 
+                  className="object-contain dark:invert" 
                   priority
                 />
               </div>
