@@ -824,10 +824,6 @@ export default function About() {
             </Link>
           </motion.div>
         </div>
-        
-        {/* Background decorative element */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-background/5 rounded-full pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-background/5 rounded-full pointer-events-none" />
       </section>
 
       {/* ————— SECTION 6: COMMUNITY ————— */}
