@@ -937,8 +937,8 @@ export default function About() {
               {/* Resume Button */}
               <div className="pt-4">
                 <DownloadResumeButton
-                  pdfPath="/pdf/RESUME -2026 (1).pdf"
-                  fileName="Tushar_Kasarlewar_Resume_2026.pdf"
+                  pdfPath="/pdf/RESUME Tushar .pdf"
+                  fileName="Tushar_Kasarlewar_Resume.pdf"
                 />
               </div>
             </motion.div>

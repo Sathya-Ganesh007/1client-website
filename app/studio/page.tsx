@@ -375,8 +375,8 @@ export default function The7thStudioWebsite() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-5xl font-extrabold mb-6">Let's Work Together</h2>
           <p className="text-xl text-white/70 mb-10">Ready to elevate your brand with strategic design?</p>
-          <a href="mailto:contact@the7thstudio.com" className="text-4xl font-bold text-orange-500 hover:text-orange-400 transition inline-block hover:scale-105">
-            contact@the7thstudio.com
+          <a href="mailto:tushar.kasarlewar@gmail.com" className="text-4xl font-bold text-orange-500 hover:text-orange-400 transition inline-block hover:scale-105">
+            tushar.kasarlewar@gmail.com
           </a>
         </div>
       </section>
