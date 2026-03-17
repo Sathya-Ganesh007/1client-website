@@ -65,7 +65,7 @@ const experience = [
   {
     role: "Brand Consultant & Strategic Designer",
     company: "MOGGLY India",
-    period: "March 2020 - May 2024",
+    period: "MAR 2020 - MAY 2024",
     location: "Bhilai",
     focus: "Strategy-Brand Consulting & Identity Systems",
     bullets: [
@@ -467,21 +467,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ————— SECTION: DESIGN TOOLS ————— */}
-      <section id="design-tools" className="bg-background relative overflow-hidden py-32 px-6 md:px-12 lg:px-24 border-t border-border/10">
-        <div className="max-w-[1400px] mx-auto w-full">
-          <div className="pb-12 flex flex-col md:flex-row justify-between items-start md:items-end border-b border-border/10 mb-12 gap-6">
-            <div className="space-y-4">
-              <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Professional Toolkit</span>
-              <h2 className="text-3xl md:text-7xl font-medium tracking-tight">My Workspace Essentials</h2>
-            </div>
-            <p className="text-muted text-sm max-w-sm mb-2 font-light">
-              The professional tools I use to craft digital experiences, from initial brainstorm to production-ready design.
-            </p>
-          </div>
-          <DesignTools />
-        </div>
-      </section>
+
 
 
       {/* ————— SECTION: PROJECTS ————— */}
@@ -799,6 +785,22 @@ export default function About() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ————— SECTION: DESIGN TOOLS ————— */}
+      <section id="design-tools" className="bg-background relative overflow-hidden py-32 px-6 md:px-12 lg:px-24 border-t border-border/10">
+        <div className="max-w-[1400px] mx-auto w-full">
+          <div className="pb-12 flex flex-col md:flex-row justify-between items-start md:items-end border-b border-border/10 mb-12 gap-6">
+            <div className="space-y-4">
+              <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Professional Toolkit</span>
+              <h2 className="text-3xl md:text-7xl font-medium tracking-tight">My Workspace Essentials</h2>
+            </div>
+            <p className="text-muted text-sm max-w-sm mb-2 font-light">
+              The professional tools I use to craft digital experiences, from initial brainstorm to production-ready design.
+            </p>
+          </div>
+          <DesignTools />
         </div>
       </section>
 

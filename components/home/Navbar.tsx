@@ -6,7 +6,6 @@ import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Menu, X, ChevronLeft } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 interface NavLink {
@@ -127,7 +126,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-between items-center py-4 md:py-6 px-6 md:px-12 bg-background/80 backdrop-blur-md border-b border-border/50">
+      <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-between items-center py-4 md:py-6 px-6 md:px-12 lg:px-24 bg-background/80 backdrop-blur-md border-b border-border/50">
         <CardContainer containerClassName="py-0" className="py-0">
         <CardItem translateZ="50">
           <div
@@ -135,18 +134,12 @@ export default function Navbar() {
             onClick={handleLogoClick}
           >
             {isStudioPage && <ChevronLeft size={16} className="text-orange-500" />}
-            <div className="flex items-center gap-3">
-              <div className="relative w-40 h-10 rounded-none overflow-hidden">
-                <Image 
-                  src="/signature.png" 
-                  alt="Tushar Kasarlewar Signature" 
-                  fill 
-                  className="object-contain dark:invert" 
-                  priority
-                />
-              </div>
+            <div className="flex items-center gap-2">
+              <span className="text-lg sm:text-xl md:text-2xl font-black tracking-tighter text-foreground uppercase whitespace-nowrap">
+                TUSHAR KASARLEWAR
+              </span>
             </div>
-            {isStudioPage && <span className="text-orange-500 font-bold tracking-tighter uppercase text-[17px]"> / STUDIO</span>}
+            {isStudioPage && <span className="text-orange-500 font-bold tracking-tighter uppercase text-[13px] md:text-[17px] whitespace-nowrap"> / STUDIO</span>}
           </div>
         </CardItem>
       </CardContainer>
