@@ -127,32 +127,28 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-between items-center py-4 md:py-6 px-6 md:px-10 lg:px-16 xl:px-24 bg-background/80 backdrop-blur-md border-b border-border/50">
-        <CardContainer containerClassName="py-0" className="py-0">
-        <CardItem translateZ="50">
-          <div
-            className="flex items-center gap-2 cursor-pointer transition-opacity hover:opacity-70"
-            onClick={handleLogoClick}
-          >
-            {isStudioPage && <ChevronLeft size={16} className="text-orange-500" />}
-            <div className="flex items-center gap-2">
-              <span className="text-lg md:text-xl xl:text-2xl font-black tracking-tighter text-foreground uppercase whitespace-nowrap">
-                TUSHAR KASARLEWAR
-              </span>
-            </div>
-            {isStudioPage && <span className="text-orange-500 font-bold tracking-tighter uppercase text-[13px] md:text-[15px] xl:text-[17px] whitespace-nowrap"> / STUDIO</span>}
+        <div
+          className="flex items-center gap-2 cursor-pointer transition-opacity hover:opacity-70"
+          onClick={handleLogoClick}
+        >
+          {isStudioPage && <ChevronLeft size={16} className="text-orange-500" />}
+          <div className="flex items-center gap-2">
+            <span className="text-lg md:text-xl xl:text-2xl font-black tracking-tighter text-foreground uppercase whitespace-nowrap">
+              TUSHAR KASARLEWAR
+            </span>
           </div>
-        </CardItem>
-      </CardContainer>
+          {isStudioPage && <span className="text-orange-500 font-bold tracking-tighter uppercase text-[12px] md:text-[14px] xl:text-[17px] whitespace-nowrap"> / STUDIO</span>}
+        </div>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center gap-4 lg:gap-8 xl:gap-10">
+      <div className="hidden lg:flex items-center gap-4 xl:gap-10">
         <div className="flex items-center gap-4 lg:gap-6 xl:gap-8">
           {currentLinks.map((link) => (
             <Link
               key={link.name}
               href={link.isExternal ? link.href : `${pathname}${link.href}`}
               onClick={(e) => handleLinkClick(e, link.href, link.isExternal)}
-              className={`text-[14px] font-medium transition-all duration-200 relative group ${
+              className={`text-[13px] xl:text-[14px] font-medium transition-all duration-200 relative group ${
                 isActive(link.href) ? "text-foreground" : "text-muted hover:text-foreground"
               }`}
             >
@@ -168,7 +164,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Toggle */}
-      <div className="flex md:hidden items-center gap-4 relative z-[101]">
+      <div className="flex lg:hidden items-center gap-4 relative z-[101]">
         <ThemeSwitcher />
         <button onClick={() => setIsOpen(true)} className="p-2 rounded-none text-muted hover:text-foreground transition-all">
           <Menu size={26} strokeWidth={1.5} />
@@ -184,7 +180,7 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: "100%" }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed inset-0 bg-background/98 backdrop-blur-3xl z-[9999] md:hidden overflow-y-auto overscroll-contain flex flex-col"
+          className="fixed inset-0 bg-background/98 backdrop-blur-3xl z-[9999] lg:hidden overflow-y-auto overscroll-contain flex flex-col"
         >
           {/* Top Bar inside Menu */}
           <div className="flex justify-end items-center py-4 px-6 mb-8 border-b border-border/10">
@@ -202,7 +198,7 @@ export default function Navbar() {
                 <Link
                   href={link.isExternal ? link.href : `${pathname}${link.href}`}
                   onClick={(e) => handleLinkClick(e, link.href, link.isExternal)}
-                  className={`text-[40px] font-bold tracking-tighter transition-all active:scale-95 block ${
+                  className={`text-[32px] md:text-[40px] font-bold tracking-tighter transition-all active:scale-95 block ${
                     isActive(link.href) ? (isStudioPage ? "text-orange-500" : "text-[#ffcc01]") : "text-muted hover:text-foreground"
                   }`}
                 >
