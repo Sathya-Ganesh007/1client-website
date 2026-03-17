@@ -213,7 +213,7 @@ export default function About() {
   return (
     <div className="flex flex-col gap-0 bg-background text-foreground transition-colors duration-300">
       {/* ————— SECTION 1: HERO ————— */}
-      <section id="home" className="min-h-screen flex flex-col justify-center pt-32 pb-10 px-6 md:px-12 lg:px-24 bg-background">
+      <section id="home" className="min-h-screen flex flex-col justify-center pt-32 pb-10 px-6 md:px-10 lg:px-16 xl:px-24 bg-background">
         <div className="max-w-[1400px] mx-auto w-full">
           <div className="flex flex-col lg:flex-row gap-12 items-center justify-between">
             {/* Left Content */}
@@ -354,7 +354,7 @@ export default function About() {
       </section>
 
       {/* ————— SECTION 2: EXPERIENCE ————— */}
-      <section id="experience" className="py-32 px-6 md:px-12 lg:px-24 bg-background">
+      <section id="experience" className="py-32 px-6 md:px-10 lg:px-16 xl:px-24 bg-background">
         <div className="max-w-[1400px] mx-auto w-full">
           <motion.div {...fadeIn} className="mb-12 md:mb-20">
             <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Professional Journey</span>
@@ -471,7 +471,7 @@ export default function About() {
 
 
       {/* ————— SECTION: PROJECTS ————— */}
-      <section id="projects" className="py-32 px-6 md:px-12 lg:px-24 bg-background">
+      <section id="projects" className="py-32 px-6 md:px-10 lg:px-16 xl:px-24 bg-background">
         <div className="max-w-[1400px] mx-auto w-full">
           <motion.div {...fadeIn} className="mb-12 md:mb-20">
             <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Live.</span>
@@ -536,7 +536,7 @@ export default function About() {
       </section>
       
       {/* ————— SECTION: PROJECT CATEGORIES ————— */}
-      <section id="categories" className="py-32 px-6 md:px-12 lg:px-24 bg-card/30">
+      <section id="categories" className="py-32 px-6 md:px-10 lg:px-16 xl:px-24 bg-card/30">
         <div className="max-w-[1400px] mx-auto w-full">
           <motion.div {...fadeIn} className="mb-12 md:mb-20">
             <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Specialization</span>
@@ -618,7 +618,7 @@ export default function About() {
       </section>
 
       {/* ————— SECTION: INDUSTRIES & SECTORS ————— */}
-      <section id="sectors" className="py-32 px-6 md:px-12 lg:px-24 bg-background">
+      <section id="sectors" className="py-32 px-6 md:px-10 lg:px-16 xl:px-24 bg-background">
         <div className="max-w-[1400px] mx-auto w-full">
           <motion.div {...fadeIn} className="mb-12 md:mb-16">
             <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Market Reach</span>
@@ -754,7 +754,7 @@ export default function About() {
       </section>
 
       {/* ————— SECTION 3: CORE EXPERTISE ————— */}
-      <section id="strategy" className="py-32 px-6 md:px-12 lg:px-24 bg-background">
+      <section id="strategy" className="py-32 px-6 md:px-10 lg:px-16 xl:px-24 bg-background">
         <div className="max-w-[1400px] mx-auto w-full">
           <motion.div {...fadeIn} className="mb-12 md:mb-20">
              <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Skills</span>
@@ -789,7 +789,7 @@ export default function About() {
       </section>
 
       {/* ————— SECTION: DESIGN TOOLS ————— */}
-      <section id="design-tools" className="bg-background relative overflow-hidden py-32 px-6 md:px-12 lg:px-24 border-t border-border/10">
+      <section id="design-tools" className="bg-background relative overflow-hidden py-32 px-6 md:px-10 lg:px-16 xl:px-24 border-t border-border/10">
         <div className="max-w-[1400px] mx-auto w-full">
           <div className="pb-12 flex flex-col md:flex-row justify-between items-start md:items-end border-b border-border/10 mb-12 gap-6">
             <div className="space-y-4">
@@ -805,7 +805,7 @@ export default function About() {
       </section>
 
       {/* ————— SECTION 4: STUDIO / EXPERIMENTAL ————— */}
-      <section id="studio" className="py-24 md:py-48 px-6 md:px-12 lg:px-24 bg-foreground text-background overflow-hidden relative">
+      <section id="studio" className="py-24 md:py-48 px-6 md:px-10 lg:px-16 xl:px-24 bg-foreground text-background overflow-hidden relative">
         <div className="max-w-[1400px] mx-auto w-full text-center space-y-12 md:space-y-16 relative z-10">
           <motion.div {...fadeIn}>
             <span className="text-[12px] font-bold uppercase tracking-[0.5em] text-[#ffcc01] mb-8 sm:mb-12 block">The 7th Studio</span>
@@ -829,7 +829,7 @@ export default function About() {
       </section>
 
       {/* ————— SECTION 6: COMMUNITY ————— */}
-      <section id="community" className="py-32 px-6 md:px-12 lg:px-24 bg-card relative overflow-hidden">
+      <section id="community" className="py-32 px-6 md:px-10 lg:px-16 xl:px-24 bg-card relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto w-full">
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
              <motion.div {...fadeIn} className="space-y-8">

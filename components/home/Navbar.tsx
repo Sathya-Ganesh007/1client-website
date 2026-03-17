@@ -126,7 +126,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-between items-center py-4 md:py-6 px-6 md:px-12 lg:px-24 bg-background/80 backdrop-blur-md border-b border-border/50">
+      <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-between items-center py-4 md:py-6 px-6 md:px-10 lg:px-16 xl:px-24 bg-background/80 backdrop-blur-md border-b border-border/50">
         <CardContainer containerClassName="py-0" className="py-0">
         <CardItem translateZ="50">
           <div
@@ -135,18 +135,18 @@ export default function Navbar() {
           >
             {isStudioPage && <ChevronLeft size={16} className="text-orange-500" />}
             <div className="flex items-center gap-2">
-              <span className="text-lg sm:text-xl md:text-2xl font-black tracking-tighter text-foreground uppercase whitespace-nowrap">
+              <span className="text-lg md:text-xl xl:text-2xl font-black tracking-tighter text-foreground uppercase whitespace-nowrap">
                 TUSHAR KASARLEWAR
               </span>
             </div>
-            {isStudioPage && <span className="text-orange-500 font-bold tracking-tighter uppercase text-[13px] md:text-[17px] whitespace-nowrap"> / STUDIO</span>}
+            {isStudioPage && <span className="text-orange-500 font-bold tracking-tighter uppercase text-[13px] md:text-[15px] xl:text-[17px] whitespace-nowrap"> / STUDIO</span>}
           </div>
         </CardItem>
       </CardContainer>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center gap-10">
-        <div className="flex items-center gap-8">
+      <div className="hidden md:flex items-center gap-4 lg:gap-8 xl:gap-10">
+        <div className="flex items-center gap-4 lg:gap-6 xl:gap-8">
           {currentLinks.map((link) => (
             <Link
               key={link.name}

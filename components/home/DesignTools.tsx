@@ -71,14 +71,14 @@ const tools = [
     proficiency: 85,
     type: "design"
   },
-  { 
-    name: "Photoshop", 
-    category: "Pixel Perfection",
-    description: "The world's most advanced image editing and manipulation software for designers and photographers.", 
-    iconPath: "/design tool/pngwing.com (1).png",
-    proficiency: 95,
-    type: "design"
-  }
+  // { 
+  //   name: "Photoshop", 
+  //   category: "Pixel Perfection",
+  //   description: "The world's most advanced image editing and manipulation software for designers and photographers.", 
+  //   iconPath: "/design tool/pngwing.com (1).png",
+  //   proficiency: 95,
+  //   type: "design"
+  // }
 ];
 
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
