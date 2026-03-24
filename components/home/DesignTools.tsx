@@ -120,18 +120,7 @@ const aiTools = [
       </div>
     )
   },
-  {
-    name: "Runway ML",
-    category: "AI Video & Motion",
-    description: "AI-powered video generation and editing for motion assets, presentations, and brand storytelling.",
-    proficiency: 78,
-    color: "#57068c",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
-      </svg>
-    )
-  },
+
   {
     name: "Notion AI",
     category: "AI Productivity",
@@ -141,6 +130,42 @@ const aiTools = [
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12 dark:invert">
         <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/>
+      </svg>
+    )
+  },
+  {
+    name: "Claude",
+    category: "AI Writing & Analysis",
+    description: "Advanced AI for deep analysis, long-form content structuring, and nuanced strategic writing.",
+    proficiency: 95,
+    color: "#d79d66",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+      </svg>
+    )
+  },
+  {
+    name: "Google Stitch",
+    category: "AI Data & Strategy",
+    description: "Data orchestration and strategic synthesis for competitive analysis and information architecture bridging.",
+    proficiency: 90,
+    color: "#4285F4",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 7h2v5.33l4.25 2.5-1 1.67-5.25-3.1V7z"/>
+      </svg>
+    )
+  },
+  {
+    name: "Chronicle AI",
+    category: "AI Presentations",
+    description: "AI-powered presentations designed for business-critical storytelling, combining superpowers with flexibility and taste.",
+    proficiency: 85,
+    color: "#000000",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12 dark:invert">
+        <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4L12 2z" />
       </svg>
     )
   }
