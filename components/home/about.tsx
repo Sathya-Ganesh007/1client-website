@@ -313,8 +313,8 @@ export default function About() {
             {[
               { icon: <Mic2 className="w-8 h-8" />, label: "Speaker", sectionId: "about" },
               { icon: <GraduationCap className="w-8 h-8" />, label: "Education", sectionId: "education" },
-              { icon: <Layers className="w-8 h-8" />, label: "Strategist", sectionId: "strategy" },
-              { icon: <TrendingUp className="w-8 h-8" />, label: "Designer", sectionId: "projects" }
+              { icon: <Layers className="w-8 h-8" />, label: "Skills", sectionId: "strategy" },
+              { icon: <TrendingUp className="w-8 h-8" />, label: "my contributions", sectionId: "projects" }
             ].map((sticker, idx) => (
               <div 
                 key={idx} 
