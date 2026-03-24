@@ -261,14 +261,7 @@ export default function About() {
                 >
                   Join Community
                 </button>
-                <a 
-                  href="https://spotify.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 md:px-10 py-3 md:py-4  bg-background text-foreground text-xs md:text-sm font-bold shadow-sm hover:bg-[#ffcc01] hover:text-black hover:scale-105 active:scale-95 active:bg-[#ffcc01] active:text-black border-2 border-foreground transition-all cursor-pointer whitespace-nowrap inline-block text-center"
-                >
-                  Listen Podcast
-                </a>
+
               </div>
             </motion.div>
 
