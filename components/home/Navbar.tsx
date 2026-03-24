@@ -134,7 +134,7 @@ export default function Navbar() {
           {isStudioPage && <ChevronLeft size={16} className="text-orange-500" />}
           <div className="flex items-center gap-2">
             <span className="text-lg md:text-xl xl:text-2xl font-black tracking-tighter text-foreground uppercase whitespace-nowrap">
-              TUSHAR KASARLEWAR
+              TUSHAR 
             </span>
           </div>
           {isStudioPage && <span className="text-orange-500 font-bold tracking-tighter uppercase text-[12px] md:text-[14px] xl:text-[17px] whitespace-nowrap"> / STUDIO</span>}
