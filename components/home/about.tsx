@@ -168,7 +168,7 @@ export default function About() {
   const [typingSpeed, setTypingSpeed] = useState(150);
 
 
-  const phrases = ["a Product Designer", "a UX Designer", "an Experience Strategist"];
+  const phrases = ["a Brand Designer", "a Brand Designer", "an Experience Strategist"];
 
   useEffect(() => {
     const handleTyping = () => {
