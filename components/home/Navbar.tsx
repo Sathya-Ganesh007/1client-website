@@ -4,15 +4,32 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Menu, X, ChevronLeft } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 interface NavLink {
   name: string;
   href: string;
   isExternal?: boolean;
 }
+
+const MAIN_LINKS: NavLink[] = [
+  { name: "About", href: "#home" },
+  { name: "Experience", href: "#experience" },
+  { name: "Projects", href: "#projects" },
+  { name: "Expertise", href: "#strategy" },
+];
+
+const STUDIO_LINKS: NavLink[] = [
+  { name: "About", href: "#about" },
+  { name: "Services", href: "#services" },
+  { name: "Roadmap", href: "#roadmap" },
+];
+
+const COMMON_LINKS: NavLink[] = [
+  { name: "Education", href: "#education" },
+  { name: "Speaking", href: "#about" },
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,29 +40,22 @@ export default function Navbar() {
   const isHomePage = pathname === "/";
   const isStudioPage = pathname === "/studio";
 
-  // Dynamic links based on context
-  const mainLinks: NavLink[] = [
-    { name: "About",      href: "#home"       },
-    { name: "Experience", href: "#experience" },
-    { name: "Projects",   href: "#projects"   },
-    { name: "Expertise",  href: "#strategy"   },
-  ];
+  const currentLinks = useMemo((): NavLink[] => {
+    if (isStudioPage) {
+      return [
+        { name: "Main Home", href: "/", isExternal: true },
+        ...STUDIO_LINKS,
+        { name: "Contact", href: "#contact" },
+      ];
+    }
+    return [...MAIN_LINKS, ...COMMON_LINKS];
+  }, [isStudioPage]);
 
-  const studioLinks: NavLink[] = [
-    { name: "About",      href: "#about"      },
-    { name: "Services",   href: "#services"   },
-    { name: "Roadmap",    href: "#roadmap"    },
-  ];
-
-  const commonLinks: NavLink[] = [
-    { name: "Education",  href: "#education"  },
-    { name: "Speaking",   href: "#about"      },
-  ];
-
-  // Decide which links to show
-  const currentLinks: NavLink[] = isStudioPage 
-    ? [{ name: "Main Home", href: "/", isExternal: true }, ...studioLinks, { name: "Contact", href: "#contact" }]
-    : [...mainLinks, ...commonLinks];
+  // Before paint on home: keep About (#home) active so the yellow underline shows immediately on load/reload
+  useLayoutEffect(() => {
+    if (pathname !== "/" || typeof window === "undefined") return;
+    if (window.scrollY < 120) setActiveSection("home");
+  }, [pathname]);
 
   // Track active section on current page
   useEffect(() => {
@@ -62,7 +72,9 @@ export default function Navbar() {
       if (!el) return;
       const obs = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
+          if (!entry.isIntersecting) return;
+          if (pathname === "/" && window.scrollY < 120 && id !== "home") return;
+          setActiveSection(id);
         },
         { threshold: 0.3 }
       );
@@ -71,7 +83,20 @@ export default function Navbar() {
     });
 
     return () => observers.forEach((o) => o.disconnect());
-  }, [pathname, currentLinks]);
+  }, [pathname, isStudioPage]);
+
+  // While at top of home page, keep About (#home) active when scrolling back
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const syncHome = () => {
+      if (window.scrollY < 120) setActiveSection("home");
+    };
+
+    syncHome();
+    window.addEventListener("scroll", syncHome, { passive: true });
+    return () => window.removeEventListener("scroll", syncHome);
+  }, [pathname]);
 
   const smoothScrollTo = (id: string) => {
     const offset = 80;
@@ -153,9 +178,15 @@ export default function Navbar() {
               }`}
             >
               {link.name}
-              <span className={`absolute -bottom-1 left-0 h-[2px] transition-all duration-300 ${
-                isStudioPage ? "bg-orange-500" : "bg-[#ffcc01]"
-              } ${isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"}`} />
+              <span
+                className={`absolute -bottom-1 left-0 h-[2px] ${
+                  isStudioPage ? "bg-orange-500" : "bg-[#ffcc01]"
+                } ${
+                  isActive(link.href)
+                    ? "w-full"
+                    : "w-0 transition-all duration-300 group-hover:w-full"
+                } ${isActive(link.href) && pathname === "/" && link.href === "#home" ? "!transition-none" : ""}`}
+              />
             </Link>
           ))}
         </div>

@@ -132,7 +132,8 @@ const education = [
 
 const projects = [
   {
-    title: "Green Bharat",
+    name: "Green Bharat",
+    title: "BRAND CONSULTANT",
     category: "Brand Strategy → Stewardship",
     desc: "Scaling a 100+ acre legacy through structural logic. Aligned founder vision with operational reality.",
     image: "/selected works/Group 334.png",
@@ -141,22 +142,24 @@ const projects = [
     internalLink: "/work/green-bharat"
   },
   {
-    title: "Eblity",
-    category: "UX Strategy → Systems",
-    desc: "Simplifying complex learning systems into cognitive-driven flows. UI thinking beyond visual candy.",
-    image: "/selected works/Group 332.png",
-    link: "https://www.eblity.com/",
-    tags: ["Systems", "Simplification"],
-    internalLink: "/work/eblity"
-  },
-  {
-    title: "Moggly India",
+    name: "Moggly India",
+    title: "BRAND DESIGNER",
     category: "Brand Design → Experience",
     desc: "Crafting intuitive UI/UX systems that align product functionality with user behavior and business growth.",
     image: "/selected works/moggly's landing preview.png",
     link: "https://www.moggly.in/",
     tags: ["Identity", "Experience"],
     internalLink: "/work/moggly"
+  },
+  {
+    name: "Eblity",
+    title: "UX STRATEGY",
+    category: "UX Strategy → Systems",
+    desc: "Simplifying complex learning systems into cognitive-driven flows. UI thinking beyond visual candy.",
+    image: "/selected works/Group 332.png",
+    link: "https://www.eblity.com/",
+    tags: ["Systems", "Simplification"],
+    internalLink: "/work/eblity"
   }
 ];
 
@@ -485,7 +488,7 @@ export default function About() {
                   >
                      <Image 
                        src={project.image} 
-                       alt={project.title} 
+                       alt={project.name} 
                        fill 
                        className="object-cover group-hover/card:scale-110 transition-transform duration-700" 
                      />

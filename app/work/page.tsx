@@ -4,21 +4,21 @@ import Navbar from "@/components/home/Navbar";
 export default function WorkPage() {
   const projects = [
     {
-      title: "Green Bharat",
+      title: "BRAND CONSULTANT",
       category: "Brand Strategy",
       description: "Scaling a legacy brand through structural logic and founder alignment.",
       href: "/work/green-bharat"
     },
     {
-      title: "Eblity",
+      title: "BRAND DESIGNER",
+      category: "Brand Management",
+      description: "Managing a retail brand's evolution and perception in a shifting market.",
+    },
+    {
+      title: "UX STRATEGY",
       category: "UX Strategy",
       description: "Simplifying complex learning systems into cognitive-driven flows.",
       href: "/work/eblity"
-    },
-    {
-      title: "Moggly India",
-      category: "Brand Management",
-      description: "Managing a retail brand's evolution and perception in a shifting market.",
     },
   ];
 

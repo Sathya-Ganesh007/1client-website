@@ -3,157 +3,178 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 
-const phases = [
+type Stage = {
+  title: string;
+  bullets: string[];
+};
+
+type Phase = {
+  title: string;
+  desc?: string | string[];
+  stages: Stage[];
+  afterStages?: string | string[];
+};
+
+const phases: Phase[] = [
   {
-    title: "FOUNDATIONAL STRATEGY",
-    desc: " Before we start working on the visuals or the website we need to do some research.",
+    title: "The Work",
+    desc: "I operate across the brand at a structural level.",
     stages: [
       {
-        title: "Brand Audit and Context Mapping",
+        title: "",
         bullets: [
-          "Let's find out who Green Bharat really is.",
-          "Is Green Bharat an agro project, an asset platform or a regenerative movement?",
-          "Who is the buyer of Green Bharat? Is it the Non-Resident Indian, the ESG investor, the urban wealth builder or the farmer-partner?",
-          "We will create a Brand Clarity Document that includes the positioning, audience and promise of Green Bharat."
-        ]
+          "Built the foundational positioning, voice, and narrative system",
+          "Aligned founder vision with how the brand shows up across touchpoints",
+          "Structured communication around sustainability, scale, and credibility",
+          "Ensured consistency across digital, on-ground, and stakeholder interactions",
+        ],
       },
+    ],
+  },
+  {
+    title: "Marketing & Execution Alignment",
+    desc: [
+      "As the business entered its marketing phase, my role expanded into execution control.",
+      "I lead brand alignment across all outputs created in collaboration with Ninaad Films — responsible for social media, documentaries, and lead generation.",
+      "The challenge: Execution was happening, but without a structured brand system.",
+      "My role is to bring that structure.",
+    ],
+    stages: [
       {
-        title: "Market and Competitor Intelligence",
+        title: "",
         bullets: [
-          "We will study agro-investment brands, real estate farm plot sellers and ESG-driven platforms.",
-          "We want to know their tone, promises and weaknesses.",
-          "We will not copy them. We will position Green Bharat opposite to them."
-        ]
+          "Define what should be communicated and why",
+          "Guide tone, visual direction, and narrative consistency",
+          "Ensure outputs align with long-term brand positioning",
+          "Prevent fragmentation across channels and formats",
+        ],
       },
-      {
-    
-        title: "Brand Positioning Framework",
-        bullets: [
-          "For Green Bharat we suggest the following: Category: Structured Agro-Asset Platform (Not 'farm plots for sale').",
-          "Core Axis: Wealth, Ecology, Legacy.",
-          "We will create a Brand Positioning Pyramid and a Messaging Architecture for Green Bharat."
-        ]
-      }
-    ]
+    ],
   },
   {
-    title: "BRAND IDENTITY SYSTEM",
-    desc: "Now we will start designing the brand identity for Green Bharat.",
+    title: "A Real Intervention",
+    desc: [
+      "Early social media creatives treated WinWin Infra (parent brand) and Green Bharat as interchangeable.",
+      "This created confusion in brand identity, tone, and visual language.",
+      "The output leaned toward:",
+    ],
     stages: [
       {
-      
-        title: "Brand Voice",
+        title: "",
         bullets: [
-          "The tone of Green Bharat should be authority, educated optimism and structured clarity.",
-          "No Screaming, just stating the facts."
-        ]
+          "Generic layouts",
+          "Inconsistent color usage (blue-heavy vs brand green)",
+          "Outdated typography",
+          "Parent brand overshadowing the actual product brand",
+        ],
       },
+    ],
+  },
+  {
+    title: "What I Changed",
+    desc: "I restructured how the brand is represented in execution.",
+    stages: [
       {
-       
-        title: "Visual Identity System",
+        title: "",
         bullets: [
-          "We need a premium and earth-toned color palette, strong typography and an icon system that includes trees, yield, asset and soil.",
-          "We will also use drone imagery for the aesthetic.",
-          "We will create a Logo system, Typography guide, Color system and Brand usage manual for Green Bharat."
-        ]
+          "Positioned WinWin as a credibility layer, not the primary identity",
+          "Reinforced Green Bharat as the main brand voice and visual system",
+          "Shifted color language to a consistent green-led palette",
+          "Introduced more modern, minimal typography",
+          "Simplified layouts to focus on clarity and hierarchy",
+        ],
       },
-      {
-       
-        title: "Value Proposition Framework",
-        bullets: [
-          "We have three pillars for Green Bharat:",
-          "Ecological Return",
-          "Financial Return",
-          "Community Return",
-          "Each pillar must have proof, not poetic claims."
-        ]
-      }
-    ]
+    ],
+    afterStages: [
+      "The difference is visible:",
+      "From scattered, template-driven creatives → to structured, brand-aligned communication",
+    ],
   },
   {
-    title: "WEBSITE ARCHITECTURE",
-    desc: "Now we will build the website for Green Bharat.",
+    title: "What I Focus On",
     stages: [
       {
-        title: "Information Architecture",
+        title: "",
         bullets: [
-          "The structure of the website should be:",
-          "Hero – Clear Positioning",
-          "The Problem – Why urban investors distrust agri",
-          "The System – Agroforestry model",
-          "Asset Models – Mango / Sandalwood",
-          "Proof – Acres, turnover, trees",
-          "Transparency – Compliance",
-          "Visit / Invest CTA, Impact Section, Founder Vision",
-          "Every section should answer a doubt."
-        ]
+          "Clarity over noise",
+          "Structure over decoration",
+          "Consistency over campaigns",
+        ],
       },
-      {
-        title: "Framer Build Execution",
-        bullets: [
-          "We will use motion subtly to give an eco-premium feel.",
-          "We will add scroll-based storytelling, data blocks and a drone video hero.",
-          "The website should feel modern, institutional and calm not rustic or like a brochure."
-        ]
-      }
-    ]
+    ],
+    afterStages:
+      "The goal is to make the brand behave as strongly as the business performs.",
   },
   {
-    title: "SALES & CONVERSION SYSTEM",
-    desc: "Now we will monetize the attention for Green Bharat.",
+    title: "The Reality",
+    desc: "Green Bharat operates at scale:",
     stages: [
       {
-        title: "Lead Funnel",
+        title: "",
         bullets: [
-          "The funnel should be: Reel → Website → Report Download → Call → Farm Visit → Close",
-          "We will create a 'Green Asset Report 2026' and a 10-Year Yield Model PDF.",
-          "We will also have a webinar funnel.",
-          "We are not selling land we are selling structured compounding for Green Bharat."
-        ]
-      }
-    ]
+          "100+ acres",
+          "8000+ trees",
+          "₹5Cr+ revenue within 2 years",
+        ],
+      },
+    ],
+    afterStages: "The challenge was never capability. It was perception.",
   },
   {
-    title: "VIDEO MARKETING ENGINE",
-    desc: "Now we will build a content engine for Green Bharat.",
+    title: "My Approach",
+    desc: 'Instead of "branding the farm," I focused on structuring the business narrative.',
     stages: [
       {
-        title: "Content Buckets",
+        title: "",
         bullets: [
-          "Myth Busting, System Education, Transparency, Emotional",
-          "The short form structure should have: Hook (0-3 sec), Problem, Insight, CTA",
-          "It should be clean, sharp and 30–45 seconds long."
-        ]
-      }
-    ]
+          'From "organic farm" → structured agro-enterprise',
+          "From inconsistent creatives → system-driven communication",
+          "From visual identity → brand behavior",
+        ],
+      },
+    ],
   },
   {
-    title: "TRUST MULTIPLIER",
-    desc: "Trust compounds like trees for Green Bharat.",
+    title: "What This Represents",
+    desc: [
+      "This work reflects how I operate.",
+      "I don't treat brand as a layer.",
+      "I treat it as a system that connects:",
+    ],
     stages: [
       {
-        title: "Growth & Consistency",
-        bullets: [
-          "We will have growth reports, farm events and an impact dashboard.",
-          "We will also have PR in sustainability publications."
-        ]
-      }
-    ]
+        title: "",
+        bullets: ["Business intent", "Operational reality", "Market perception"],
+      },
+    ],
   },
-  {
-    title: "SCALE SYSTEM",
-    desc: "Once the organic system works we will scale.",
-    stages: [
-      {
-        title: "Paid Acquisition",
-        bullets: [
-          "We will use paid YouTube ads LinkedIn targeting HNIs and NRI webinar funnel.",
-          "We will also have ESG positioning, for Green Bharat."
-        ]
-      }
-    ]
-  }
 ];
+
+function renderDesc(desc: string | string[] | undefined) {
+  if (!desc) return null;
+  const parts = Array.isArray(desc) ? desc : [desc];
+  return parts.map((text, i) => (
+    <p
+      key={i}
+      className="text-lg md:text-xl text-foreground/70 font-light italic border-l-2 border-[#ffcc01]/50 pl-5 ml-1 md:ml-0 md:pl-6 py-1"
+    >
+      {text}
+    </p>
+  ));
+}
+
+function renderAfterStages(after: string | string[] | undefined) {
+  if (!after) return null;
+  const parts = Array.isArray(after) ? after : [after];
+  return parts.map((text, i) => (
+    <p
+      key={i}
+      className="text-lg md:text-xl text-foreground/70 font-light italic border-l-2 border-[#ffcc01]/50 pl-5 ml-1 md:ml-0 md:pl-6 py-1 mt-6"
+    >
+      {text}
+    </p>
+  ));
+}
 
 export default function GreenBharatPage() {
   return (
@@ -166,17 +187,20 @@ export default function GreenBharatPage() {
             <ArrowLeft size={16} /> Back to Projects
           </Link>
           <div className="space-y-6">
-            <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-muted block">Complete Brand System</span>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground">Green Bharat <span className="text-[#ffcc01]">.</span></h1>
             <p className="text-xl md:text-2xl text-foreground/70 font-light leading-relaxed max-w-3xl">
-              We are going to create this system from the beginning. This is our 12-Stage Ecosystem Roadmap for Green Bharat.
+              Brand Direction, Stewardship & Marketing Alignment
+            </p>
+            <p className="text-xl md:text-2xl text-foreground/70 font-light leading-relaxed max-w-3xl">
+              Green Bharat is a growing agro-business built on scale, legacy, and long-term intent.
+              My role is to ensure the brand reflects that reality — clearly, consistently, and as it evolves.
             </p>
           </div>
         </div>
 
         {/* Hero Image */}
         <div className="aspect-video md:aspect-[21/9] relative rounded-[40px] overflow-hidden shadow-2xl border border-border/50">
-          <Image src="/GreenBharat.png" alt="Green Bharat Roadmap" fill className="object-cover" priority />
+          <Image src="/GreenBharat.png" alt="Green Bharat" fill className="object-cover" priority />
         </div>
 
         {/* Roadmap Content */}
@@ -200,15 +224,17 @@ export default function GreenBharatPage() {
                   <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#ffcc01] flex items-center gap-4">
                     <span className="md:hidden text-[#ffcc01]">{idx + 1}.</span> {phase.title}
                   </h2>
-                  <p className="text-lg md:text-xl text-foreground/70 font-light italic border-l-2 border-[#ffcc01]/50 pl-5 ml-1 md:ml-0 md:pl-6 py-1">{phase.desc}</p>
+                  <div className="space-y-4">{renderDesc(phase.desc)}</div>
                 </div>
 
                 <div className="grid grid-cols-1 gap-8">
                   {phase.stages.map((stage, sIdx) => (
                     <div key={sIdx} className="p-8 md:p-12 bg-card border border-border/50 rounded-[40px] hover:border-[#ffcc01]/50 transition-all shadow-sm hover:shadow-xl space-y-6 group">
-                      <div className="flex gap-4 items-start">
-                        <h3 className="text-2xl font-bold leading-tight group-hover:text-[#ffcc01] transition-colors">{stage.title}</h3>
-                      </div>
+                      {stage.title.trim() ? (
+                        <div className="flex gap-4 items-start">
+                          <h3 className="text-2xl font-bold leading-tight group-hover:text-[#ffcc01] transition-colors">{stage.title}</h3>
+                        </div>
+                      ) : null}
                       <ul className="space-y-5 pl-0 md:pl-[52px]">
                         {stage.bullets.map((bullet, bIdx) => (
                           <li key={bIdx} className="flex gap-4 text-muted items-start">
@@ -220,6 +246,8 @@ export default function GreenBharatPage() {
                     </div>
                   ))}
                 </div>
+
+                {renderAfterStages(phase.afterStages)}
               </div>
 
             </div>
@@ -243,7 +271,7 @@ export default function GreenBharatPage() {
         <div className="pt-16 pb-16 border-t border-border/30 text-center space-y-10 flex flex-col items-center">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight">Ready to build your ecosystem?</h2>
             <Link href="/#contact" className="inline-flex items-center gap-4 text-sm font-black uppercase tracking-[0.2em] text-black bg-[#ffcc01] hover:bg-[#e6b800] px-12 py-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-xl w-fit group">
-              Start a Conversation <ArrowLeft size={18} className="rotate-135 group-hover:rotate-180 transition-transform" />
+              WHAT I BRING TO THE TABLE <ArrowLeft size={18} className="rotate-135 group-hover:rotate-180 transition-transform" />
             </Link>
         </div>
 
