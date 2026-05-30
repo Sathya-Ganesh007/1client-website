@@ -1,13 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { 
   Zap, 
   Share2, 
   PenTool,
   ExternalLink,
-  ChevronRight
+  ChevronRight,
+  ChevronDown
 } from "lucide-react";
 
 import Image from "next/image";
@@ -83,6 +84,37 @@ const tools = [
 
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
+function GeminiIcon() {
+  const [failed, setFailed] = useState(false);
+
+  if (failed) {
+    return (
+      <svg viewBox="0 0 24 24" className="w-10 h-10">
+        <defs>
+          <linearGradient id="gemini-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#4285F4" />
+            <stop offset="100%" stopColor="#9B72CB" />
+          </linearGradient>
+        </defs>
+        <path
+          fill="url(#gemini-gradient)"
+          d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4L12 2z"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg"
+      alt="Gemini Canvas"
+      className="w-10 h-10 object-contain"
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
 const aiTools = [
   {
     name: "ChatGPT",
@@ -95,6 +127,14 @@ const aiTools = [
         <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.896zm16.597 3.855l-5.843-3.372L15.115 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.403-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/>
       </svg>
     )
+  },
+  {
+    name: "Gemini Canvas",
+    category: "AI Writing & Design",
+    description: "Used for long-form content creation, visual brainstorming, and collaborative document drafting with AI assistance.",
+    proficiency: 85,
+    color: "#4285F4",
+    icon: <GeminiIcon />
   },
   {
     name: "Perplexity",
@@ -171,33 +211,166 @@ const aiTools = [
   }
 ];
 
+function ManyMoreCard() {
+  return (
+    <CardContainer className="inter-var w-full h-full">
+      <CardBody className="group/card relative p-12 w-full h-full bg-card/60 backdrop-blur-sm border border-dashed border-border/50 rounded-none hover:border-[#ffcc01]/40 hover:bg-card/80 transition-all duration-500 hover:shadow-2xl shadow-sm flex flex-col justify-center items-center text-center space-y-6 min-h-[320px]">
+        <CardItem translateZ={100} className="w-20 h-20 rounded-none bg-[#ffcc01]/10 flex items-center justify-center text-[#ffcc01]">
+          <Share2 size={32} />
+        </CardItem>
+        <div className="space-y-3">
+          <CardItem translateZ={80} as="h3" className="text-2xl font-bold tracking-tight">
+            And Many More
+          </CardItem>
+          <CardItem translateZ={60} as="p" className="text-sm text-muted font-light px-4 leading-relaxed opacity-70">
+            Photoshop, After Effects, Spline, Slack, Webflow, and various strategy & research frameworks.
+          </CardItem>
+        </div>
+      </CardBody>
+    </CardContainer>
+  );
+}
+
+function AiToolCard({ tool }: { tool: (typeof aiTools)[number] }) {
+  return (
+    <CardContainer className="inter-var w-full h-full">
+      <CardBody className="group/card relative p-8 w-full h-auto bg-card/40 backdrop-blur-sm border border-border/40 rounded-none hover:border-[#ffcc01]/40 hover:bg-card/80 transition-all duration-500 hover:shadow-2xl shadow-sm">
+        <div className="flex flex-col gap-6 h-full">
+          <div className="flex justify-between items-start">
+            <CardItem translateZ={120} className="w-16 h-16 rounded-none flex items-center justify-center" style={{ color: tool.color, background: `${tool.color}18` }}>
+              {tool.icon}
+            </CardItem>
+            <CardItem translateZ={50} className="px-3 py-1 bg-foreground/5 rounded-none border border-border/20">
+              <span className="text-[10px] font-black uppercase tracking-widest text-[#ffcc01]">{tool.proficiency}%</span>
+            </CardItem>
+          </div>
+          <div className="space-y-2">
+            <CardItem translateZ={60} className="text-[9px] font-black uppercase tracking-[0.4em] text-muted/60 italic group-hover/card:text-[#ffcc01]/80 transition-colors">
+              {tool.category}
+            </CardItem>
+            <CardItem translateZ={80} as="h3" className="text-xl font-bold tracking-tight">{tool.name}</CardItem>
+            <CardItem translateZ={60} as="p" className="text-xs text-muted font-light leading-relaxed opacity-60 group-hover/card:opacity-100 transition-opacity">{tool.description}</CardItem>
+          </div>
+        </div>
+      </CardBody>
+    </CardContainer>
+  );
+}
+
+function MobileAccordion({
+  items,
+  openIndex,
+  onToggle,
+  getTag,
+  getTitle,
+  renderPanel,
+}: {
+  items: { id: string }[];
+  openIndex: number | null;
+  onToggle: (idx: number) => void;
+  getTag: (idx: number) => string;
+  getTitle: (idx: number) => string;
+  renderPanel: (idx: number) => React.ReactNode;
+}) {
+  return (
+    <div className="md:hidden flex flex-col divide-y divide-border/30">
+      {items.map((item, idx) => {
+        const isOpen = openIndex === idx;
+        return (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: idx * 0.08 }}
+          >
+            <button
+              onClick={() => onToggle(isOpen ? -1 : idx)}
+              className="w-full text-left py-8 flex items-center gap-4 group cursor-pointer focus:outline-none"
+            >
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted shrink-0 w-[100px] line-clamp-2">
+                {getTag(idx)}
+              </span>
+
+              <div className="flex-1 min-w-0">
+                <h3
+                  className={`text-2xl font-bold tracking-tight transition-colors duration-200 ${
+                    isOpen ? "text-[#ffcc01]" : "group-hover:text-[#ffcc01]"
+                  }`}
+                >
+                  {getTitle(idx)}
+                </h3>
+              </div>
+
+              <motion.div
+                animate={{ rotate: isOpen ? 180 : 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center border border-border/50 text-muted group-hover:border-[#ffcc01] group-hover:text-[#ffcc01] transition-colors duration-200"
+              >
+                <ChevronDown size={18} />
+              </motion.div>
+            </button>
+
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  key="content"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                  className="overflow-hidden"
+                >
+                  <div className="pb-10">{renderPanel(idx)}</div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function DesignTools() {
+  const [openWorkspaceTool, setOpenWorkspaceTool] = useState<number | null>(0);
+  const [openAiTool, setOpenAiTool] = useState<number | null>(0);
+
+  const workspaceAccordionItems = [
+    ...tools.map((tool, idx) => ({ id: `tool-${idx}` })),
+    { id: "many-more" },
+  ];
+
   return (
     <div className="relative w-full py-0 space-y-0">
       {/* Visual background element */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-transparent via-foreground/[0.01] to-transparent pointer-events-none" />
 
       {/* Design Tools Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-0">
+      <MobileAccordion
+        items={workspaceAccordionItems}
+        openIndex={openWorkspaceTool}
+        onToggle={(idx) => setOpenWorkspaceTool(idx === -1 ? null : idx)}
+        getTag={(idx) =>
+          idx < tools.length ? tools[idx].category : "Extended Toolkit"
+        }
+        getTitle={(idx) =>
+          idx < tools.length ? tools[idx].name : "And Many More"
+        }
+        renderPanel={(idx) =>
+          idx < tools.length ? (
+            <ToolCard tool={tools[idx]} idx={idx} />
+          ) : (
+            <ManyMoreCard />
+          )
+        }
+      />
+
+      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-0">
         {tools.map((tool, idx) => (
           <ToolCard key={idx} tool={tool} idx={idx} />
         ))}
-        {/* And Many More Card */}
-        <CardContainer className="inter-var w-full h-full">
-          <CardBody className="group/card relative p-12 w-full h-full bg-card/60 backdrop-blur-sm border border-dashed border-border/50 rounded-none hover:border-[#ffcc01]/40 hover:bg-card/80 transition-all duration-500 hover:shadow-2xl shadow-sm flex flex-col justify-center items-center text-center space-y-6 min-h-[320px]">
-            <CardItem translateZ={100} className="w-20 h-20 rounded-none bg-[#ffcc01]/10 flex items-center justify-center text-[#ffcc01]">
-              <Share2 size={32} />
-            </CardItem>
-            <div className="space-y-3">
-              <CardItem translateZ={80} as="h3" className="text-2xl font-bold tracking-tight">
-                And Many More
-              </CardItem>
-              <CardItem translateZ={60} as="p" className="text-sm text-muted font-light px-4 leading-relaxed opacity-70">
-                Photoshop, After Effects, Spline, Slack, Webflow, and various strategy & research frameworks.
-              </CardItem>
-            </div>
-          </CardBody>
-        </CardContainer>
+        <ManyMoreCard />
       </div>
 
       {/* AI Tools Sub-section */}
@@ -209,29 +382,18 @@ export default function DesignTools() {
           </div>
           <p className="text-muted text-sm max-w-xs font-light opacity-60">Leveraging AI to accelerate strategy, design, and content workflows.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-8 gap-y-0">
+        <MobileAccordion
+          items={aiTools.map((tool, idx) => ({ id: `ai-${idx}` }))}
+          openIndex={openAiTool}
+          onToggle={(idx) => setOpenAiTool(idx === -1 ? null : idx)}
+          getTag={(idx) => aiTools[idx].category}
+          getTitle={(idx) => aiTools[idx].name}
+          renderPanel={(idx) => <AiToolCard tool={aiTools[idx]} />}
+        />
+
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-8 gap-y-0">
           {aiTools.map((tool, idx) => (
-            <CardContainer key={idx} className="inter-var w-full h-full">
-              <CardBody className="group/card relative p-8 w-full h-auto bg-card/40 backdrop-blur-sm border border-border/40 rounded-none hover:border-[#ffcc01]/40 hover:bg-card/80 transition-all duration-500 hover:shadow-2xl shadow-sm">
-                <div className="flex flex-col gap-6 h-full">
-                  <div className="flex justify-between items-start">
-                    <CardItem translateZ={120} className="w-16 h-16 rounded-none flex items-center justify-center" style={{ color: tool.color, background: `${tool.color}18` }}>
-                      {tool.icon}
-                    </CardItem>
-                    <CardItem translateZ={50} className="px-3 py-1 bg-foreground/5 rounded-none border border-border/20">
-                      <span className="text-[10px] font-black uppercase tracking-widest text-[#ffcc01]">{tool.proficiency}%</span>
-                    </CardItem>
-                  </div>
-                  <div className="space-y-2">
-                    <CardItem translateZ={60} className="text-[9px] font-black uppercase tracking-[0.4em] text-muted/60 italic group-hover/card:text-[#ffcc01]/80 transition-colors">
-                      {tool.category}
-                    </CardItem>
-                    <CardItem translateZ={80} as="h3" className="text-xl font-bold tracking-tight">{tool.name}</CardItem>
-                    <CardItem translateZ={60} as="p" className="text-xs text-muted font-light leading-relaxed opacity-60 group-hover/card:opacity-100 transition-opacity">{tool.description}</CardItem>
-                  </div>
-                </div>
-              </CardBody>
-            </CardContainer>
+            <AiToolCard key={idx} tool={tool} />
           ))}
         </div>
       </div>
