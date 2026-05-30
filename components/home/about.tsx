@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
-import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2, ChevronRight, ChevronDown, Cpu, Globe, Cloud, ShoppingBag, Briefcase, UserCheck, Truck, Coffee, Sprout, Database, Home, Newspaper } from "lucide-react";
+import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2, ChevronRight, ChevronDown, Cpu, Globe, Cloud, ShoppingBag, Briefcase, UserCheck, Truck, Coffee, Sprout, Database, Home, Newspaper, BookOpen, PenLine, X } from "lucide-react";
 import Image from "next/image";
 import DownloadResumeButton from "@/components/DownloadResumeButton";
 import DesignTools from "./DesignTools";
@@ -137,7 +137,8 @@ const projectCategories = [
     icon: <Cpu className="w-8 h-8" />,
     tag: "Next-Gen Tech",
     links: [
-      { label: "calibr.ai", url: "https://calibr.ai/", type: "Live Application" }
+      { label: "calibr.ai", url: "https://calibr.ai/", type: "Live Application" },
+      { label: "Calibr.ai", url: "/pdf/Calibr.ai.pdf", type: "View Presentation" }
     ]
   },
   {
@@ -156,7 +157,8 @@ const projectCategories = [
     tag: "Product Ecosystems",
     links: [
       { label: "Ebility Flourish", url: "https://www.eblity.com/flourish", type: "Live Application" },
-      { label: "Moto Platform", url: "https://www.motoplatform.in/", type: "Live Application" }
+      { label: "Moto Platform", url: "https://www.motoplatform.in/", type: "Live Application" },
+      { label: "Eblity Case Study", url: "/pdf/Eblity case study.pdf", type: "View Case Study" }
     ]
   },
   {
@@ -200,7 +202,8 @@ const projectCategories = [
     tag: "Direct-to-Consumer",
     focus: ["Digital brand architecture", "Conversion-focused messaging", "Experience storytelling"],
     links: [
-      { label: "Frido Brand Kit", url: "/tech/Brand Kit - frido.pdf" }
+      { label: "Frido Brand Kit", url: "/tech/Brand Kit - frido.pdf" },
+      { label: "Gabriel Verdino Brand Presentation", url: "/pdf/Brand Presentation - Gabriel Verdino.pdf" }
     ]
   },
   {
@@ -230,7 +233,7 @@ const projectCategories = [
     tag: "Tech Sector",
     focus: ["Product communication", "Platform positioning", "UX-led architecture"],
     links: [
-      { label: "AIPAN Branding", url: "/tech/AIPAN Branding  (1).pdf" }
+      { label: "AIPAN Branding", url: "/pdf/AIPAN Branding  (1).pdf" }
     ]
   },
   {
@@ -247,15 +250,15 @@ const projectCategories = [
 
 function CategoryCard({ cat }: { cat: (typeof projectCategories)[number] }) {
   return (
-    <div className="group p-10 bg-background border border-border/50 rounded-none hover:border-[#ffcc01] transition-all hover:shadow-2xl shadow-sm relative overflow-hidden">
-      <div className="relative z-10 space-y-6">
+    <div className="group h-full flex flex-col p-10 bg-background border border-border/50 rounded-none hover:border-[#ffcc01] transition-all hover:shadow-2xl shadow-sm relative overflow-hidden">
+      <div className="relative z-10 flex flex-col flex-grow space-y-6">
         <div className="w-16 h-16 rounded-none bg-[#ffcc01]/10 flex items-center justify-center text-[#ffcc01] group-hover:bg-[#ffcc01] group-hover:text-black transition-all duration-500">
           {cat.icon}
         </div>
-        <div className="space-y-3">
+        <div className="flex flex-col flex-grow space-y-3">
           <span className="text-[10px] font-bold uppercase tracking-widest text-[#ffcc01] opacity-70">{cat.tag}</span>
           <h3 className="text-3xl font-bold tracking-tight">{cat.title}</h3>
-          <p className="text-muted font-light leading-relaxed">{cat.desc}</p>
+          <p className="text-muted font-light leading-relaxed flex-grow">{cat.desc}</p>
         </div>
 
         {cat.focus && cat.focus.length > 0 && (
@@ -480,13 +483,14 @@ export default function About() {
             className="flex flex-wrap justify-center md:justify-start gap-8 md:gap-12 mt-20"
           >
             {[
+              { icon: <PenLine className="w-8 h-8" />, label: "Blog", sectionId: "footer" },
               { icon: <Mic2 className="w-8 h-8" />, label: "Speaker", sectionId: "about" },
               { icon: <GraduationCap className="w-8 h-8" />, label: "Education", sectionId: "education" },
               { icon: <Layers className="w-8 h-8" />, label: "Skills", sectionId: "strategy" },
               { icon: <TrendingUp className="w-8 h-8" />, label: "my contributions", sectionId: "projects" }
             ].map((sticker, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 onClick={() => scrollToSection(sticker.sectionId)}
                 className="flex flex-col items-center gap-3 group cursor-pointer"
               >
@@ -766,7 +770,7 @@ export default function About() {
           </div>
 
           {/* Desktop: responsive grid */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             {projectCategories.map((cat, idx) => (
               <motion.div
                 key={idx}
@@ -774,6 +778,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
+                className="h-full"
               >
                 <CategoryCard cat={cat} />
               </motion.div>
@@ -968,8 +973,8 @@ export default function About() {
               {/* Resume Button */}
               <div className="pt-4">
                 <DownloadResumeButton
-                  pdfPath="/pdf/RESUME Tushar .pdf"
-                  fileName="Tushar_Kasarlewar_Resume.pdf"
+                  pdfPath="/pdf/Resume Creative.pdf"
+                  fileName="Resume Creative.pdf"
                 />
               </div>
             </motion.div>
@@ -1060,7 +1065,7 @@ export default function About() {
       </section>
 
       {/* ————— FOOTER ————— */}
-      <footer className="py-32 px-6 md:px-12 bg-background border-t border-border/50 flex flex-col items-center text-center overflow-hidden">
+      <footer id="footer" className="py-32 px-6 md:px-12 bg-background border-t border-border/50 flex flex-col items-center text-center overflow-hidden">
         <motion.div
            initial={{ opacity: 0, scale: 0.9 }}
            whileInView={{ opacity: 0.05, scale: 1 }}
@@ -1073,18 +1078,38 @@ export default function About() {
         
         <div className="relative z-10 space-y-12">
           <div className="flex flex-wrap justify-center gap-8 text-[12px] font-bold uppercase tracking-[0.4em] text-muted">
-            <a href="mailto:tushar.kasarlewar@gmail.com" className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">Email</a>
-            <a href="https://www.linkedin.com/in/tushar-kasarlewar-43b476a8/" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">LinkedIn</a>
-            <a href="#" className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">Twitter (X)</a>
-            <a 
-              href="#projects" 
+            <a href="mailto:tushar.kasarlewar@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">
+              <Mail size={16} />
+              Email
+            </a>
+            <a href="https://www.linkedin.com/in/tushar-kasarlewar-43b476a8/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">
+              <Linkedin size={16} />
+              LinkedIn
+            </a>
+            <a href="https://x.com/tusharx007?s=21" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">
+              <X size={16} />
+              X
+            </a>
+            <a
+              href="#projects"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection("projects");
               }}
-              className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1"
+              className="flex items-center gap-2 hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1"
             >
+              <Briefcase size={16} />
               Work
+            </a>
+            <a href="https://medium.com/@tushar.kasarlewar" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">
+              <BookOpen size={16} />
+              Medium
+            </a>
+            <a href="https://medium.com/@tushar.kasarlewar/you-dont-need-an-app-to-create-great-ux-c87e898fe2d7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">
+              <PenLine size={16} />
+              Blog
             </a>
           </div>
           <p className="text-[10px] font-bold text-muted uppercase tracking-[0.6em]">Tushar Kasarlewar &copy; 2026 / UI/UX Designer &amp; Strategist</p>
