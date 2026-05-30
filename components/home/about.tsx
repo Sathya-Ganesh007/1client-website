@@ -301,9 +301,9 @@ function CategoryCard({ cat }: { cat: (typeof projectCategories)[number] }) {
 const projects = [
   {
     name: "Green Bharat",
-    title: "BRAND CONSULTANT",
+    title: "BRAND MANAGER",
     category: "Brand Strategy → Stewardship",
-    desc: "Scaling a 100+ acre legacy through structural logic. Aligned founder vision with operational reality.",
+    desc: "Scaling a 350+ acre legacy through structural logic. Aligned founder vision with operational reality.",
     image: "/selected works/Group 334.png",
     link: "https://greenbharatagro.com/",
     tags: ["Positioning", "Architecture"],
@@ -311,7 +311,7 @@ const projects = [
   },
   {
     name: "Moggly India",
-    title: "BRAND DESIGNER",
+    title: "EXPERIENCE STRATEGY",
     category: "Brand Design → Experience",
     desc: "Crafting intuitive UI/UX systems that align product functionality with user behavior and business growth.",
     image: "/selected works/moggly's landing preview.png",
