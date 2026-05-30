@@ -11,6 +11,8 @@ export default function DownloadResumeButton({ pdfPath, fileName }: DownloadResu
     <a
       href={pdfPath}
       download={fileName}
+      target="_blank"
+      rel="noopener noreferrer"
       className="w-full flex justify-between items-center px-10 py-8 bg-foreground text-background  group border-2 border-transparent hover:bg-transparent hover:border-foreground hover:text-foreground hover:scale-[1.02] transition-all shadow-xl"
     >
       <span className="text-sm font-bold uppercase tracking-[0.2em]">Download Detailed Resume</span>
