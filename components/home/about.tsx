@@ -35,7 +35,7 @@ const expertise = [
 
 const experience = [
   {
-    role: "Brand Manager",
+    role: "Brand Management",
     company: "Green Bharat",
     period: "Oct 2025 - Present",
     location: "Pune",
@@ -124,10 +124,10 @@ const earlierRoles = [
 ];
 
 const education = [
-  { degree: "PG in Brand Communication & Management", school: "MICA", period: "2022-2023", logo: "/mica logo.png" },
-  { degree: "Design Specialization", school: "Gurumantra", period: "2016-2017", logo: "/gurumantra logo .png" },
-  { degree: "Diploma in Design Engineering", school: "CADCAMGURU", period: "2015-2016", logo: "/cadcamguru logo.png" },
-  { degree: "B.tech in Mechanical Engineering", school: "SSTC", period: "2009-2013", logo: "/SSTC LOGO.png" }
+  { degree: "PG in Brand Communication & Management", school: "MICA", period: "2022-2023", logo: "/mica logo.png", link: "https://www.mica.ac.in/" },
+  { degree: "Design Specialization", school: "Gurumantra", period: "2016-2017", logo: "/gurumantra logo .png", link: "https://egurumantra.com/" },
+  { degree: "Diploma in Design Engineering", school: "CADCAMGURU", period: "2015-2016", logo: "/cadcamguru logo.png", link: "https://www.cadcamguru.com/" },
+  { degree: "B.tech in Mechanical Engineering", school: "SSTC", period: "2009-2013", logo: "/SSTC LOGO.png", link: "https://sstc.ac.in/" }
 ];
 
 const projects = [
@@ -867,33 +867,40 @@ export default function About() {
             <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Education</h2>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {education.map((edu, idx) => (
-              <CardContainer key={idx} className="inter-var w-full">
-                <CardBody className="group/edu relative p-12 bg-card border border-border/50 rounded-none hover:border-[#ffcc01] transition-all shadow-sm hover:shadow-xl w-full h-auto">
-                  <div className="flex justify-between items-start mb-8">
-                    <CardItem
-                      translateZ="100"
-                      className="w-20 h-20 rounded-2xl bg-white p-2 flex items-center justify-center shadow-md group-hover/edu:scale-105 transition-transform overflow-hidden relative"
-                    >
-                      {edu.logo ? (
-                        <div className="relative w-full h-full">
-                          <Image 
-                            src={edu.logo} 
-                            alt={edu.school || "Institution Logo"} 
-                            fill 
-                            className="object-contain"
-                          />
-                        </div>
-                      ) : (
-                        <GraduationCap className="w-10 h-10 text-black" />
-                      )}
-                    </CardItem>
-                    <CardItem translateZ="20" className="text-sm font-bold text-muted">{edu.period}</CardItem>
-                  </div>
-                  <CardItem translateZ="60" as="h3" className="text-2xl font-bold mb-2">{edu.degree}</CardItem>
-                  {edu.school && <CardItem translateZ="40" as="p" className="text-lg text-muted font-light italic">{edu.school}</CardItem>}
-                </CardBody>
+              <CardContainer key={idx} containerClassName="py-0 h-full w-full items-stretch" className="inter-var w-full h-full">
+                <a
+                  href={edu.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-full w-full"
+                >
+                  <CardBody className="h-full w-full group/edu relative p-12 bg-card border border-border/50 rounded-none hover:border-[#ffcc01] transition-all shadow-sm hover:shadow-xl">
+                    <div className="flex justify-between items-start mb-8">
+                      <CardItem
+                        translateZ="100"
+                        className="w-20 h-20 rounded-2xl bg-white p-2 flex items-center justify-center shadow-md group-hover/edu:scale-105 transition-transform overflow-hidden relative"
+                      >
+                        {edu.logo ? (
+                          <div className="relative w-full h-full">
+                            <Image 
+                              src={edu.logo} 
+                              alt={edu.school || "Institution Logo"} 
+                              fill 
+                              className="object-contain"
+                            />
+                          </div>
+                        ) : (
+                          <GraduationCap className="w-10 h-10 text-black" />
+                        )}
+                      </CardItem>
+                      <CardItem translateZ="20" className="text-sm font-bold text-muted">{edu.period}</CardItem>
+                    </div>
+                    <CardItem translateZ="60" as="h3" className="text-2xl font-bold mb-2">{edu.degree}</CardItem>
+                    {edu.school && <CardItem translateZ="40" as="p" className="text-lg text-muted font-light italic">{edu.school}</CardItem>}
+                  </CardBody>
+                </a>
               </CardContainer>
             ))}
           </div>
