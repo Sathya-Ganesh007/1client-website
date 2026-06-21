@@ -36,6 +36,7 @@ const expertise = [
 const experience = [
   {
     role: "Brand Management",
+    //hii
     company: "Green Bharat",
     period: "Oct 2025 - Present",
     location: "Pune",
