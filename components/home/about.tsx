@@ -302,7 +302,7 @@ function CategoryCard({ cat }: { cat: (typeof projectCategories)[number] }) {
 const projects = [
   {
     name: "Green Bharat",
-    title: "BRAND MANAGER",
+    title: "BRAND MANAGEMENT",
     category: "Brand Strategy → Stewardship",
     desc: "Scaling a 350+ acre legacy through structural logic. Aligned founder vision with operational reality.",
     image: "/selected works/Group 334.png",
