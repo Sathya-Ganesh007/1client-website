@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
-import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2, ChevronRight, ChevronDown, Cpu, Globe, Cloud, ShoppingBag, Briefcase, UserCheck, Truck, Coffee, Sprout, Database, Home, Newspaper } from "lucide-react";
+import { ArrowRight, Layers, TrendingUp, LifeBuoy, Mail, MapPin, Phone, Linkedin, ExternalLink, GraduationCap, Mic2, ChevronRight, ChevronDown, Cpu, Globe, Cloud, ShoppingBag, Briefcase, UserCheck, Truck, Coffee, Sprout, Database, Home, Newspaper, BookOpen, PenLine, X } from "lucide-react";
 import Image from "next/image";
 import DownloadResumeButton from "@/components/DownloadResumeButton";
 import DesignTools from "./DesignTools";
@@ -130,12 +130,180 @@ const education = [
   { degree: "B.tech in Mechanical Engineering", school: "SSTC", period: "2009-2013", logo: "/SSTC LOGO.png", link: "https://sstc.ac.in/" }
 ];
 
+const projectCategories = [
+  {
+    title: "AI Applications",
+    desc: "Intelligent interfaces and neural-driven experiences that bridge human intuition with machine capability.",
+    icon: <Cpu className="w-8 h-8" />,
+    tag: "Next-Gen Tech",
+    links: [
+      { label: "calibr.ai", url: "https://calibr.ai/", type: "Live Application" },
+      { label: "Calibr.ai", url: "/pdf/Calibr.ai.pdf", type: "View Presentation" }
+    ]
+  },
+  {
+    title: "Web Applications",
+    desc: "High-performance, scalable digital platforms designed for seamless user interaction and business efficiency.",
+    icon: <Globe className="w-8 h-8" />,
+    tag: "Scalable Systems",
+    links: [
+      { label: "Phone OPD App", url: "/tech/Phone OPD App Presentation.pdf", type: "View Presentation" }
+    ]
+  },
+  {
+    title: "SaaS Products",
+    desc: "Subscription-based software ecosystems focuses on complex workflows and user retention strategy.",
+    icon: <Cloud className="w-8 h-8" />,
+    tag: "Product Ecosystems",
+    links: [
+      { label: "Ebility Flourish", url: "https://www.eblity.com/flourish", type: "Live Application" },
+      { label: "Moto Platform", url: "https://www.motoplatform.in/", type: "Live Application" },
+      { label: "Eblity Case Study", url: "/pdf/Eblity case study.pdf", type: "View Case Study" }
+    ]
+  },
+  {
+    title: "FMCG",
+    desc: "Consumer-focused brands requiring strong product positioning and packaging narratives.",
+    icon: <ShoppingBag className="w-8 h-8" />,
+    tag: "Consumer Goods",
+    focus: ["Product storytelling", "Market differentiation", "Retail communication"],
+    links: [
+      { label: "MDD USP Presentation", url: "/tech/MDD USP Presentation.pdf" },
+      { label: "IDK Brand Presentation", url: "/tech/IDK-Brand Presentation 3.pdf" },
+      { label: "Taste Dubs", url: "/pdf/taste dubs.pdf" }
+    ]
+  },
+  {
+    title: "Real Estate",
+    desc: "Strategic brand systems for luxury developments and commercial real estate projects.",
+    icon: <Home className="w-8 h-8" />,
+    tag: "Property & Dev",
+    focus: ["Project positioning", "Investor narratives", "Market credibility"],
+    links: [
+      { label: "Ishanya Project", url: "/tech/Ishanya Project.pdf" },
+      { label: "Ishanya Brand Presentation", url: "/tech/Ishanya - Brand Presentation 2.pdf" }
+    ]
+  },
+  {
+    title: "B2C",
+    desc: "Consumer-facing brands focused on experience, engagement, and emotional connection.",
+    icon: <UserCheck className="w-8 h-8" />,
+    tag: "Consumer Brand",
+    focus: ["Customer journey mapping", "Brand communication", "Digital strategy"],
+    links: [
+      { label: "Bari Brand Strategy", url: "/pdf/Bari Final.pdf" },
+      { label: "Bari 2.0", url: "/pdf/Bari 2.pdf" }
+    ]
+  },
+  {
+    title: "D2C",
+    desc: "Digital-first brands that require strong identity systems and performance-driven communication.",
+    icon: <Truck className="w-8 h-8" />,
+    tag: "Direct-to-Consumer",
+    focus: ["Digital brand architecture", "Conversion-focused messaging", "Experience storytelling"],
+    links: [
+      { label: "Frido Brand Kit", url: "/tech/Brand Kit - frido.pdf" },
+      { label: "Gabriel Verdino Brand Presentation", url: "/pdf/Brand Presentation - Gabriel Verdino.pdf" }
+    ]
+  },
+  {
+    title: "Hospitality",
+    desc: "Businesses focused on experience, service perception, and guest engagement.",
+    icon: <Coffee className="w-8 h-8" />,
+    tag: "Service Industry",
+    focus: ["Experience design", "Brand storytelling", "Service systems"],
+    links: [
+      { label: "Skin Ethos", url: "/tech/convert-jpg-to-pdfnet_2021-09-09_09-38-36.pdf" }
+    ]
+  },
+  {
+    title: "Agriculture",
+    desc: "Agro-businesses requiring clarity in communicating scale, sustainability, and credibility. I helped Green Bharat Agro define their market positioning and digital presence.",
+    icon: <Sprout className="w-8 h-8" />,
+    tag: "Agro Business",
+    focus: ["Brand credibility", "Stakeholder communication", "Market positioning"],
+    links: [
+      { label: "Green Bharat Agro", url: "https://greenbharatagro.com/" }
+    ]
+  },
+  {
+    title: "Technology",
+    desc: "Tech-driven businesses requiring clear explanation of complex solutions.",
+    icon: <Database className="w-8 h-8" />,
+    tag: "Tech Sector",
+    focus: ["Product communication", "Platform positioning", "UX-led architecture"],
+    links: [
+      { label: "AIPAN Branding", url: "/pdf/AIPAN Branding  (1).pdf" }
+    ]
+  },
+  {
+    title: "Media & Publishing",
+    desc: "Organizations focused on content delivery, narrative systems, and editorial credibility.",
+    icon: <Newspaper className="w-8 h-8" />,
+    tag: "Media & Content",
+    focus: ["Narrative strategy", "Editorial systems", "Digital publishing"],
+    links: [
+      { label: "Chhattistv V2", url: "/tech/Chhattistv-V2.pdf" }
+    ]
+  }
+];
+
+function CategoryCard({ cat }: { cat: (typeof projectCategories)[number] }) {
+  return (
+    <div className="group h-full flex flex-col p-10 bg-background border border-border/50 rounded-none hover:border-[#ffcc01] transition-all hover:shadow-2xl shadow-sm relative overflow-hidden">
+      <div className="relative z-10 flex flex-col flex-grow space-y-6">
+        <div className="w-16 h-16 rounded-none bg-[#ffcc01]/10 flex items-center justify-center text-[#ffcc01] group-hover:bg-[#ffcc01] group-hover:text-black transition-all duration-500">
+          {cat.icon}
+        </div>
+        <div className="flex flex-col flex-grow space-y-3">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#ffcc01] opacity-70">{cat.tag}</span>
+          <h3 className="text-3xl font-bold tracking-tight">{cat.title}</h3>
+          <p className="text-muted font-light leading-relaxed flex-grow">{cat.desc}</p>
+        </div>
+
+        {cat.focus && cat.focus.length > 0 && (
+          <div className="pt-2 space-y-2">
+            <span className="text-[9px] font-black uppercase tracking-widest text-[#ffcc01]">Core Focus</span>
+            <div className="flex flex-col gap-1.5">
+              {cat.focus.map((item, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <div className="w-1 h-1 rounded-full bg-[#ffcc01]" />
+                  <span className="text-[11px] text-muted">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {cat.links && cat.links.length > 0 && (
+        <div className="mt-8 pt-6 border-t border-border/20 relative z-20 space-y-3">
+          {cat.links.map((link, lIdx) => (
+            <a
+              key={lIdx}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#ffcc01] hover:text-[#e6b800] transition-colors group/link"
+            >
+              {"type" in link && link.type ? `${link.type}: ${link.label}` : link.label}{" "}
+              <ExternalLink size={12} className="group-hover/link:translate-x-1 transition-transform" />
+            </a>
+          ))}
+        </div>
+      )}
+
+      <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-[#ffcc01]/5 rounded-full blur-3xl group-hover:bg-[#ffcc01]/20 transition-all duration-700" />
+    </div>
+  );
+}
+
 const projects = [
   {
     name: "Green Bharat",
-    title: "BRAND CONSULTANT",
+    title: "BRAND MANAGER",
     category: "Brand Strategy → Stewardship",
-    desc: "Scaling a 100+ acre legacy through structural logic. Aligned founder vision with operational reality.",
+    desc: "Scaling a 350+ acre legacy through structural logic. Aligned founder vision with operational reality.",
     image: "/selected works/Group 334.png",
     link: "https://greenbharatagro.com/",
     tags: ["Positioning", "Architecture"],
@@ -143,7 +311,7 @@ const projects = [
   },
   {
     name: "Moggly India",
-    title: "BRAND DESIGNER",
+    title: "EXPERIENCE STRATEGY",
     category: "Brand Design → Experience",
     desc: "Crafting intuitive UI/UX systems that align product functionality with user behavior and business growth.",
     image: "/selected works/moggly's landing preview.png",
@@ -165,13 +333,14 @@ const projects = [
 
 export default function About() {
   const [openExp, setOpenExp] = useState<number | null>(null);
+  const [openCategory, setOpenCategory] = useState<number | null>(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
 
-  const phrases = ["a Brand Designer", "a Brand Designer", "an Experience Strategist"];
+  const phrases = ["a Brand consultant", "a Brand Designer", "an Experience Strategist"];
 
   useEffect(() => {
     const handleTyping = () => {
@@ -314,13 +483,14 @@ export default function About() {
             className="flex flex-wrap justify-center md:justify-start gap-8 md:gap-12 mt-20"
           >
             {[
+              { icon: <PenLine className="w-8 h-8" />, label: "Blog", sectionId: "footer" },
               { icon: <Mic2 className="w-8 h-8" />, label: "Speaker", sectionId: "about" },
               { icon: <GraduationCap className="w-8 h-8" />, label: "Education", sectionId: "education" },
               { icon: <Layers className="w-8 h-8" />, label: "Skills", sectionId: "strategy" },
               { icon: <TrendingUp className="w-8 h-8" />, label: "my contributions", sectionId: "projects" }
             ].map((sticker, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 onClick={() => scrollToSection(sticker.sectionId)}
                 className="flex flex-col items-center gap-3 group cursor-pointer"
               >
@@ -539,210 +709,78 @@ export default function About() {
             <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Project Categories</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "AI Applications",
-                desc: "Intelligent interfaces and neural-driven experiences that bridge human intuition with machine capability.",
-                icon: <Cpu className="w-8 h-8" />,
-                tag: "Next-Gen Tech",
-                links: [
-                  { label: "calibr.ai", url: "https://calibr.ai/", type: "Live Application" }
-                ]
-              },
-              {
-                title: "Web Applications",
-                desc: "High-performance, scalable digital platforms designed for seamless user interaction and business efficiency.",
-                icon: <Globe className="w-8 h-8" />,
-                tag: "Scalable Systems",
-                links: [
-                  { label: "Phone OPD App", url: "/tech/Phone OPD App Presentation.pdf", type: "View Presentation" }
-                ]
-              },
-              {
-                title: "SaaS Products",
-                desc: "Subscription-based software ecosystems focuses on complex workflows and user retention strategy.",
-                icon: <Cloud className="w-8 h-8" />,
-                tag: "Product Ecosystems",
-                links: [
-                  { label: "Ebility Flourish", url: "https://www.eblity.com/flourish", type: "Live Application" },
-                  { label: "Moto Platform", url: "https://www.motoplatform.in/", type: "Live Application" }
-                ]
-              }
-            ].map((cat, idx) => (
+          {/* Mobile: accordion toggle (matches Experience section) */}
+          <div className="md:hidden flex flex-col divide-y divide-border/30">
+            {projectCategories.map((cat, idx) => {
+              const isOpen = openCategory === idx;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.08 }}
+                >
+                  <button
+                    onClick={() => setOpenCategory(isOpen ? null : idx)}
+                    className="w-full text-left py-8 flex items-center gap-4 group cursor-pointer focus:outline-none"
+                  >
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted shrink-0 w-[100px]">
+                      {cat.tag}
+                    </span>
+
+                    <div className="flex-1 min-w-0">
+                      <h3
+                        className={`text-2xl font-bold tracking-tight transition-colors duration-200 ${
+                          isOpen ? "text-[#ffcc01]" : "group-hover:text-[#ffcc01]"
+                        }`}
+                      >
+                        {cat.title}
+                      </h3>
+                    </div>
+
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center border border-border/50 text-muted group-hover:border-[#ffcc01] group-hover:text-[#ffcc01] transition-colors duration-200"
+                    >
+                      <ChevronDown size={18} />
+                    </motion.div>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="content"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pb-10">
+                          <CategoryCard cat={cat} />
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Desktop: responsive grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+            {projectCategories.map((cat, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group p-10 bg-background border border-border/50 rounded-none hover:border-[#ffcc01] transition-all hover:shadow-2xl shadow-sm relative overflow-hidden"
+                className="h-full"
               >
-                <div className="relative z-10 space-y-6">
-                  <div className="w-16 h-16 rounded-none bg-[#ffcc01]/10 flex items-center justify-center text-[#ffcc01] group-hover:bg-[#ffcc01] group-hover:text-black transition-all duration-500">
-                    {cat.icon}
-                  </div>
-                  <div className="space-y-3">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#ffcc01] opacity-70">{cat.tag}</span>
-                    <h3 className="text-3xl font-bold tracking-tight">{cat.title}</h3>
-                    <p className="text-muted font-light leading-relaxed">{cat.desc}</p>
-                  </div>
-                </div>
-
-                {cat.links && cat.links.length > 0 && (
-                  <div className="mt-8 pt-6 border-t border-border/20 relative z-20 space-y-3">
-                    {cat.links.map((link, lIdx) => (
-                      <a 
-                        key={lIdx}
-                        href={link.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#ffcc01] hover:text-[#e6b800] transition-colors group/link"
-                      >
-                        {link.type || "View Presentation"}: {link.label} <ExternalLink size={12} className="group-hover/link:translate-x-1 transition-transform" />
-                      </a>
-                    ))}
-                  </div>
-                )}
-                
-                {/* Decorative background element */}
-                <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-[#ffcc01]/5 rounded-full blur-3xl group-hover:bg-[#ffcc01]/20 transition-all duration-700" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ————— SECTION: INDUSTRIES & SECTORS ————— */}
-      <section id="sectors" className="py-32 px-6 md:px-10 lg:px-16 xl:px-24 bg-background">
-        <div className="max-w-[1400px] mx-auto w-full">
-          <motion.div {...fadeIn} className="mb-12 md:mb-16">
-            <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Market Reach</span>
-            <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Industries & Sectors</h2>
-            <p className="text-xl text-muted font-light mt-8 max-w-3xl leading-relaxed italic">
-              Across my consulting and strategic work, I have worked with organizations operating in multiple industries, helping them define brand positioning, market narratives, and digital experiences.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { 
-                title: "FMCG", 
-                icon: <ShoppingBag className="w-6 h-6" />,
-                desc: "Consumer-focused brands requiring strong product positioning and packaging narratives.",
-                focus: ["Product storytelling", "Market differentiation", "Retail communication"],
-                links: [
-                  { label: "MDD USP Presentation", url: "/tech/MDD USP Presentation.pdf" },
-                  { label: "IDK Brand Presentation", url: "/tech/IDK-Brand Presentation 3.pdf" },
-                  { label: "Taste Dubs", url: "/pdf/taste dubs.pdf" }
-                ]
-              },
-              { 
-                title: "Real Estate", 
-                icon: <Home className="w-6 h-6" />,
-                desc: "Strategic brand systems for luxury developments and commercial real estate projects.",
-                focus: ["Project positioning", "Investor narratives", "Market credibility"],
-                links: [
-                  { label: "Ishanya Project", url: "/tech/Ishanya Project.pdf" },
-                  { label: "Ishanya Brand Presentation", url: "/tech/Ishanya - Brand Presentation 2.pdf" }
-                ]
-              },
-              { 
-                title: "B2C", 
-                icon: <UserCheck className="w-6 h-6" />,
-                desc: "Consumer-facing brands focused on experience, engagement, and emotional connection.",
-                focus: ["Customer journey mapping", "Brand communication", "Digital strategy"],
-                links: [
-                  { label: "Bari Brand Strategy", url: "/pdf/Bari Final.pdf" },
-                  { label: "Bari 2.0", url: "/pdf/Bari 2.pdf" }
-                ]
-              },
-              { 
-                title: "D2C", 
-                icon: <Truck className="w-6 h-6" />,
-                desc: "Digital-first brands that require strong identity systems and performance-driven communication.",
-                focus: ["Digital brand architecture", "Conversion-focused messaging", "Experience storytelling"],
-                links: [
-                  { label: "Frido Brand Kit", url: "/tech/Brand Kit - frido.pdf" }
-                ]
-              },
-              { 
-                title: "Hospitality", 
-                icon: <Coffee className="w-6 h-6" />,
-                desc: "Businesses focused on experience, service perception, and guest engagement.",
-                focus: ["Experience design", "Brand storytelling", "Service systems"],
-                links: [
-                  { label: "Skin Ethos", url: "/tech/convert-jpg-to-pdfnet_2021-09-09_09-38-36.pdf" }
-                ]
-              },
-              { 
-                title: "Agriculture", 
-                icon: <Sprout className="w-6 h-6" />,
-                desc: "Agro-businesses requiring clarity in communicating scale, sustainability, and credibility. I helped Green Bharat Agro define their market positioning and digital presence.",
-                focus: ["Brand credibility", "Stakeholder communication", "Market positioning"],
-                links: [
-                  { label: "Green Bharat Agro", url: "https://greenbharatagro.com/" }
-                ]
-              },
-              { 
-                title: "Technology", 
-                icon: <Database className="w-6 h-6" />,
-                desc: "Tech-driven businesses requiring clear explanation of complex solutions.",
-                focus: ["Product communication", "Platform positioning", "UX-led architecture"],
-                links: [
-                  { label: "AIPAN Branding", url: "/tech/AIPAN Branding  (1).pdf" }
-                ]
-              },
-              { 
-                title: "Media & Publishing", 
-                icon: <Newspaper className="w-6 h-6" />,
-                desc: "Organizations focused on content delivery, narrative systems, and editorial credibility.",
-                focus: ["Narrative strategy", "Editorial systems", "Digital publishing"],
-                links: [
-                  { label: "Chhattistv V2", url: "/tech/Chhattistv-V2.pdf" }
-                ]
-              }
-            ].map((sector, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.05 }}
-                className="p-8 bg-card border border-border/40 rounded-none hover:border-[#ffcc01]/50 transition-all group flex flex-col h-full"
-              >
-                <div className="w-12 h-12 rounded-none bg-foreground/5 flex items-center justify-center text-muted group-hover:bg-[#ffcc01] group-hover:text-black transition-all mb-6">
-                  {sector.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-3 tracking-tight">{sector.title}</h3>
-                <p className="text-sm text-muted mb-6 font-light leading-relaxed flex-grow">{sector.desc}</p>
-                <div className="pt-6 border-t border-border/20 space-y-2">
-                  <span className="text-[9px] font-black uppercase tracking-widest text-[#ffcc01]">Core Focus</span>
-                  <div className="flex flex-col gap-1.5">
-                    {sector.focus.map((f, i) => (
-                      <div key={i} className="flex items-center gap-2">
-                        <div className="w-1 h-1 rounded-full bg-[#ffcc01]" />
-                        <span className="text-[11px] text-muted whitespace-nowrap">{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {sector.links && sector.links.length > 0 && (
-                  <div className="mt-auto pt-6 border-t border-border/20 space-y-3">
-                    {sector.links.map((link, lIdx) => (
-                      <a 
-                        key={lIdx}
-                        href={link.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#ffcc01] hover:text-[#e6b800] transition-colors group/link"
-                      >
-                        {link.label} <ExternalLink size={12} className="group-hover/link:translate-x-1 transition-transform" />
-                      </a>
-                    ))}
-                  </div>
-                )}
+                <CategoryCard cat={cat} />
               </motion.div>
             ))}
           </div>
@@ -942,8 +980,8 @@ export default function About() {
               {/* Resume Button */}
               <div className="pt-4">
                 <DownloadResumeButton
-                  pdfPath="/pdf/RESUME Tushar .pdf"
-                  fileName="Tushar_Kasarlewar_Resume.pdf"
+                  pdfPath="/pdf/Resume Creative.pdf"
+                  fileName="Resume Creative.pdf"
                 />
               </div>
             </motion.div>
@@ -1034,7 +1072,7 @@ export default function About() {
       </section>
 
       {/* ————— FOOTER ————— */}
-      <footer className="py-32 px-6 md:px-12 bg-background border-t border-border/50 flex flex-col items-center text-center overflow-hidden">
+      <footer id="footer" className="py-32 px-6 md:px-12 bg-background border-t border-border/50 flex flex-col items-center text-center overflow-hidden">
         <motion.div
            initial={{ opacity: 0, scale: 0.9 }}
            whileInView={{ opacity: 0.05, scale: 1 }}
@@ -1047,18 +1085,38 @@ export default function About() {
         
         <div className="relative z-10 space-y-12">
           <div className="flex flex-wrap justify-center gap-8 text-[12px] font-bold uppercase tracking-[0.4em] text-muted">
-            <a href="mailto:tushar.kasarlewar@gmail.com" className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">Email</a>
-            <a href="https://www.linkedin.com/in/tushar-kasarlewar-43b476a8/" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">LinkedIn</a>
-            <a href="#" className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">Twitter (X)</a>
-            <a 
-              href="#projects" 
+            <a href="mailto:tushar.kasarlewar@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">
+              <Mail size={16} />
+              Email
+            </a>
+            <a href="https://www.linkedin.com/in/tushar-kasarlewar-43b476a8/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">
+              <Linkedin size={16} />
+              LinkedIn
+            </a>
+            <a href="https://x.com/tusharx007?s=21" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">
+              <X size={16} />
+              X
+            </a>
+            <a
+              href="#projects"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection("projects");
               }}
-              className="hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1"
+              className="flex items-center gap-2 hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1"
             >
+              <Briefcase size={16} />
               Work
+            </a>
+            <a href="https://medium.com/@tushar.kasarlewar" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">
+              <BookOpen size={16} />
+              Medium
+            </a>
+            <a href="https://medium.com/@tushar.kasarlewar/you-dont-need-an-app-to-create-great-ux-c87e898fe2d7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ffcc01] transition-colors italic border-b border-transparent hover:border-[#ffcc01] pb-1">
+              <PenLine size={16} />
+              Blog
             </a>
           </div>
           <p className="text-[10px] font-bold text-muted uppercase tracking-[0.6em]">Tushar Kasarlewar &copy; 2026 / UI/UX Designer &amp; Strategist</p>
