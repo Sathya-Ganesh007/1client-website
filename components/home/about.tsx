@@ -35,64 +35,61 @@ const expertise = [
 
 const experience = [
   {
-    role: "Brand Management",
-    //hii
     company: "Green Bharat",
-    period: "Oct 2025 - Present",
-    location: "Pune",
-    focus: "Brand Stewardship & Scale",
-    bullets: [
-      "Responsible for overall brand direction and positioning.",
-      "Managing brand consistency across digital and offline platforms.",
-      "Aligning brand strategy with business and operations teams.",
-      "Developing communication guidelines and messaging frameworks.",
-      "Monitoring brand perception and market positioning."
+    roles: [
+      {
+        role: "Brand Manager",
+        period: "Oct 2025 - Present",
+        location: "Pune",
+        focus: "Brand Stewardship & Scale",
+        bullets: [
+          "Responsible for overall brand direction and positioning.",
+          "Managing brand consistency across digital and offline platforms.",
+          "Aligning brand strategy with business and operations teams.",
+          "Developing communication guidelines and messaging frameworks.",
+          "Monitoring brand perception and market positioning."
+        ]
+      }
     ]
   },
   {
-    role: "Brand Strategist",
     company: "Green Bharat",
-    period: "Aug 2024 - Sept 2025",
-    location: "Hybrid",
-    focus: "Strategy-Led Brand & Experience Design",
-    bullets: [
-      "Defined brand purpose, positioning, and value proposition.",
-      "Developed brand voice and messaging structure.",
-      "Conducted market and competitor analysis.",
-      "Created brand strategy documents and frameworks.",
-      "Supported leadership team with strategic brand decisions."
+    roles: [
+      {
+        role: "Brand Strategist",
+        period: "Aug 2024 - Sept 2025",
+        location: "Hybrid",
+        focus: "Strategy-Led Brand & Experience Design",
+        bullets: [
+          "Defined brand purpose, positioning, and value proposition.",
+          "Developed brand voice and messaging structure.",
+          "Conducted market and competitor analysis.",
+          "Created brand strategy documents and frameworks.",
+          "Supported leadership team with strategic brand decisions."
+        ]
+      }
     ]
   },
   {
-    role: "Brand Consultant & Strategic Designer",
     company: "MOGGLY India",
-    period: "MAR 2020 - MAY 2024",
-    location: "Bhilai",
-    focus: "Strategy-Brand Consulting & Identity Systems",
-    bullets: [
-      "Co-founded and led a design-led brand consultancy serving early-stage and growth-stage businesses.",
-      "Defined brand positioning, value propositions, and competitive differentiation.",
-      "Conducted market research, customer insight studies, and brand audits.",
-      "Developed brand architecture, messaging systems, and communication frameworks.",
-      "Designed identity systems including logos, visual guidelines, and brand assets.",
-      "Led UI/UX strategy to align digital platforms with brand positioning.",
-      "Improved customer journeys through UX research and CX mapping.",
-      "Managed end-to-end brand projects from strategy through execution.",
-      "Coordinated cross-functional teams including designers, developers, and marketing stakeholders."
-    ]
-  },
-  {
-    role: "Fractional Brand Strategy & UI/UX Lead",
-    company: "Digikraft Social",
-    period: "Nov 2024 - July 2025",
-    location: "Raipur",
-    focus: "Product Strategy, Experience Architecture & Agency Growth",
-    bullets: [
-      "Led brand positioning and digital experience strategy.",
-      "Mentored branding & UI/UX teams.",
-      "Built internal consulting and design frameworks.",
-      "Shifted agency approach from execution-led to strategy-first.",
-      "Conducted user research and workflow analysis."
+    roles: [
+      {
+        role: "Brand Consultant & Strategic Designer",
+        period: "MAR 2020 - MAY 2024",
+        location: "Bhilai",
+        focus: "Strategy-Brand Consulting & Identity Systems",
+        bullets: [
+          "Co-founded and led a design-led brand consultancy serving early-stage and growth-stage businesses.",
+          "Defined brand positioning, value propositions, and competitive differentiation.",
+          "Conducted market research, customer insight studies, and brand audits.",
+          "Developed brand architecture, messaging systems, and communication frameworks.",
+          "Designed identity systems including logos, visual guidelines, and brand assets.",
+          "Led UI/UX strategy to align digital platforms with brand positioning.",
+          "Improved customer journeys through UX research and CX mapping.",
+          "Managed end-to-end brand projects from strategy through execution.",
+          "Coordinated cross-functional teams including designers, developers, and marketing stakeholders."
+        ]
+      }
     ]
   }
 ];
@@ -333,7 +330,8 @@ const projects = [
 ];
 
 export default function About() {
-  const [openExp, setOpenExp] = useState<number | null>(null);
+  const [openExp, setOpenExp] = useState<string | null>(null);
+  const [showFullExperience, setShowFullExperience] = useState(false);
   const [openCategory, setOpenCategory] = useState<number | null>(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -520,123 +518,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ————— SECTION 2: EXPERIENCE ————— */}
-      <section id="experience" className="py-32 px-6 md:px-10 lg:px-16 xl:px-24 bg-background">
-        <div className="max-w-[1400px] mx-auto w-full">
-          <motion.div {...fadeIn} className="mb-12 md:mb-20">
-            <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Professional Journey</span>
-            <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Experience</h2>
-          </motion.div>
-
-          <div className="flex flex-col divide-y divide-border/30">
-            {experience.map((exp, idx) => {
-              const isOpen = openExp === idx;
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.08 }}
-                  className=""
-                >
-                  {/* ---- Clickable Header Row ---- */}
-                  <button
-                    onClick={() => setOpenExp(isOpen ? null : idx)}
-                    className="w-full text-left py-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-0 group cursor-pointer focus:outline-none"
-                  >
-                    {/* Period pill */}
-                    <span className="md:w-[200px] text-xs font-bold uppercase tracking-[0.2em] text-muted shrink-0">
-                      {exp.period}
-                    </span>
-
-                    {/* Role + Company */}
-                    <div className="flex-1 space-y-1">
-                      <h3 className={`text-2xl md:text-3xl font-bold tracking-tight transition-colors duration-200 ${
-                        isOpen ? "text-[#ffcc01]" : "group-hover:text-[#ffcc01]"
-                      }`}>
-                        {exp.role}
-                      </h3>
-                      <p className="text-base text-muted font-medium">
-                        {exp.company}
-                        <span className="mx-2 opacity-30">·</span>
-                        <span className="text-sm opacity-60">{exp.location}</span>
-                      </p>
-                    </div>
-
-                    {/* Chevron */}
-                    <motion.div
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center border border-border/50 text-muted group-hover:border-[#ffcc01] group-hover:text-[#ffcc01] transition-colors duration-200"
-                    >
-                      <ChevronDown size={18} />
-                    </motion.div>
-                  </button>
-
-                  {/* ---- Expandable Detail Panel ---- */}
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        key="content"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                        className="overflow-hidden"
-                      >
-                        <div className="pb-10 pl-0 md:pl-[200px] space-y-6">
-                          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#ffcc01]/70">
-                            Focus: {exp.focus}
-                          </p>
-                          <ul className="space-y-3">
-                            {exp.bullets.map((bullet, bIdx) => (
-                              <motion.li
-                                key={bIdx}
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: bIdx * 0.05 }}
-                                className="flex gap-4 text-muted items-start"
-                              >
-                                <div className="w-1.5 h-1.5 rounded-full bg-[#ffcc01] mt-[10px] shrink-0" />
-                                <p className="text-base md:text-lg font-light leading-relaxed">{bullet}</p>
-                              </motion.li>
-                            ))}
-                          </ul>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          <motion.div {...fadeIn} className="mt-20">
-            <h3 className="text-2xl font-bold mb-10 opacity-30 uppercase tracking-widest">Selected Past Roles</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {earlierRoles.map((role, idx) => (
-                <motion.a 
-                  key={idx} 
-                  href={role.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5 }}
-                  className="p-8 border border-border/50 rounded-3xl bg-card hover:border-[#ffcc01]/30 transition-all group"
-                >
-                  <span className="text-xs font-bold text-[#ffcc01] uppercase mb-2 block">{role.period}</span>
-                  <h4 className="font-bold text-xl mb-1 group-hover:text-[#ffcc01] transition-colors">{role.role}</h4>
-                  <p className="text-sm text-muted">{role.company}</p>
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-
-
-
       {/* ————— SECTION: PROJECTS ————— */}
       <section id="projects" className="py-32 px-6 md:px-10 lg:px-16 xl:px-24 bg-background">
         <div className="max-w-[1400px] mx-auto w-full">
@@ -701,7 +582,229 @@ export default function About() {
           </div>
         </div>
       </section>
-      
+
+      {/* ————— SECTION 2: EXPERIENCE ————— */}
+      <section id="experience" className="py-32 px-6 md:px-10 lg:px-16 xl:px-24 bg-background">
+        <div className="max-w-[1400px] mx-auto w-full">
+          <motion.div {...fadeIn} className="mb-12 md:mb-20">
+            <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-[#ffcc01] mb-4 block">Professional Journey</span>
+            <h2 className="text-3xl md:text-7xl font-medium tracking-tight">Experience</h2>
+          </motion.div>
+
+          <div className="flex flex-col divide-y divide-border/30">
+            {(showFullExperience ? experience : experience.slice(0, 1)).map((group, groupIdx) => {
+              const isGrouped = group.roles.length > 1;
+
+              if (!isGrouped) {
+                const exp = group.roles[0];
+                const expKey = `${groupIdx}-0`;
+                const isOpen = openExp === expKey;
+                return (
+                  <motion.div
+                    key={groupIdx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: groupIdx * 0.08 }}
+                  >
+                    <button
+                      onClick={() => setOpenExp(isOpen ? null : expKey)}
+                      className="w-full text-left py-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-0 group cursor-pointer focus:outline-none"
+                    >
+                      <span className="md:w-[200px] text-xs font-bold uppercase tracking-[0.2em] text-muted shrink-0">
+                        {exp.period}
+                      </span>
+
+                      <div className="flex-1 space-y-1">
+                        <h3 className={`text-2xl md:text-3xl font-bold tracking-tight transition-colors duration-200 ${
+                          isOpen ? "text-[#ffcc01]" : "group-hover:text-[#ffcc01]"
+                        }`}>
+                          {exp.role}
+                        </h3>
+                        <p className="text-base text-muted font-medium">
+                          {group.company}
+                          <span className="mx-2 opacity-30">·</span>
+                          <span className="text-sm opacity-60">{exp.location}</span>
+                        </p>
+                      </div>
+
+                      <motion.div
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center border border-border/50 text-muted group-hover:border-[#ffcc01] group-hover:text-[#ffcc01] transition-colors duration-200"
+                      >
+                        <ChevronDown size={18} />
+                      </motion.div>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          key="content"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pb-10 pl-0 md:pl-[200px] space-y-6">
+                            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#ffcc01]/70">
+                              Focus: {exp.focus}
+                            </p>
+                            <ul className="space-y-3">
+                              {exp.bullets.map((bullet, bIdx) => (
+                                <motion.li
+                                  key={bIdx}
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: bIdx * 0.05 }}
+                                  className="flex gap-4 text-muted items-start"
+                                >
+                                  <div className="w-1.5 h-1.5 rounded-full bg-[#ffcc01] mt-[10px] shrink-0" />
+                                  <p className="text-base md:text-lg font-light leading-relaxed">{bullet}</p>
+                                </motion.li>
+                              ))}
+                            </ul>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              }
+
+              return (
+                <motion.div
+                  key={groupIdx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: groupIdx * 0.08 }}
+                  className="py-8"
+                >
+                  <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">
+                    {group.company}
+                  </h3>
+
+                  <div className="mt-4 ml-1 border-l border-border/30 pl-6 md:pl-8">
+                    {group.roles.map((exp, roleIdx) => {
+                      const expKey = `${groupIdx}-${roleIdx}`;
+                      const isOpen = openExp === expKey;
+                      return (
+                        <div key={expKey} className="relative">
+                          <div className="absolute -left-[25px] md:-left-[33px] top-10 w-2 h-2 rounded-full bg-[#ffcc01] border-2 border-background" />
+
+                          <button
+                            onClick={() => setOpenExp(isOpen ? null : expKey)}
+                            className="w-full text-left py-6 first:pt-2 flex flex-col md:flex-row md:items-center gap-4 md:gap-0 group cursor-pointer focus:outline-none"
+                          >
+                            <span className="md:w-[200px] text-xs font-bold uppercase tracking-[0.2em] text-muted shrink-0">
+                              {exp.period}
+                            </span>
+
+                            <div className="flex-1 space-y-1">
+                              <h4 className={`text-2xl md:text-3xl font-bold tracking-tight transition-colors duration-200 ${
+                                isOpen ? "text-[#ffcc01]" : "group-hover:text-[#ffcc01]"
+                              }`}>
+                                {exp.role}
+                              </h4>
+                              <p className="text-base text-muted font-medium">
+                                <span className="text-sm opacity-60">{exp.location}</span>
+                              </p>
+                            </div>
+
+                            <motion.div
+                              animate={{ rotate: isOpen ? 180 : 0 }}
+                              transition={{ duration: 0.3, ease: "easeInOut" }}
+                              className="shrink-0 w-10 h-10 rounded-full flex items-center justify-center border border-border/50 text-muted group-hover:border-[#ffcc01] group-hover:text-[#ffcc01] transition-colors duration-200"
+                            >
+                              <ChevronDown size={18} />
+                            </motion.div>
+                          </button>
+
+                          <AnimatePresence initial={false}>
+                            {isOpen && (
+                              <motion.div
+                                key="content"
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                                className="overflow-hidden"
+                              >
+                                <div className="pb-8 pl-0 md:pl-[200px] space-y-6">
+                                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#ffcc01]/70">
+                                    Focus: {exp.focus}
+                                  </p>
+                                  <ul className="space-y-3">
+                                    {exp.bullets.map((bullet, bIdx) => (
+                                      <motion.li
+                                        key={bIdx}
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: bIdx * 0.05 }}
+                                        className="flex gap-4 text-muted items-start"
+                                      >
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#ffcc01] mt-[10px] shrink-0" />
+                                        <p className="text-base md:text-lg font-light leading-relaxed">{bullet}</p>
+                                      </motion.li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {showFullExperience && (
+            <motion.div {...fadeIn} className="mt-20">
+              <h3 className="text-2xl font-bold mb-10 opacity-30 uppercase tracking-widest">Selected Past Roles</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {earlierRoles.map((role, idx) => (
+                  <motion.a 
+                    key={idx} 
+                    href={role.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -5 }}
+                    className="p-8 border border-border/50 rounded-3xl bg-card hover:border-[#ffcc01]/30 transition-all group"
+                  >
+                    <span className="text-xs font-bold text-[#ffcc01] uppercase mb-2 block">{role.period}</span>
+                    <h4 className="font-bold text-xl mb-1 group-hover:text-[#ffcc01] transition-colors">{role.role}</h4>
+                    <p className="text-sm text-muted">{role.company}</p>
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          <div className="mt-8 flex justify-start">
+            <button
+              type="button"
+              onClick={() => setShowFullExperience((prev) => !prev)}
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-muted hover:text-[#ffcc01] transition-colors focus:outline-none"
+            >
+              {showFullExperience ? "Hide full experience" : "Show full experience"}
+              <motion.span
+                animate={{ rotate: showFullExperience ? 180 : 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="inline-flex"
+              >
+                <ChevronDown size={14} />
+              </motion.span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+
       {/* ————— SECTION: PROJECT CATEGORIES ————— */}
       <section id="categories" className="py-32 px-6 md:px-10 lg:px-16 xl:px-24 bg-card/30">
         <div className="max-w-[1400px] mx-auto w-full">

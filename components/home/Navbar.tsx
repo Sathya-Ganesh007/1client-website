@@ -15,8 +15,8 @@ interface NavLink {
 
 const MAIN_LINKS: NavLink[] = [
   { name: "About", href: "#home" },
-  { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#experience" },
   { name: "Expertise", href: "#strategy" },
 ];
 
