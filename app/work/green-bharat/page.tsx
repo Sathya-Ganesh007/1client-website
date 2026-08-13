@@ -341,16 +341,25 @@ export default function GreenBharatPage() {
           ))}
         </div>
         
-        {/* Brand Architecture Roadmap / Case Study PDF */}
+        {/* Brand Architecture Roadmap */}
         <div className="pt-12 pb-16">
-          <div className="relative rounded-[40px] overflow-hidden shadow-2xl border border-border/50 bg-[#000000] p-4 flex justify-center">
-            <iframe
-              src="/Green_Bharat___Final_Case_Study.pdf"
-              width="100%"
-              height="600px"
-              style={{ borderRadius: "12px", border: "none" }}
-              title="Green Bharat Brand Architecture Roadmap"
-            />
+          <div className="relative rounded-[40px] overflow-hidden shadow-2xl border border-border/50 bg-[#000000] p-4">
+            <div
+              data-lenis-prevent
+              data-lenis-prevent-wheel
+              data-lenis-prevent-touch
+              className="w-full overflow-y-auto overflow-x-hidden overscroll-contain rounded-[12px]"
+              style={{ height: "600px" }}
+            >
+              <Image
+                src="/pdf/GreenBharat - Brand Identity Concept.svg"
+                alt="Green Bharat Brand Architecture Roadmap"
+                width={1200}
+                height={800}
+                className="w-full h-auto"
+                unoptimized
+              />
+            </div>
           </div>
         </div>
 
