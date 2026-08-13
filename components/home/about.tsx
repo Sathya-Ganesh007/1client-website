@@ -592,7 +592,7 @@ export default function About() {
           </motion.div>
 
           <div className="flex flex-col divide-y divide-border/30">
-            {(showFullExperience ? experience : experience.slice(0, 1)).map((group, groupIdx) => {
+            {(showFullExperience ? experience : []).map((group, groupIdx) => {
               const isGrouped = group.roles.length > 1;
 
               if (!isGrouped) {
@@ -788,7 +788,12 @@ export default function About() {
           <div className="mt-8 flex justify-start">
             <button
               type="button"
-              onClick={() => setShowFullExperience((prev) => !prev)}
+              onClick={() => {
+                setShowFullExperience((prev) => {
+                  if (prev) setOpenExp(null);
+                  return !prev;
+                });
+              }}
               className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-muted hover:text-[#ffcc01] transition-colors focus:outline-none"
             >
               {showFullExperience ? "Hide full experience" : "Show full experience"}
