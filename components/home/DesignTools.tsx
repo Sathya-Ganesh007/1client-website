@@ -208,6 +208,18 @@ const aiTools = [
         <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4L12 2z" />
       </svg>
     )
+  },
+  {
+    name: "Lovable",
+    category: "AI App Building",
+    description: "AI-powered full-stack app builder for rapidly prototyping and shipping web apps, landing pages, and digital products from prompts.",
+    proficiency: 88,
+    color: "#FF3B30",
+    icon: (
+      <div className="relative w-12 h-12">
+        <Image src="/lovable_logo.png" alt="Lovable" fill className="object-contain" />
+      </div>
+    )
   }
 ];
 
